@@ -810,6 +810,51 @@ break
                     m.reply('Sedang Error !! Coba Beberapa Saat Lagi'())
                 })
 		break
+		//////YTS (yt-search)
+		case 'yts': case 'ytsearch':
+if (args.length < 1) return m.reply(`Kirim perintah ${prefix + command} *query*`)
+srch = `${q}`
+var aramas = await yts(srch);
+aramat = aramas.all 
+var tbuff = await getBuffer(aramat[0].image)
+var ytresult = '';
+ytresult += '「 *YOUTUBE SEARCH* 」'
+ytresult += '\n⬣───────────────⬣\n\n'
+aramas.videos.map((video) => {
+ytresult += '❖ Title: ' + video.title + '\n'
+ytresult += '❖ Link: ' + video.url + '\n'
+ytresult += '❖ Durasi: ' + video.timestamp + '\n'
+ytresult += '❖ Views: ' + video.views + '\n'
+ytresult += '❖ Upload: ' + video.ago + '\n⬣───────────────⬣\n\n'
+});
+ytresult += `*CAF-BOTz*`
+cafnay.sendMessage(m.chat, { image: tbuff, caption: ytresult }, { quoted: m } )
+break
+//////PLAY FROM YOUTUBE
+case 'play2':
+if (!q) return m.reply('Masukan Judul')
+buf = (`http://hadi-api.herokuapp.com/api/ytplay?q=${q}`)
+let result = await fetchJson(buf)
+result = result.result
+img = result.thumb
+caf1 = img.replace("https://i.ytimg.com/vi/", "")
+id = caf1.replace("/0.jpg", "")
+console.log(`ID VIDEO YOUTUB : ${id}`)
+buf1 = (`https://zenzapi.xyz/api/downloader/ytmp3?url=https://www.youtube.com/watch?v=${id}&apikey=1c11fba400`)
+console.log(buf1)
+await fetchJson(buf1)
+.then(async(result) => {
+result = result.result
+console.log(result.thumb)
+caption = `❖ Title    : *${result.title}*\n`
+caption += `❖ View    : *${result.views}*\n`
+caption += `❖ Channel    : *${result.channel}*\n`
+caption += `❖ Upload    : *${result.published}*`
+image = result.thumb
+let img = await getBuffer(`https://i.ytimg.com/vi/UNB8F0ObA4g/0.jpg`)
+cafnay.sendMessage(m.chat, {image: img, caption: caption}, {quoted:m})
+})
+break
           case 'waifu': 
           case 'shinobu': 
           case 'megumin': 
