@@ -8,6 +8,7 @@
 require('./config')
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessage, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 const fs = require('fs')
+const yts = require('yt-search')
 const util = require('util')
 const chalk = require('chalk')
 const { exec, spawn, execSync } = require("child_process")
