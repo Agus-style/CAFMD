@@ -8,9 +8,9 @@
 require('./config')
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessage, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 const fs = require('fs')
-const yts = require('yt-search')
 const util = require('util')
 const chalk = require('chalk')
+const fetch = require('node-fetch') 
 const { exec, spawn, execSync } = require("child_process")
 const axios = require('axios')
 const { fromBuffer } = require('file-type')
@@ -18,10 +18,14 @@ const path = require('path')
 const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
+const yts = require('yt-search')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
-const fake = 'CAFNAY - Bot MD'
+const setting = JSON.parse(fs.readFileSync('./settings.json'))
+botname = setting.namabot
+const fake = 'Gus Style - Bot MD'
 ownerNumber = ["6285793887010@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
@@ -45,6 +49,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const itsMe = m.sender == cafnay.user.id ? true : false
         const text = args.join(" ")
         const q = args.join(" ")
+        const aq = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
 	    const isMedia = /image|video|sticker|audio/.test(mime)
@@ -114,6 +119,20 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const reply = (teks) => {
             cafnay.sendMessage(from, teks, text, {quoted:m})
         }
+        const sendButton = (type, from, text, buttons, men, quoted, options) => { 
+if (type == 'image') {
+cafnay.sendMessage(from, { caption: text, image: options ? options : fs.readFileSync(thumbnail), buttons: buttons, headerType: 'IMAGE', mentions: men }, {quoted: m})
+} else if (type == 'video') {
+if (options === undefined || options === null) return reply('illegal method, chat owner bot')
+cafnay.sendMessage(from, { caption: text, video: options, buttons: buttons, headerType: 'VIDEO', mentions: men }, {quoted: m})
+} else if (type == 'location') {
+cafnay.sendMessage(from, { caption: text, location: { jpegThumbnail: options ? options : fs.readFileSync(thumbnail) }, buttons: buttons, headerType: 'LOCATION', mentions: men })
+} else if (type == 'text') {
+cafnay.sendMessage(from, { caption: text, buttons: buttons, headerType: 'TEXT', mentions: men }, {quoted: m})
+} else {
+m.reply('invalid type, please contact the owner bot')
+}
+}
 
 		const troli = {
                          "key": {
@@ -166,8 +185,37 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
             await fs.writeFileSync(trueFileName, buffer)
             return trueFileName
            }
-		
-        //SendButton5
+//////////BUTTON BUATAN CAF/////////////
+ const sendButtonImg = async (id, text1, desc1, caf) => {
+ //SendButtonImage
+ var tes = await generateWAMessageFromContent(from, {
+    "templateMessage": {
+      "hydratedTemplate": {
+        ...caf.message,
+        "hydratedContentText": text1,
+        "hydratedFooterText": desc1,
+        "hydratedButtons": [
+          {
+            "quickReplyButton": {
+              "displayText": "AUDIO",
+              "id": `${prefix}reply1 `,
+            }
+          },
+          {
+            "quickReplyButton": {
+              "displayText": "VIDEO",
+              "id": `${prefix}reply2 `
+            }
+          }
+        ]
+      }
+    }
+  }, {})
+cafnay.relayMessage(id, tes.message, { messageId: tes.key.id })
+}
+///////////////////////BATAS SUCI////////////////////
+
+ //SendButton5
         const sendButton5 = async (id, text1, desc1, yo) => {
 // by fabil & rashid
 var buatpesan = await generateWAMessageFromContent(from, {
@@ -214,7 +262,7 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-anuy = ` Hai ${pushname}, Saya CAFBOTZ !
+anuy = ` Hai ${pushname}, Saya ${botname} !
 
 *INFO WAKTU*
 WIB : 
@@ -331,6 +379,18 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}setppbot
 │
 └───────⭓
+⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
+❑ Jika bot tidak merespon, mungkin bot sedang off
+❑ bot tidak menyimpan riwayat foto/media
+❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
+❑ Jika menemukan bug/err silahkan hubungi owner
+
+╭─⬣「 _*THANKS TO*_ 」⬣
+│ ❑ *Developer BOT (_CAF_)*
+│ ❑ *Penyedia Apikey*
+│ ❑ *Penyedia Base (_Hisouka-Morou_)*
+│ ❑ *And All My Friends*
+└⬣
 `
 
         // Public & Self
@@ -348,7 +408,7 @@ Bot Admin : ${isBotAdmins}
        case 'hlp':
 
        if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "GIPHY"}))
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CAF"}))
        } 
 
        else if (modelmenu == 'image') 
@@ -372,7 +432,7 @@ Bot Admin : ${isBotAdmins}
 	   case 'ytmp3':{
 		   if (!q) return m.reply('Masukan Link Yt')
 			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=sQMpXbHimbTkxGC`)
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
 		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
 		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
 		  sendFileFromUrl(m.chat, yt.result.url, m)
@@ -410,16 +470,60 @@ case 'hidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
-	   
-	   case 'play':{
-		   if (!q) return m.reply('Masukan Judul')
-			   
-		  yt = await fetchJson(`https://human-apixyz.herokuapp.com/api/yt/playmp3?query=${q}&apikey=AnggaKey`)
-		  djasjus = `*PLAY MUSIC*\nTitle : ${yt.title}\nviews : ${yt.views}\nQuality : \n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: djasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.url, m)
+case 'ohidetag':
+                m.quoted.copyNForward(from, true)
+                if (!isCreator && !m.key.fromMe) throw mess.owner
+                if (!isGroup) return m.reply(mess.group)
+                cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
+            break
+                        	   
+///////////PLAY FROM YOUTUBE
+case 'play':{
+if (!q) return m.reply('Masukan Judul')
+srch = `${q}`
+var aramas = await yts(srch);
+aramat = aramas.all
+var ytresult = '';
+ytresult += '「 *YOUTUBE SEARCH* 」'
+ytresult += '\n⬣───────────────⬣\n\n'
+ytresult += '❖ Title: ' + aramat[0].title + '\n'
+ytresult += '❖ Durasi: ' + aramat[0].timestamp + '\n'
+ytresult += '❖ Views: ' + aramat[0].views + '\n'
+ytresult += '❖ Upload: ' + aramat[0].ago + '\n'
+ytresult += '❖ Link: ' + aramat[0].url + '\n⬣───────────────⬣'
+url = aramat[0].url
+tes = `https://youtu.be/3N9R_LcbjN0`
+console.log(url)
+var tbuff = await getBuffer(aramat[0].image)
+let button1 = [
+                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: tbuff,
+                    caption: ytresult,
+                    footerText: fake,
+                    buttons: button1,
+                    headerType: 4
+                }
+                cafnay.sendMessage(from, buttonMessage, { quoted: m })
+            }
+break
+	   case 'cafmp3':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
+		  audio = yt.result.url
+		  console.log(yt.result.url)
+		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
+	   case 'cafmp4':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=HHIy0nIGja`)
+		  video = yt.result.url
+		  console.log(yt.result.url)
+		  sendFileFromUrl(from,video,`Done`,m)
+		  break
+	   }
+///////////////BATAS SUCI///////////////
 
                             case 'setmenu':
                             if (!q) return m.reply(`Masukan opts :\n⭔gif\n⭔image`)
@@ -471,7 +575,7 @@ cafnay.sendMessage(from, buttonMessage)
 		    let encmedia = await cafnay.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 		    await fs.unlinkSync(encmedia)
 		} else if (/video/.test(mime)) {
-		    if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
+		    if ((quoted.msg || quoted).seconds > 31) return m.reply('Maksimal 30 detik!')
 		    let media = await quoted.download()
 		    let encmedia = await cafnay.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 		    await fs.unlinkSync(encmedia)
@@ -504,9 +608,10 @@ cafnay.sendMessage(from, buttonMessage)
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
-                    let anu = await TelegraPh(media)
-                    console.log(anu)
-                    m.reply(util.format(anu))
+                    let anu = await UploadFileUgu(media)
+                    anu1 = `${anu.url}`
+                    console.log(anu1)
+                    m.reply(util.format(anu1))
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
                     m.reply(util.format(anu))
@@ -828,34 +933,28 @@ ytresult += '❖ Durasi: ' + video.timestamp + '\n'
 ytresult += '❖ Views: ' + video.views + '\n'
 ytresult += '❖ Upload: ' + video.ago + '\n⬣───────────────⬣\n\n'
 });
-ytresult += `*CAF-BOTz*`
+ytresult += `*${botname}*`
 cafnay.sendMessage(m.chat, { image: tbuff, caption: ytresult }, { quoted: m } )
 break
-//////PLAY FROM YOUTUBE
-case 'play2':
-if (!q) return m.reply('Masukan Judul')
-buf = (`http://hadi-api.herokuapp.com/api/ytplay?q=${q}`)
-let result = await fetchJson(buf)
-result = result.result
-img = result.thumb
-caf1 = img.replace("https://i.ytimg.com/vi/", "")
-id = caf1.replace("/0.jpg", "")
-console.log(`ID VIDEO YOUTUB : ${id}`)
-buf1 = (`https://zenzapi.xyz/api/downloader/ytmp3?url=https://www.youtube.com/watch?v=${id}&apikey=1c11fba400`)
-console.log(buf1)
-await fetchJson(buf1)
-.then(async(result) => {
-result = result.result
-console.log(result.thumb)
-caption = `❖ Title    : *${result.title}*\n`
-caption += `❖ View    : *${result.views}*\n`
-caption += `❖ Channel    : *${result.channel}*\n`
-caption += `❖ Upload    : *${result.published}*`
-image = result.thumb
-let img = await getBuffer(`https://i.ytimg.com/vi/UNB8F0ObA4g/0.jpg`)
-cafnay.sendMessage(m.chat, {image: img, caption: caption}, {quoted:m})
-})
+//////////////GITHUB DOWNLOADER/////////////
+case 'ghdl':
+if (args.length == 0) return m.reply(`Usage: ${prefix + command} USER|REPO`)
+get_args = args.join(" ").split("|")
+user = get_args[0]
+repo = get_args[1]
+caf = (`https://github.com/${user}/${repo}/archive/refs/heads/master.zip`)
+sendFileFromUrl(from,caf,`Done`,m)
 break
+///////////////////BATAS SUCI///////////////////////
+case 'get':
+        if (!q) return reply("linknya?")
+        fetch(`${args[0]}`)
+          .then((res) => res.text())
+          .then((bu) => {
+            reply(bu)
+          })
+        break
+////GET RESULT
           case 'waifu': 
           case 'shinobu': 
           case 'megumin': 
@@ -925,7 +1024,8 @@ break
                     ktp = `https://fdz-app.herokuapp.com/api/maker/ktp?nik=${nik}&nama=${name}&ttl=${ttl}&jk=${jk}&gdarah=${gdarah}&almt=${jl}&rt-rw=${rtrw}&kel=${lurah}&kcmtn=${camat}&agma=${agama}&status=${nikah}&kerja=${kerja}&negara=${warga}&berlaku=${berlaku}&prov=${prov}&kab=${kabu}&picurl=${anu1}`
                     console.log(ktp)
                     console.log(anu1)
-                    caf = `Nihh KTP Lu Bang :v`
+                    caf = `Nihh KTP Lu Bang :v \n\n`
+                    caf += `❖ Url : ${ktp}`
                     cafnay.sendMessage(m.chat, {image: ktpnya, caption: caf}, {quoted:m})
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
@@ -934,6 +1034,13 @@ break
                 await fs.unlinkSync(media)
             }
             break
+///////////////////////BATAS SUCI///////////////////
+case 'tes':
+if (!q) return m.reply('Masukan Link Yt')
+let gambar = fs.readFileSync('./media/caf.webp')
+teks = `Hanya Test Doank`
+await sendButtonImg(from, teks, fake, await cafnay.createMessage(from, {image: {url: "./media/caf.webp", caption: teks}}))
+break
                             
                   
             /*case 'tes': case 'menu': case 'help': case '?': {
