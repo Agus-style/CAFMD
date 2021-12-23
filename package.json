@@ -1,5 +1,5 @@
 {
-  "name": "hisoka-morou",
+  "name": "caf-id",
   "version": "1.1.0",
   "description": "WhatsApp Using Lib Baileys Multi Device",
   "main": "index.js",
@@ -8,11 +8,12 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "Dika Ardnt.",
+  "author": "CAF ID.",
   "license": "MIT",
   "dependencies": {
     "@adiwajshing/baileys-md": "github:adiwajshing/baileys#multi-device",
     "awesome-phonenumber": "^2.64.0",
+    "yt-search": "^2.7.6",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
@@ -43,10 +44,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DikaArdnt/Hisoka-Morou.git"
+    "url": "git+https://github.com/CAF-ID/CAFMD.git"
   },
   "bugs": {
-    "url": "https://github.com/DikaArdnt/Hisoka-Morou/issues"
+    "url": "https://github.com/CAF-ID/CAFMD/issues"
   },
   "homepage": "https://github.com/DikaArdnt/Hisoka-Morou#readme"
 }
