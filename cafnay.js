@@ -20,7 +20,6 @@ const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
-const brainly = require('brainly-scraper')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
@@ -309,7 +308,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
-│⭔ ${prefix}brainly (query) 
 │
 └───────⭓
 
@@ -453,16 +451,6 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(m.chat, cafvid[0].link, m)
 		  break
 	   }
-	   case 'brainly':
-			(!q) return m.reply('masukan query') 
-			teks = '❉───────────────────────❉\n'
-			for (let Y of res.data) {
-			teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
-			}
-			m.reply(teks)                        
-            })              
-			break
-			
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
