@@ -19,14 +19,16 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
+const brainly = require('brainly-scraper')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
 botname = setting.namabot
-const fake = 'CAF BOTz - Bot MD'
-ownerNumber = ["6285793887010@s.whatsapp.net"]
+const fake = 'AGUS STYLE - Bot MD'
+ownerNumber = ["6282268562601@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
 
@@ -307,6 +309,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
+│⭔ ${prefix}brainly (query) 
 │
 └───────⭓
 
@@ -431,23 +434,35 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'ytmp3':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
-		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp3 = `${q}`
+		   var cafau = await y2mateA(dlmp3);
+		   console.log(cafau[0].link)
+		   sendFileFromUrl(m.chat, cafau[0].link, m)
 		  break
 	   }
 	   
 	   case 'ytmp4':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=${apikeyy}`)
-		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp4 = `${q}`
+		   var cafvid = await y2mateV(dlmp4);
+		   console.log(cafvid[0].link)
+		   sendFileFromUrl(m.chat, cafvid[0].link, m)
 		  break
 	   }
+	   case 'brainly':
+			(!q) return m.reply('masukan query') 
+			teks = '❉───────────────────────❉\n'
+			for (let Y of res.data) {
+			teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
+			}
+			m.reply(teks)                        
+            })              
+			break
+			
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
@@ -837,7 +852,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     + 'N:;CAF;;;'
                     + 'FN:CAF•NAY\n' // full name
                     + 'ORG:Owner - CAF;\n' // the organization of the contact
-                    + 'TEL;type=CELL;type=VOICE;waid=6283167714830:+62 857-6217-9624\n' // WhatsApp ID + phone number
+                    + 'TEL;type=CELL;type=VOICE;waid=6282268562601:+62 857-6217-9624\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
                 cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - CAF', contacts: [{ vcard }] } }, { quoted: troli })
             }
@@ -995,9 +1010,9 @@ case 'get':
                 })
 		break
 		//////////////////MAKER MENU//////////////////
-   case 'ktp': {
+   case 'ktpmaker': {
                  if (!quoted) throw `Balas Image`
- if (args.length == 0) return reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
+ if (args.length == 0) return m.reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
