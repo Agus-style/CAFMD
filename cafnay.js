@@ -8,7 +8,9 @@
 require('./config')
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessage, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 const fs = require('fs')
+const hx = require('hxz-api')
 const util = require('util')
+const moment = require("moment-timezone")
 const chalk = require('chalk')
 const fetch = require('node-fetch') 
 const { exec, spawn, execSync } = require("child_process")
@@ -19,6 +21,7 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
@@ -134,6 +137,63 @@ m.reply('invalid type, please contact the owner bot')
 }
 }
 
+		const hour_now = moment().format('HH')
+var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
+if (hour_now >= '03' && hour_now <= '10') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
+} else if (hour_now >= '10' && hour_now <= '14') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
+} else if (hour_now >= '14' && hour_now <= '17') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞'//'Soree ☀️'
+} else if (hour_now >= '17' && hour_now <= '18') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat 🌠'
+} else if (hour_now >= '18' && hour_now <= '23') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Malam 🌌'
+} else {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat Malam!'
+}
+
+const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
+const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
+const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
+
+var dates = moment().tz('Asia/Jakarta').format("YYYY-MM-DDTHH:mm:ss");
+var date = new Date(dates);
+var tahun = date.getFullYear();
+var bulan = date.getMonth();
+var tanggal = date.getDate();
+var hari = date.getDay();
+var jam = date.getHours();
+var menit = date.getMinutes();
+var detik = date.getSeconds();
+var waktoo = date.getHours();
+
+switch(hari) {
+case 0: hari = "Minggu"; break;
+case 1: hari = "Senin"; break;
+case 2: hari = "Selasa"; break;
+case 3: hari = "Rabu"; break;
+case 4: hari = "Kamis"; break;
+case 5: hari = "Jum`at"; break;
+case 6: hari = "Sabtu"; break;
+}
+switch(bulan) {
+case 0: bulan = "Januari"; break;
+case 1: bulan = "Februari"; break;
+case 2: bulan = "Maret"; break;
+case 3: bulan = "April"; break;
+case 4: bulan = "Mei"; break;
+case 5: bulan = "Juni"; break;
+case 6: bulan = "Juli"; break;
+case 7: bulan = "Agustus"; break;
+case 8: bulan = "September"; break;
+case 9: bulan = "Oktober"; break;
+case 10: bulan = "November"; break;
+case 11: bulan = "Desember"; break;
+}
+var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
+		
 		const troli = {
                          "key": {
                          "remoteJid": "status@broadcast", 
@@ -185,7 +245,7 @@ m.reply('invalid type, please contact the owner bot')
             await fs.writeFileSync(trueFileName, buffer)
             return trueFileName
            }
-//////////BUTTON BUATAN CAF/////////////
+//////////BUTTON BUATAN AS-STYLE/////////////
  const sendButtonImg = async (id, text1, desc1, caf) => {
  //SendButtonImage
  var tes = await generateWAMessageFromContent(from, {
@@ -262,12 +322,13 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-anuy = ` Hai ${pushname}, Saya ${botname} !
+anuy = ` ${ucapanWaktu} ${pushname}, Saya ${botname} !
 
 *INFO WAKTU*
-WIB : 
-WIT :
-WITA :
+DATE : *_${Tanggal}_*
+WIB : *_${wib}_*
+WIT : *_${wit}_*
+WITA : *_${wita}_*
 
 *USER INFO*
 Nama : ${pushname}
@@ -296,6 +357,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}tiktok (linkttk)
+│⭔ ${prefix}tiktokaudio (linkttk)
 │
 └───────⭓
 
@@ -307,6 +370,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
+│⭔ ${prefix}kbbi (query)
 │
 └───────⭓
 
@@ -392,7 +456,6 @@ Bot Admin : ${isBotAdmins}
 │ ❑ *And All My Friends*
 └⬣
 `
-
         // Public & Self
         if (!cafnay.public) {
             if (!m.key.fromMe) return
@@ -431,23 +494,54 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'ytmp3':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
-		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp3 = `${q}`
+		   var cafau = await y2mateA(dlmp3);
+		   console.log(cafau[0].link)
+		   sendFileFromUrl(m.chat, cafau[0].link, m)
 		  break
 	   }
 	   
 	   case 'ytmp4':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=${apikeyy}`)
-		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp4 = `${q}`
+		   var cafvid = await y2mateV(dlmp4);
+		   console.log(cafvid[0].link)
+		   sendFileFromUrl(m.chat, cafvid[0].link, m)
 		  break
 	   }
+	   	
+	   	case 'tiktok':
+ 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
+ 		if (!q) return fakegroup('Linknya?')
+ 		reply(mess.wait)
+		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { wm, nowm, audio } = result
+    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+    		.then(async (a) => {
+    		me = `*Link* : ${a.data}`
+		cafnay.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+		})
+		})
+     		.catch(e => console.log(e))
+     		break
+    case 'tiktokaudio':
+ 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
+ 		if (!q) return fakegroup('Linknya?')
+ 		reply(mess.wait)
+ 		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { audio} = result
+            sendMediaURL(from,audio,'')
+    		})
+     		.catch(e => console.log(e))
+     		break
+     		
+     		
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
@@ -546,21 +640,7 @@ break
                 //m.reply('Script : https://github.com/DikaArdnt/cafnay-Morou\n\n Dont Forget Give Star')
             }
             break
-                    case 'faq':
-              const buttons = [
-  {buttonId: `${prefix}menu`, buttonText: {displayText: 'BACK TO MENU'}, type: 1},
-  {buttonId: '${prefix}faq22', buttonText: {displayText: 'Apa itu CAF?'}, type: 1},
-  {buttonId: '${prefix}faq33', buttonText: {displayText: 'Terinspirasi dsri mana?'}, type: 1}
-]
-
-const buttonMessage = {
-    text: "no faq available now.",
-    footerText: 'Hello World',
-    buttons: buttons,
-    headerType: 1
-}
-cafnay.sendMessage(from, buttonMessage)
-               break
+                    
 
 			   
 			   
@@ -778,11 +858,16 @@ break
             }
             break
             case 'porno': case 'porn': case 'bokep': {
- m.reply('Bokeppp tross')
-			}
+ m.reply(mess.wait)
+ setTimeout( () => {
+ m.reply('Nunguin Ya 😂')
+			}, 3000)
             break
             case 'hentai': {
-                m.reply('Bokeppp tross')
+                m.reply(mess.wait)
+                setTimeout( () => {
+                m.reply('Nunguin Ya😂')
+                }, 3000)
 				/*
                 anu = await hentai()
                 result = anu[Math.floor(Math.random(), anu.length)]
@@ -995,9 +1080,9 @@ case 'get':
                 })
 		break
 		//////////////////MAKER MENU//////////////////
-   case 'ktp': {
+   case 'ktpmaker': {
                  if (!quoted) throw `Balas Image`
- if (args.length == 0) return reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
+ if (args.length == 0) return m.reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
