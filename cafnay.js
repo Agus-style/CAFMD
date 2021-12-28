@@ -136,25 +136,62 @@ m.reply('invalid type, please contact the owner bot')
 }
 }
 
-		const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
-    if (time2 < "24:59:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
-    if (time2 < "19:00:00") {
-      var ucapanWaktu = "GoodEvening🌞";
-    }
-    if (time2 < "18:00:00") {
-      var ucapanWaktu = "GoodEvening🌄";
-    }
-    if (time2 < "15:00:00") {
-      var ucapanWaktu = "GoodAfternoon☀️";
-    }
-    if (time2 < "11:00:00") {
-      var ucapanWaktu = "GoodMoorning🌅";
-    }
-    if (time2 < "05:00:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
+		const hour_now = moment().format('HH')
+var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
+if (hour_now >= '03' && hour_now <= '10') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
+} else if (hour_now >= '10' && hour_now <= '14') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
+} else if (hour_now >= '14' && hour_now <= '17') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞'//'Soree ☀️'
+} else if (hour_now >= '17' && hour_now <= '18') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat 🌠'
+} else if (hour_now >= '18' && hour_now <= '23') {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Malam 🌌'
+} else {
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat Malam!'
+}
+
+const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
+const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
+const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
+
+var dates = moment().tz('Asia/Jakarta').format("YYYY-MM-DDTHH:mm:ss");
+var date = new Date(dates);
+var tahun = date.getFullYear();
+var bulan = date.getMonth();
+var tanggal = date.getDate();
+var hari = date.getDay();
+var jam = date.getHours();
+var menit = date.getMinutes();
+var detik = date.getSeconds();
+var waktoo = date.getHours();
+
+switch(hari) {
+case 0: hari = "Minggu"; break;
+case 1: hari = "Senin"; break;
+case 2: hari = "Selasa"; break;
+case 3: hari = "Rabu"; break;
+case 4: hari = "Kamis"; break;
+case 5: hari = "Jum`at"; break;
+case 6: hari = "Sabtu"; break;
+}
+switch(bulan) {
+case 0: bulan = "Januari"; break;
+case 1: bulan = "Februari"; break;
+case 2: bulan = "Maret"; break;
+case 3: bulan = "April"; break;
+case 4: bulan = "Mei"; break;
+case 5: bulan = "Juni"; break;
+case 6: bulan = "Juli"; break;
+case 7: bulan = "Agustus"; break;
+case 8: bulan = "September"; break;
+case 9: bulan = "Oktober"; break;
+case 10: bulan = "November"; break;
+case 11: bulan = "Desember"; break;
+}
+var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
 		
 		const troli = {
                          "key": {
@@ -284,12 +321,13 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-anuy = ` Hai ${pushname} ${ucapanWaktu}, Saya ${botname} !
+anuy = ` ${ucapanWaktu} ${pushname}, Saya ${botname} !
 
 *INFO WAKTU*
-WIB : 
-WIT :
-WITA :
+DATE : *_${Tanggal}_*
+WIB : *_${wib}_*
+WIT : *_${wit}_*
+WITA : *_${wita}_*
 
 *USER INFO*
 Nama : ${pushname}
@@ -318,6 +356,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}tiktokmp3 (linkttk)
+│⭔ ${prefix}tiktokmp4 (linkttk)
 │
 └───────⭓
 
@@ -330,7 +370,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
 │⭔ ${prefix}kbbi (query)
-
+│
 └───────⭓
 
 ┌──⭓ *Random Menu*
@@ -473,6 +513,38 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   	
+	   	case 'tiktokdl':{
+ 	case 'ttdl':{
+ 	case 'tiktokmp4':{
+ 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return m.reply(mess.Iv)
+ 		if (!q) return fakegroup('Linknya?')
+ 		sticWait(from)
+		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { wm, nowm, audio } = result
+    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+    		.then(async (a) => {
+    		me = `*Link* : ${a.data}`
+		cafnay.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
+		})
+		})
+     		.catch(e => console.log(e))
+     		break
+     	}
+    case 'tiktokaudio':{
+    case 'tiktokmp3':{
+ 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
+ 		if (!q) return fakegroup('Linknya?')
+ 		sticWait(from)
+ 		hx.ttdownloader(`${args[0]}`)
+    		.then(result => {
+    		const { audio} = result
+            sendMediaURL(from,audio,'')
+    		})
+     		.catch(e => console.log(e))
+     		break
+     		}
+     		
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
