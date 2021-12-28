@@ -19,7 +19,6 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
-const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
@@ -308,7 +307,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
-│⭔ ${prefix}kbbi (query)
 │
 └───────⭓
 
@@ -433,23 +431,21 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'ytmp3':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
-		   m.reply(mess.wait)
-		   dlmp3 = `${q}`
-		   var cafau = await y2mateA(dlmp3);
-		   console.log(cafau[0].link)
-		   sendFileFromUrl(m.chat, cafau[0].link, m)
+			   if (!isUrl) return
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
+		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.result.url, m)
 		  break
 	   }
 	   
 	   case 'ytmp4':{
 		   if (!q) return m.reply('Masukan Link Yt')
-			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
-		   m.reply(mess.wait)
-		   dlmp4 = `${q}`
-		   var cafvid = await y2mateV(dlmp4);
-		   console.log(cafvid[0].link)
-		   sendFileFromUrl(m.chat, cafvid[0].link, m)
+			   if (!isUrl) return
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=${apikeyy}`)
+		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.result.url, m)
 		  break
 	   }
 	   case 'mediafire':{
@@ -781,17 +777,12 @@ break
                 cafnay.sendMessage(m.chat, { image: { url: result.image }, caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}` }, { quoted: troli })
             }
             break
-             case 'porno': case 'porn': case 'bokep': {
- m.reply(mess.wait)
- setTimeout( () => {
- m.reply('Nunguin Ya 😂')
-			}, 3000)
+            case 'porno': case 'porn': case 'bokep': {
+ m.reply('Bokeppp tross')
+			}
             break
             case 'hentai': {
-                m.reply(mess.wait)
-                setTimeout( () => {
-                m.reply('Nunguin Ya😂')
-                }, 3000)
+                m.reply('Bokeppp tross')
 				/*
                 anu = await hentai()
                 result = anu[Math.floor(Math.random(), anu.length)]
@@ -1004,9 +995,9 @@ case 'get':
                 })
 		break
 		//////////////////MAKER MENU//////////////////
-   case 'ktpmaker': {
+   case 'ktp': {
                  if (!quoted) throw `Balas Image`
- if (args.length == 0) return m.reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
+ if (args.length == 0) return reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|Gol Darah\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|O`)
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
