@@ -8,7 +8,6 @@
 require('./config')
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessage, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 const fs = require('fs')
-const hx = require('hxz-api')
 const util = require('util')
 const moment = require("moment-timezone")
 const chalk = require('chalk')
@@ -357,8 +356,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}tiktok (linkttk)
-│⭔ ${prefix}tiktokaudio (linkttk)
 │
 └───────⭓
 
@@ -371,7 +368,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
 │⭔ ${prefix}kbbi (query)
-│
+
 └───────⭓
 
 ┌──⭓ *Random Menu*
@@ -514,34 +511,6 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   	
-	   	case 'tiktok':
- 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
- 		if (!q) return fakegroup('Linknya?')
- 		reply(mess.wait)
-		hx.ttdownloader(`${args[0]}`)
-    		.then(result => {
-    		const { wm, nowm, audio } = result
-    		axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-    		.then(async (a) => {
-    		me = `*Link* : ${a.data}`
-		cafnay.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted:mek,caption:me})
-		})
-		})
-     		.catch(e => console.log(e))
-     		break
-    case 'tiktokaudio':
- 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
- 		if (!q) return fakegroup('Linknya?')
- 		reply(mess.wait)
- 		hx.ttdownloader(`${args[0]}`)
-    		.then(result => {
-    		const { audio} = result
-            sendMediaURL(from,audio,'')
-    		})
-     		.catch(e => console.log(e))
-     		break
-     		
-     		
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
