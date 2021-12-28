@@ -789,12 +789,16 @@ break
             }
             break
             case 'porno': case 'porn': case 'bokep': {
- m.reply('Bokeppp tross')
-			}
+ m.reply(mess.wait)
+ setTimeout( () => {
+ m.reply('Nunguin Ya 😂')
+			}, 3000)
             break
             case 'hentai': {
                 m.reply(mess.wait)
+                setTimeout( () => {
                 m.reply('Nunguin Ya😂')
+                }, 3000)
 				/*
                 anu = await hentai()
                 result = anu[Math.floor(Math.random(), anu.length)]
