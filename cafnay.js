@@ -308,7 +308,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
-│
+│⭔ ${prefix}kbbi (query)
+
 └───────⭓
 
 ┌──⭓ *Random Menu*
@@ -393,6 +394,30 @@ Bot Admin : ${isBotAdmins}
 │ ❑ *And All My Friends*
 └⬣
 `
+//================================================================================//
+
+const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
+    if (time2 < "24:59:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+    if (time2 < "19:00:00") {
+      var ucapanWaktu = "GoodEvening🌞";
+    }
+    if (time2 < "18:00:00") {
+      var ucapanWaktu = "GoodEvening🌄";
+    }
+    if (time2 < "15:00:00") {
+      var ucapanWaktu = "GoodAfternoon☀️";
+    }
+    if (time2 < "11:00:00") {
+      var ucapanWaktu = "GoodMoorning🌅";
+    }
+    if (time2 < "05:00:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+
+//================================================================================//
+
 
         // Public & Self
         if (!cafnay.public) {
@@ -451,6 +476,7 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(m.chat, cafvid[0].link, m)
 		  break
 	   }
+	   	
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
@@ -549,21 +575,7 @@ break
                 //m.reply('Script : https://github.com/DikaArdnt/cafnay-Morou\n\n Dont Forget Give Star')
             }
             break
-                    case 'faq':
-              const buttons = [
-  {buttonId: `${prefix}menu`, buttonText: {displayText: 'BACK TO MENU'}, type: 1},
-  {buttonId: '${prefix}faq22', buttonText: {displayText: 'Apa itu CAF?'}, type: 1},
-  {buttonId: '${prefix}faq33', buttonText: {displayText: 'Terinspirasi dsri mana?'}, type: 1}
-]
-
-const buttonMessage = {
-    text: "no faq available now.",
-    footerText: 'Hello World',
-    buttons: buttons,
-    headerType: 1
-}
-cafnay.sendMessage(from, buttonMessage)
-               break
+                    
 
 			   
 			   
@@ -785,7 +797,8 @@ break
 			}
             break
             case 'hentai': {
-                m.reply('Bokeppp tross')
+                m.reply(mess.wait)
+                m.reply('Nunguin Ya😂')
 				/*
                 anu = await hentai()
                 result = anu[Math.floor(Math.random(), anu.length)]
