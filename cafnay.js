@@ -135,6 +135,26 @@ m.reply('invalid type, please contact the owner bot')
 }
 }
 
+		const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
+    if (time2 < "24:59:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+    if (time2 < "19:00:00") {
+      var ucapanWaktu = "GoodEvening🌞";
+    }
+    if (time2 < "18:00:00") {
+      var ucapanWaktu = "GoodEvening🌄";
+    }
+    if (time2 < "15:00:00") {
+      var ucapanWaktu = "GoodAfternoon☀️";
+    }
+    if (time2 < "11:00:00") {
+      var ucapanWaktu = "GoodMoorning🌅";
+    }
+    if (time2 < "05:00:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+		
 		const troli = {
                          "key": {
                          "remoteJid": "status@broadcast", 
@@ -263,27 +283,7 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-anuy = ` Hai ${pushname}, Saya ${botname} !
-
-const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
-    if (time2 < "24:59:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
-    if (time2 < "19:00:00") {
-      var ucapanWaktu = "GoodEvening🌞";
-    }
-    if (time2 < "18:00:00") {
-      var ucapanWaktu = "GoodEvening🌄";
-    }
-    if (time2 < "15:00:00") {
-      var ucapanWaktu = "GoodAfternoon☀️";
-    }
-    if (time2 < "11:00:00") {
-      var ucapanWaktu = "GoodMoorning🌅";
-    }
-    if (time2 < "05:00:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
+anuy = ` Hai ${pushname} ${ucapanWaktu}, Saya ${botname} !
 
 *INFO WAKTU*
 WIB : 
