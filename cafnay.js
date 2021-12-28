@@ -8,6 +8,7 @@
 require('./config')
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessage, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 const fs = require('fs')
+const hx = require('hxz-api')
 const util = require('util')
 const moment = require("moment-timezone")
 const chalk = require('chalk')
@@ -356,8 +357,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}tiktokmp3 (linkttk)
-│⭔ ${prefix}tiktokmp4 (linkttk)
+│⭔ ${prefix}tiktok (linkttk)
+│⭔ ${prefix}tiktokaudio (linkttk)
 │
 └───────⭓
 
@@ -513,12 +514,10 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   	
-	   	case 'tiktokdl':{
- 	case 'ttdl':{
- 	case 'tiktokmp4':{
- 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return m.reply(mess.Iv)
+	   	case 'tiktok':
+ 		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
  		if (!q) return fakegroup('Linknya?')
- 		sticWait(from)
+ 		reply(mess.wait)
 		hx.ttdownloader(`${args[0]}`)
     		.then(result => {
     		const { wm, nowm, audio } = result
@@ -530,12 +529,10 @@ Bot Admin : ${isBotAdmins}
 		})
      		.catch(e => console.log(e))
      		break
-     	}
-    case 'tiktokaudio':{
-    case 'tiktokmp3':{
+    case 'tiktokaudio':
  		if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.Iv)
  		if (!q) return fakegroup('Linknya?')
- 		sticWait(from)
+ 		reply(mess.wait)
  		hx.ttdownloader(`${args[0]}`)
     		.then(result => {
     		const { audio} = result
@@ -543,7 +540,7 @@ Bot Admin : ${isBotAdmins}
     		})
      		.catch(e => console.log(e))
      		break
-     		}
+     		
      		
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
