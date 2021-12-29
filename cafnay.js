@@ -19,11 +19,11 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
-const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
 botname = setting.namabot
@@ -492,7 +492,8 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   	  
+	   
+	   
 	   case 'ttaudio':
 		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
 		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
@@ -571,14 +572,15 @@ break
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
-		  cafnay.sendMessage(m.chat, {document :mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+		  cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
 	   case 'ytmp4':{
 		  m.reply(mess.wait)
 		  cafvid = await y2mateV(q)
-		  video = cafvid[0].link		  
+		  video = cafvid[0].link
+		  console.log(video)
 		  vidnya = await getBuffer(video)
 		  cafnay.sendMessage(m.chat, { video: vidnya, caption: 'Done' }, { quoted: m })
 		  break
