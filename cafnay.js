@@ -575,7 +575,7 @@ break
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   case 'cafmp4':{
+	   case 'ytmp4':{
 		  m.reply(mess.wait)
 		  cafvid = await y2mateV(q)
 		  video = cafvid[0].link		  
