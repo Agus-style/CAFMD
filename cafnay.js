@@ -349,6 +349,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}kick (tag)
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
+│⭔ ${prefix}join (link wa)
 │
 └───────⭓
 
@@ -358,6 +359,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
 │⭔ ${prefix}ttaudio (link tt)
+│⭔ ${prefix}igdl (link ig)
 │
 └───────⭓
 
@@ -534,6 +536,15 @@ case 'ohidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
+            case 'join': {
+                if (!isCreator) throw mess.owner
+                if (!text) throw 'Masukkan Link Group!'
+                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
+                m.reply(mess.wait)
+                let result = args[0].split('https://chat.whatsapp.com/')[1]
+                await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            }
+            break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
@@ -567,23 +578,37 @@ let button1 = [
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
 break
-	   case 'ytmp3':{
-		  m.reply(mess.wait)
-		  cafau = await y2mateA(q)
-		  title = cafau[0].judul
-		  audio = cafau[0].link		  		  
-		  sendFileFromUrl(from,audio,m)
-		  break
-	   }
-	   case 'ytmp4':{
-		  m.reply(mess.wait)
-		  cafvid = await y2mateV(q)
-		  video = cafvid[0].link
-		  console.log(video)
-		  video = await getBuffer(video)
-		  sendFileFromUrl(from,video,m)
-		  break
-	   }
+	   case 'igdl': case 'ig': case 'instagram': {
+                if (q) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/instagram/video?url=${q}&apikey=Alphabot))
+                anu = anu.results.medias.url
+                cafnay.sendMessage(m.chat, { video: { url: anu }, caption: `Download From ${q}` }, { quoted: m})
+            } 
+            break
+            
+           case 'ytmp3': case 'yt': case 'youtube': {
+                if (q) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/audio?url=${q}&apikey=Alphabot))
+                anu = anu.results
+                teks = `title: ${anu.title}`
+                link = anu.link
+                cafnay.sendMessage(m.chat, { audio: { url: link }, caption: `${teks}`, { quoted: m})
+            } 
+            break
+                        
+	   case 'ytmp4': case 'yt': case 'youtube': {
+                if (q) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot))
+                anu = anu.results
+                teks = `title: ${anu.title}`
+                link = anu.link
+                cafnay.sendMessage(m.chat, { video: { url: link }, caption: `${teks}`, { quoted: m})
+            } 
+            break
+            
 ///////////////BATAS SUCI///////////////
 
                             case 'setmenu':
