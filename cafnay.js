@@ -578,8 +578,7 @@ break
 	   case 'cafmp4':{
 		  m.reply(mess.wait)
 		  cafvid = await y2mateV(q)
-		  video = cafvid[0].link
-		  console.log(video)
+		  video = cafvid[0].link		  
 		  vidnya = await getBuffer(video)
 		  cafnay.sendMessage(m.chat, { video: vidnya, caption: 'Done' }, { quoted: m })
 		  break
