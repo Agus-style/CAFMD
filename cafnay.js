@@ -96,7 +96,9 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
             return await generateWAMessage(jidnya, kontennya, {...optionnya,userJid: cafnay.authState.creds.me.id,upload: cafnay.waUploadToServer})
             }
 			
-			
+		const textImg = (teks, buffer = fs.readFileSync(setting.pathImg), mess, men) => {
+             return chika.sendMessage(from, { text: teks, jpegThumbnail: buffer, mention: men ? men : [] }, { quoted: mess ? mess : msg })
+        }
 	
 			
             
@@ -577,36 +579,66 @@ let button1 = [
                 }
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
-break
-	   case 'igdl': case 'ig': case 'instagram': {
-                if (q) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/instagram/video?url=${q}&apikey=Alphabot))
-                anu = anu.results.medias.url
-                cafnay.sendMessage(m.chat, { video: { url: anu }, caption: `Download From ${q}` }, { quoted: m})
-            } 
-            break
+break	   
             
-           case 'ytmp3': case 'yt': case 'youtube': {
-                if (q) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/audio?url=${q}&apikey=Alphabot))
-                anu = anu.results
-                teks = `title: ${anu.title}`
-                link = anu.link
-                cafnay.sendMessage(m.chat, { audio: { url: link }, caption: `${teks}`, { quoted: m})
-            } 
-            break
-                        
-	   case 'ytmp4': case 'yt': case 'youtube': {
-                if (q) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot))
-                anu = anu.results
-                teks = `title: ${anu.title}`
-                link = anu.link
-                cafnay.sendMessage(m.chat, { video: { url: link }, caption: `${teks}`, { quoted: m})
-            } 
+           case 'ytmp3':{
+		   if (!q) return m.reply('Masukan Link Yt')
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp3 = `${q}`
+		   var cafau = await y2mateA(dlmp3);
+		   console.log(cafau[0].link)
+		   sendFileFromUrl(m.chat, cafau[0].link, m)
+		  break
+	   }
+             
+       case prefix+'mp4': case prefix+'ytmp4':
+                if (!q) return m.reply textImg(ind.wrongFormat(prefix))
+                if (!isUrl(q)) return m.reply textImg(ind.wrongFormat(prefix))
+                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
+                await textImg(ind.wait())
+                xfar.Youtube(args[1]).then(async (data) => {
+                    let txt = `*----「 YOUTUBE VIDEO 」----*\n\n`
+                    txt += `*📟 Quality :* ${data.medias[1].480}\n`
+                    txt += `*🎞️ Type :* ${data.medias[1].extension}\n`
+                    txt += `*💾 Size :* ${data.medias[1].formattedSize}\n`
+                    txt += `*📚 Url Source :* ${data.url}\n\n`
+                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
+                    sendFileFromUrl(from, data.thumbnail, txt, msg)
+                    sendFileFromUrl(from, data.medias[1].url, '', msg)
+                    
+                })
+                .catch((err) => {
+                    for (let x of ownerNumber) {
+                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                    }
+                    textImg(ind.err())
+                })
+            break                
+                                              
+	   case prefix+'ig': case prefix+'igdl': case prefix+'instagram': case prefix+'instagramdl':
+                if (!q) return textImg(ind.wrongFormat(prefix))
+                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
+                if (!q.includes('instagram.com')) return textImg(ind.wrongFormat(prefix))
+                await textImg(ind.wait())
+                cafnay.Instagram(args[1]).then(async data => {
+                    let txt = `*----「 INSTAGRAM DOWNLOADER 」----*\n\n`
+                    txt += `*📫 Title :* ${data.title}\n`
+                    txt += `*🎥📸 Total File :* ${data.medias.length}\n`
+                    txt += `*📚 Url Source :* ${data.url}\n\n`
+                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
+                    await textImg(txt).then(async res => {
+                        for (let i of data.medias) {
+                            sendFileFromUrl(from, i.url, '', res)
+                        }
+                    })
+                })
+                .catch((err) => {
+                    for (let x of ownerNumber) {
+                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                    }
+                    textImg(ind.err())
+                })
             break
             
 ///////////////BATAS SUCI///////////////
