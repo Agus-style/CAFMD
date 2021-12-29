@@ -572,8 +572,7 @@ break
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
-		  cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
-		  sendFileFromUrl(from,audio,`Done`,m)
+		  cafnay.sendMessage(m.chat, {document: {url:audio}, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
 		  break
 	   }
 	   case 'ytmp4':{
