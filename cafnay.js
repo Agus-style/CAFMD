@@ -585,17 +585,19 @@ let button1 = [
             }
 break
 	   case 'cafmp3':{
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
-		  audio = yt.result.url
-		  console.log(yt.result.url)
+		  m.reply(mess.wait)
+		  cafau = await y2mateA(q)
+		  title = cafau[0].judul
+		  audio = cafau[0].link
+		  cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
 	   case 'cafmp4':{
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=HHIy0nIGja`)
-		  video = yt.result.url
-		  console.log(yt.result.url)
-		  sendFileFromUrl(from,video,`Done`,m)
+		  m.reply(mess.wait)
+		  cafvid = await ytv(q)
+		  video = cafvid[0].title
+		  m.reply(video)
 		  break
 	   }
 ///////////////BATAS SUCI///////////////
