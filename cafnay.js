@@ -571,15 +571,17 @@ break
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
-		  cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+		  cafnay.sendMessage(m.chat, {document :mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   case 'ytmp4':{
+	   case 'cafmp4':{
 		  m.reply(mess.wait)
-		  cafvid = await ytv(q)
-		  video = cafvid[0].title
-		  m.reply(video)
+		  cafvid = await y2mateV(q)
+		  video = cafvid[0].link
+		  console.log(video)
+		  vidnya = await getBuffer(video)
+		  cafnay.sendMessage(m.chat, { video: vidnya, caption: 'Done' }, { quoted: m })
 		  break
 	   }
 ///////////////BATAS SUCI///////////////
