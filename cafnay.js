@@ -19,6 +19,7 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
@@ -491,26 +492,7 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   case 'ytmp3':{
-		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
-		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
-		  break
-	   }
-	   
-	   case 'ytmp4':{
-		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=${apikeyy}`)
-		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
-		  break
-	   }
-	   
+	   	  
 	   case 'ttaudio':
 		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
 		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
@@ -571,8 +553,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
@@ -584,7 +566,7 @@ let button1 = [
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
 break
-	   case 'cafmp3':{
+	   case 'ytmp3':{
 		  m.reply(mess.wait)
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
@@ -593,7 +575,7 @@ break
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   case 'cafmp4':{
+	   case 'ytmp4':{
 		  m.reply(mess.wait)
 		  cafvid = await ytv(q)
 		  video = cafvid[0].title
