@@ -1,4 +1,3 @@
-/**
    * Create By Dika Ardnt.
    * Contact Me on wa.me/6288292024190
    * Follow https://github.com/DikaArdnt
@@ -571,8 +570,8 @@ break
 		  m.reply(mess.wait)
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
-		  audio = cafau[0].link
-		  cafnay.sendMessage(m.chat, {document: {url:audio}, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+		  audio = await getBuffer(cafau[0].link)
+		  cafnay.sendMessage(m.chat, {document: audio}, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
 		  break
 	   }
 	   case 'ytmp4':{
@@ -581,7 +580,7 @@ break
 		  video = cafvid[0].link
 		  console.log(video)
 		  vidnya = await getBuffer(video)
-		  cafnay.sendMessage(m.chat, { video: vidnya, caption: 'Done' }, { quoted: m })
+		  cafnay.sendMessage(m.chat, { video: {url:video}, caption: 'Done' }, { quoted: m })
 		  break
 	   }
 ///////////////BATAS SUCI///////////////
