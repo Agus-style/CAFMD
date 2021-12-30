@@ -561,6 +561,16 @@ case 'ohidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
+            
+            case 'tagall': case 'infoall':
+                if (!isGroup) return m.reply(mess.groupOnly)               
+                let teks = `══✪〘 *👥 Mention All* 〙✪══\n\n➲ *Message : ${q ? q : 'Nothing'}*\n\n`
+		      	for (let mem of groupMembers) {
+		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
+				}
+                teks += `\n⋙ *${botName}* ⋘`
+                cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
+            break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
