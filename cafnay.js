@@ -568,7 +568,7 @@ case 'ohidetag':
 		      	for (let mem of groupMembers) {
 		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
 				}
-                teks += `\n⋙ *${botName}* ⋘`
+                teks += `\n⋙ *${botname}* ⋘`
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
                         	   
