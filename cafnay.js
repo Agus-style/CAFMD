@@ -546,8 +546,7 @@ Bot Admin : ${isBotAdmins}
             }
             break
             case 'leave':
-				if (!isGroup) return m.reply(mess.only.group)
-				if (!isOwner && !mek.key.fromMe) return m.reply(mess.only.owner)
+				if (!isGroup) return m.reply(mess.only.group)				
 				cafnay.updatePresence(from, Presence.composing)
 				cafnay.groupLeave(from)
 	  
