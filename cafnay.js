@@ -19,11 +19,11 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
-const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
 botname = setting.namabot
@@ -492,28 +492,26 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   case 'ytmp3': case 'yt': case 'youtube': {
-                if (q) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/audio?url=${q}&apikey=Alphabot))
-                anu = anu.results
-                teks = `title: ${anu.title}`
-                link = await getBuffer(anu.link)
-                cafnay.sendMessage(m.chat, { audio: { url: link }, caption: `${teks}`, { quoted: m})
-            } 
-            break
+	   case 'ytmp3':{
+		   if (!q) return m.reply('Masukan Link Yt')
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp3 = `${q}`
+		   var cafau = await y2mateA(dlmp3);
+		   console.log(cafau[0].link)
+		   sendFileFromUrl(m.chat, cafau[0].link, m)
+		  break
+	   }
 	   
-	   case 'ytmp4': case 'yt': case 'youtube': {
-                if (q) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot))
-                anu = anu.results
-                teks = `title: ${anu.title}`
-                link = await getBuffer(anu.link)
-                cafnay.sendMessage(m.chat, { video: { url: link }, caption: `${teks}`, { quoted: m})
-            } 
-            break
-            
+	   case 'ytmp4':{
+		   if (!q) return m.reply('Masukan Link Yt')
+			   if (!isUrl) return
+		  yt = await fetchJson(`(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot`)
+		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.result.url, m)
+		  break
+	   }
 	   
 	   case 'ttaudio':
 		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
