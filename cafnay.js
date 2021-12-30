@@ -349,14 +349,17 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}kick (tag)
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
+│⭔ ${prefix}join (link wa)
+│⭔ ${prefix}tagall (query)
+│⭔ ${prefix}setpp (foto) 
 │
 └───────⭓
 
 ┌──⭓ *Downloader Menu*
 │
-│⭔ ${prefix}ytmp3 (linkyt)
-│⭔ ${prefix}ytmp4 (linkyt)
-│⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}ytmp3 (eror)
+│⭔ ${prefix}ytmp4 (eror)
+│⭔ ${prefix}play (eror) 
 │⭔ ${prefix}ttaudio (link tt)
 │
 └───────⭓
@@ -429,7 +432,7 @@ Bot Admin : ${isBotAdmins}
 
 ┌──⭓ *Maker Menu*
 │
-│⭔ ${prefix}ktpmaker
+│⭔ ${prefix}ktpmaker(eror)
 │
 └───────⭓
 
@@ -570,6 +573,21 @@ case 'ohidetag':
 				}
                 teks += `\n⋙ *${botname}* ⋘`
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
+            break
+            
+            case 'setprofile': case 'setpp': {
+                if (!isCreator) throw mess.owner
+                if (!quoted) throw 'Reply Image'
+                if (/image/.test(mime)) throw `balas image dengan caption *${prefix + command}*`
+                let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                if (!m.isGroup && !isBotAdmins && !isGroupAdmins) {
+                    await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
+		    await fs.unlinkSync(media)
+                } else if (!isCreator) {
+                    await cafnay.updateProfilePicture(cafnay.user.id, { url: media }).catch((err) => fs.unlinkSync(media))
+		    await fs.unlinkSync(media)
+                }
+            }
             break
                         	   
 ///////////PLAY FROM YOUTUBE
