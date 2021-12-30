@@ -18,7 +18,7 @@ global.APIKeys = {
 }
 
 // Other
-global.owner = ['6283167714830']
+global.owner = ['6282268562601']
 global.packname = 'CAF'
 global.author = 'BOT-MD'
 global.sessionName = 'cafsesi'
