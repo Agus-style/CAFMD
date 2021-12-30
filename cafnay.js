@@ -547,7 +547,8 @@ Bot Admin : ${isBotAdmins}
             break
             case 'leave': {
                 if (!isCreator) throw mess.owner
-                await cafnay.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                function _0x4c16(_0xc2e7f8,_0x2e60a9)
+                await cafnay.groupLeaveThis(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
 	  
