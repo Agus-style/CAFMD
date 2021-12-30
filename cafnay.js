@@ -545,12 +545,11 @@ Bot Admin : ${isBotAdmins}
                 await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
-            case 'leave': {
-                if (!isCreator) throw mess.owner
-                function _0x4c16(_0xc2e7f8,_0x2e60a9)
-                await cafnay.groupLeaveThis(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-            }
-            break
+            case 'leave':
+				if (!isGroup) return reply(mess.only.group)
+				if (!isOwner && !mek.key.fromMe) return reply(mess.only.owner)
+				cafnay.updatePresence(from, Presence.composing)
+				cafnay.groupLeave(from)
 	  
 case 'hidetag':
                 if (!isGroup) return m.reply(mess.group)
