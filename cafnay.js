@@ -96,9 +96,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
             return await generateWAMessage(jidnya, kontennya, {...optionnya,userJid: cafnay.authState.creds.me.id,upload: cafnay.waUploadToServer})
             }
 			
-		const textImg = (teks, buffer = fs.readFileSync(setting.pathImg), mess, men) => {
-             return chika.sendMessage(from, { text: teks, jpegThumbnail: buffer, mention: men ? men : [] }, { quoted: mess ? mess : msg })
-        }
+			
 	
 			
             
@@ -351,7 +349,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}kick (tag)
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
-│⭔ ${prefix}join (link wa)
 │
 └───────⭓
 
@@ -361,7 +358,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
 │⭔ ${prefix}ttaudio (link tt)
-│⭔ ${prefix}igdl (link ig)
 │
 └───────⭓
 
@@ -496,7 +492,28 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
+	   case 'ytmp3': case 'yt': case 'youtube': {
+                if (q) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/audio?url=${q}&apikey=Alphabot))
+                anu = anu.results
+                teks = `title: ${anu.title}`
+                link = await getBuffer(anu.link)
+                cafnay.sendMessage(m.chat, { audio: { url: link }, caption: `${teks}`, { quoted: m})
+            } 
+            break
 	   
+	   case 'ytmp4': case 'yt': case 'youtube': {
+                if (q) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot))
+                anu = anu.results
+                teks = `title: ${anu.title}`
+                link = await getBuffer(anu.link)
+                cafnay.sendMessage(m.chat, { video: { url: link }, caption: `${teks}`, { quoted: m})
+            } 
+            break
+            
 	   
 	   case 'ttaudio':
 		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
@@ -538,15 +555,6 @@ case 'ohidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
-            case 'join': {
-                if (!isCreator) throw mess.owner
-                if (!text) throw 'Masukkan Link Group!'
-                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
-                m.reply(mess.wait)
-                let result = args[0].split('https://chat.whatsapp.com/')[1]
-                await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-            }
-            break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
@@ -567,8 +575,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
@@ -579,68 +587,21 @@ let button1 = [
                 }
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
-break	   
-            
-           case 'ytmp3':{
-		   if (!q) return m.reply('Masukan Link Yt')
-			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
-		   m.reply(mess.wait)
-		   dlmp3 = `${q}`
-		   var cafau = await y2mateA(dlmp3);
-		   console.log(cafau[0].link)
-		   sendFileFromUrl(m.chat, cafau[0].link, m)
+break
+	   case 'cafmp3':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
+		  audio = yt.result.url
+		  console.log(yt.result.url)
+		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-             
-       case prefix+'mp4': case prefix+'ytmp4':
-                if (!q) return m.reply textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return m.reply textImg(ind.wrongFormat(prefix))
-                if (!q.includes('youtu.be') && !q.includes('youtube.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
-                xfar.Youtube(args[1]).then(async (data) => {
-                    let txt = `*----「 YOUTUBE VIDEO 」----*\n\n`
-                    txt += `*📟 Quality :* ${data.medias[1].480}\n`
-                    txt += `*🎞️ Type :* ${data.medias[1].extension}\n`
-                    txt += `*💾 Size :* ${data.medias[1].formattedSize}\n`
-                    txt += `*📚 Url Source :* ${data.url}\n\n`
-                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                    sendFileFromUrl(from, data.thumbnail, txt, msg)
-                    sendFileFromUrl(from, data.medias[1].url, '', msg)
-                    
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break                
-                                              
-	   case prefix+'ig': case prefix+'igdl': case prefix+'instagram': case prefix+'instagramdl':
-                if (!q) return textImg(ind.wrongFormat(prefix))
-                if (!isUrl(q)) return textImg(ind.wrongFormat(prefix))
-                if (!q.includes('instagram.com')) return textImg(ind.wrongFormat(prefix))
-                await textImg(ind.wait())
-                cafnay.Instagram(args[1]).then(async data => {
-                    let txt = `*----「 INSTAGRAM DOWNLOADER 」----*\n\n`
-                    txt += `*📫 Title :* ${data.title}\n`
-                    txt += `*🎥📸 Total File :* ${data.medias.length}\n`
-                    txt += `*📚 Url Source :* ${data.url}\n\n`
-                    txt += `*Mohon tunggu sebentar kak, sedang proses pengiriman...*`
-                    await textImg(txt).then(async res => {
-                        for (let i of data.medias) {
-                            sendFileFromUrl(from, i.url, '', res)
-                        }
-                    })
-                })
-                .catch((err) => {
-                    for (let x of ownerNumber) {
-                        sendMess(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                    textImg(ind.err())
-                })
-            break
-            
+	   case 'cafmp4':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=HHIy0nIGja`)
+		  video = yt.result.url
+		  console.log(yt.result.url)
+		  sendFileFromUrl(from,video,`Done`,m)
+		  break
+	   }
 ///////////////BATAS SUCI///////////////
 
                             case 'setmenu':
