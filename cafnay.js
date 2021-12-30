@@ -501,7 +501,7 @@ Bot Admin : ${isBotAdmins}
 		   if (!q) return m.reply('Masukan Link Yt')
 			   if (!isUrl) return
 		  yt = await fetchJson(`(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot`)
-		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.results.title}\nSize : ${yt.results.size}\nDesc : ${yt.results.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  		  jasjus = `*Y*`
 		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
 		  sendFileFromUrl(m.chat, yt.results.link, m)
 		  break
