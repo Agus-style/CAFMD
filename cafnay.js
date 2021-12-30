@@ -448,12 +448,6 @@ Bot Admin : ${isBotAdmins}
 ❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
 ❑ Jika menemukan bug/err silahkan hubungi owner
 
-╭─⬣「 _*THANKS TO*_ 」⬣
-│ ❑ *Developer BOT (_CAF_)*
-│ ❑ *Penyedia Apikey*
-│ ❑ *Penyedia Base (_Hisouka-Morou_)*
-│ ❑ *And All My Friends*
-└⬣
 `
 
         // Public & Self
@@ -507,9 +501,9 @@ Bot Admin : ${isBotAdmins}
 		   if (!q) return m.reply('Masukan Link Yt')
 			   if (!isUrl) return
 		  yt = await fetchJson(`(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot`)
-		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.results.title}\nSize : ${yt.results.size}\nDesc : ${yt.results.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
 		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.result.url, m)
+		  sendFileFromUrl(m.chat, yt.results.link, m)
 		  break
 	   }
 	   
@@ -542,6 +536,20 @@ Bot Admin : ${isBotAdmins}
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
 	
+	case 'join': {
+                if (!isCreator) throw mess.owner
+                if (!text) throw 'Masukkan Link Group!'
+                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
+                m.reply(mess.wait)
+                let result = args[0].split('https://chat.whatsapp.com/')[1]
+                await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            }
+            break
+            case 'leave': {
+                if (!isCreator) throw mess.owner
+                await cafnay.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            }
+            break
 	  
 case 'hidetag':
                 if (!isGroup) return m.reply(mess.group)
