@@ -21,6 +21,7 @@ const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const { igDownloader } = require('./lib/igdown')
+const {TiktokDownloader} = require('./lib/tiktokdl')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
@@ -141,7 +142,7 @@ m.reply('invalid type, please contact the owner bot')
 const hour_now = moment().format('HH')
 var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
 if (hour_now >= '03' && hour_now <= '10') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧??'//'Pagi 🌅'
 } else if (hour_now >= '10' && hour_now <= '14') {
 ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
 } else if (hour_now >= '14' && hour_now <= '17') {
