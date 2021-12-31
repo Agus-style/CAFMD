@@ -359,8 +359,10 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}ttaudio (link tt)
+│⭔ ${prefix}ttmp3 (link tt)
 │⭔ ${prefix}igdl (link ig)
+│⭔ ${prefix}ttwm (link tt)
+│⭔ ${prefix}ttnowm (link tt)
 │
 └───────⭓
 
@@ -444,7 +446,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}public
 │⭔ ${prefix}self
 │⭔ ${prefix}setmenu
-│⭔ ${prefix}setppbot
+│⭔ ${prefix}setpp
+│⭔ ${prefix}setname
 │
 └───────⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
@@ -520,16 +523,32 @@ Bot Admin : ${isBotAdmins}
    await sendFileFromUrl(from,link,desc,m)
    break
 	
-	   case 'ttaudio':
-		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
-		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
-		   tiktok = await fetchJson(t1)
-		   tt2 = await fetchJson(t2)
-		   title = `${tt2.results.title}`
-		   url = tiktok.result.audio_only.audio2
-		   console.log(url)
-		   let kntl = await getBuffer(url)
-		   cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+	   case 'ttnowm':
+		   m.reply(mess.wait)
+		   hx.ttdownloader(q)
+		   .then(result => {
+		   const { wm, nowm, audio } = result
+		   console.log(nowm)
+		   sendFileFromUrl(from,nowm,'Done️',m)
+		   })
+		   break
+		   
+		   case 'ttwm':
+		   m.reply(mess.wait)
+		   hx.ttdownloader(q)
+		   .then(result => {
+		   const { wm, nowm, audio } = result
+		   console.log(wm)
+		   sendFileFromUrl(from,wm,'Done️',m)
+		   })
+		   break
+		   
+		   case 'ttmp3':
+		   m.reply(mess.wait)
+		   audio = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${q}`)
+		   caf = await fetchJson(`https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`)
+		   audio = audio.result.audio_only.original
+		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `${caf.results.title}.mp3`}, {quoted:m})
 		   break
 	   
 	   case 'mediafire':{
@@ -585,10 +604,27 @@ case 'ohidetag':
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
             
+            case 'setname': case 'setsubject': {
+                if (!m.isGroup) throw mess.group
+                if (!isBotAdmins) throw mess.botAdmin
+                if (!isGroupAdmins) throw mess.admin
+                if (!text) throw 'Text ?'
+                await cafnay.groupUpdateSubject(m.chat, text).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            }
+            break
+            
              case 'setprofile': case 'setpp': {
                 if (!isCreator) throw mess.owner
+                if (!quoted) throw 'Reply Image'
+                if (/image/.test(mime)) throw `balas image dengan caption *${prefix + command}*`
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                cafnay.updateProfilePicture(media)
+                if (!m.isGroup && !isBotAdmins && !isGroupAdmins) {
+                    await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
+		    await fs.unlinkSync(media)
+                } else if (!isCreator) {
+                    await cafnay.updateProfilePicture(cafnay.user.id, { url: media }).catch((err) => fs.unlinkSync(media))
+		    await fs.unlinkSync(media)
+                }
             }
             break
                         	   
