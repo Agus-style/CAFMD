@@ -20,6 +20,7 @@ const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
+const { igDownloader } = require('./lib/igdown')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
@@ -511,6 +512,14 @@ Bot Admin : ${isBotAdmins}
 		  sendFileFromUrl(m.chat, yt.results.link, m)
 		  break
 	   }
+
+   case 'igdl':
+   if (!q) return m.reply('Linknya?')
+   res = await igDownloader(q)
+   link = res.result.link
+   desc = res.result.desc
+   await sendFileFromUrl(from,link,desc,m)
+   break
 	   
 	   case 'ttaudio':
 		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
@@ -579,16 +588,8 @@ case 'ohidetag':
             
             case 'setprofile': case 'setpp': {
                 if (!isCreator) throw mess.owner
-                if (!quoted) throw 'Reply Image'
-                if (/image/.test(mime)) throw `balas image dengan caption *${prefix + command}*`
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                if (!m.isGroup && !isBotAdmins && !isGroupAdmins) {
-                    await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
-		    await fs.unlinkSync(media)
-                } else if (!isCreator) {
-                    await cafnay.updateProfilePicture(cafnay.user.id, { url: media }).catch((err) => fs.unlinkSync(media))
-		    await fs.unlinkSync(media)
-                }
+                cafnay.updateProfilePicture(media)
             }
             break
                         	   
@@ -1018,7 +1019,7 @@ break
            case 'loli': 
            case 'neko': 
               await m.reply(('Loading..'))
-              let loli = await fetchJson(`https://api.waifu.pics/sfw/neko`)
+              let loli = await fetchJson(`https://api...pics/sfw/neko`)
               await sendFileFromUrl(from,loli.url,`Ni ${pushname} ${command} nya`,m)
                 .catch((err) => {
                     for (let x of ownerNumber) {
