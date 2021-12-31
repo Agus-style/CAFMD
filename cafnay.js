@@ -523,26 +523,17 @@ Bot Admin : ${isBotAdmins}
    await sendFileFromUrl(from,link,desc,m)
    break
 	   
-	   case 'tiktoknowm':
-   if (!q) return m.reply('Linknya?')
-   res = await TiktokDownloader(q)
-   nowm = res.result.nowatermark
-   await sendFileFromUrl(from,nowm,'Done',m)
-   break
-   
-   case 'tiktokwm':
-   if (!q) return m.reply('Linknya?')
-   res = await TiktokDownloader(q)
-   wm = res.result.watermark
-   await sendFileFromUrl(from,wm,'Done',m)
-   break
-   
-   case 'tiktokmp3':
-   if (!q) return m.reply('Linknya?')
-   res = await TiktokDownloader(q)
-   caf = res.result.audio
-   await sendFileFromUrl(from,caf,'Done',m)
-   break
+                   case 'tiktokdl':
+                   case 'tiktoknowm':
+if (!q) return m.reply('Linknya?')
+var { TiktokDownloader } = require('./lib/tiktokdl')
+m.reply(mess.wait)
+res = await TiktokDownloader(`${q}`).catch(e => {
+m.reply(mess.error.api)
+})
+console.log(res)
+sendFileFromUrl(from, `${res.result.nowatermark}`)
+break
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
