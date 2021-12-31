@@ -349,10 +349,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}kick (tag)
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
-│⭔ ${prefix}join (link wa)
-│⭔ ${prefix}tagall (query)
-│⭔ ${prefix}setpp (foto) 
-│
+│⭔ 
 └───────⭓
 
 ┌──⭓ *Downloader Menu*
@@ -361,6 +358,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ytmp4 (eror)
 │⭔ ${prefix}play (eror) 
 │⭔ ${prefix}ttaudio (link tt)
+│⭔ ${prefix}lirik (judul)
 │
 └───────⭓
 
@@ -427,6 +425,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}sgif
 │⭔ ${prefix}tomp4
 │⭔ ${prefix}tourl
+│⭔ ${prefix}tagall (query)
+│⭔ ${prefix}toimg (foto) 
 │
 └───────⭓
 
@@ -442,7 +442,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}public
 │⭔ ${prefix}self
 │⭔ ${prefix}setmenu
-│⭔ ${prefix}setppbot
+│⭔ ${prefix}setpp
+│⭔ ${prefix}join
+│⭔ ${prefix}leave
 │
 └───────⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
@@ -731,7 +733,7 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			case 'latestnews':{
 				
-					f = await fetchText(`https://wanz-apik.herokuapp.com/api/news/kumparan?type=Berita&apikey=WanzBotz`)
+					f = await fetchJson(`https://wanz-apik.herokuapp.com/api/news/kumparan?type=Berita&apikey=WanzBotz`)
 					cafnay.sendMessage(m.chat, {text: f.result}, {quoted: troli})
 					m.reply('Saya lagi malas.')
 					break
