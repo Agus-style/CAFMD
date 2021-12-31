@@ -20,8 +20,6 @@ const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
-const { igDownloader } = require('./lib/igdown')
-const {TiktokDownloader} = require('./lib/tiktokdl')
 const moment = require("moment-timezone")
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
@@ -142,9 +140,9 @@ m.reply('invalid type, please contact the owner bot')
 const hour_now = moment().format('HH')
 var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
 if (hour_now >= '03' && hour_now <= '10') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧??'//'Pagi 🌅'
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
 } else if (hour_now >= '10' && hour_now <= '14') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚??𝐠'//'Siang 🌞'
 } else if (hour_now >= '14' && hour_now <= '17') {
 ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞'//'Soree ☀️'
 } else if (hour_now >= '17' && hour_now <= '18') {
@@ -351,16 +349,15 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}kick (tag)
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
-│⭔ 
+│
 └───────⭓
 
 ┌──⭓ *Downloader Menu*
 │
-│⭔ ${prefix}ytmp3 (eror)
-│⭔ ${prefix}ytmp4 (eror)
-│⭔ ${prefix}play (eror) 
+│⭔ ${prefix}ytmp3 (linkyt)
+│⭔ ${prefix}ytmp4 (linkyt)
+│⭔ ${prefix}play (nama lagu)
 │⭔ ${prefix}ttaudio (link tt)
-│⭔ ${prefix}lirik (judul)
 │⭔ ${prefix}igdl (link ig)
 │
 └───────⭓
@@ -428,14 +425,14 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}sgif
 │⭔ ${prefix}tomp4
 │⭔ ${prefix}tourl
-│⭔ ${prefix}tagall (query)
+│  ${prefix}tagall (query)
 │⭔ ${prefix}toimg (foto) 
 │
 └───────⭓
 
 ┌──⭓ *Maker Menu*
 │
-│⭔ ${prefix}ktpmaker(eror)
+│⭔ ${prefix}ktpmaker
 │
 └───────⭓
 
@@ -445,9 +442,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}public
 │⭔ ${prefix}self
 │⭔ ${prefix}setmenu
-│⭔ ${prefix}setpp
-│⭔ ${prefix}join
-│⭔ ${prefix}leave
+│⭔ ${prefix}setppbot
 │
 └───────⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
@@ -514,26 +509,26 @@ Bot Admin : ${isBotAdmins}
 		  sendFileFromUrl(m.chat, yt.results.link, m)
 		  break
 	   }
-
-   case 'igdl':
+	   
+	   case 'igdl':
    if (!q) return m.reply('Linknya?')
    res = await igDownloader(q)
    link = res.result.link
    desc = res.result.desc
    await sendFileFromUrl(from,link,desc,m)
    break
-	   
-                   case 'tiktokdl':
-                   case 'tiktoknowm':
-if (!q) return m.reply('Linknya?')
-var { TiktokDownloader } = require('./lib/tiktokdl')
-m.reply(mess.wait)
-res = await TiktokDownloader(`${q}`).catch(e => {
-m.reply(mess.error.api)
-})
-console.log(res)
-sendFileFromUrl(from, `${res.result.nowatermark}`)
-break
+	
+	   case 'ttaudio':
+		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
+		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
+		   tiktok = await fetchJson(t1)
+		   tt2 = await fetchJson(t2)
+		   title = `${tt2.results.title}`
+		   url = tiktok.result.audio_only.audio2
+		   console.log(url)
+		   let kntl = await getBuffer(url)
+		   cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
+		   break
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
@@ -588,7 +583,7 @@ case 'ohidetag':
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
             
-            case 'setprofile': case 'setpp': {
+             case 'setprofile': case 'setpp': {
                 if (!isCreator) throw mess.owner
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 cafnay.updateProfilePicture(media)
@@ -736,7 +731,7 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			case 'latestnews':{
 				
-					f = await fetchJson(`https://wanz-apik.herokuapp.com/api/news/kumparan?type=Berita&apikey=WanzBotz`)
+					f = await fetchText(`https://wanz-apik.herokuapp.com/api/news/kumparan?type=Berita&apikey=WanzBotz`)
 					cafnay.sendMessage(m.chat, {text: f.result}, {quoted: troli})
 					m.reply('Saya lagi malas.')
 					break
@@ -1021,7 +1016,7 @@ break
            case 'loli': 
            case 'neko': 
               await m.reply(('Loading..'))
-              let loli = await fetchJson(`https://api...pics/sfw/neko`)
+              let loli = await fetchJson(`https://api.waifu.pics/sfw/neko`)
               await sendFileFromUrl(from,loli.url,`Ni ${pushname} ${command} nya`,m)
                 .catch((err) => {
                     for (let x of ownerNumber) {
@@ -1263,19 +1258,6 @@ break
                         await m.reply(m)
                     }
                 }
-                
-                if (budy.startsWith('assalamualaikum')) {  
-                cafnay.sendMessage(m.chat, {text: 'waalaikumusalam'}, {quoted: peksaya})
-	            }
-	            
-	            if (budy.startsWith(':')) {  
-                cafnay.sendMessage(m.chat, {text: 'Papepape ,Ngecht yg sopan bambang ⛔
-Utamakan salam bukan P'}, {quoted: peksaya})
-	            }
-
-	 	      if (budy.startsWith('+')) {  
-                m.reply(`Heh lu ya keyboard banyak ,tapi ngetiknya cuma se huruf , Dahlah buang aja tuh keyboard`)
-	            }
 
                 if (budy.startsWith('$')) {
                     if (!isCreator && !m.key.fromMe) return
