@@ -360,6 +360,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}play (eror) 
 │⭔ ${prefix}ttaudio (link tt)
 │⭔ ${prefix}lirik (judul)
+│⭔ ${prefix}igdl (link ig)
 │
 └───────⭓
 
@@ -521,17 +522,26 @@ Bot Admin : ${isBotAdmins}
    await sendFileFromUrl(from,link,desc,m)
    break
 	   
-	   case 'ttaudio':
-		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
-		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
-		   tiktok = await fetchJson(t1)
-		   tt2 = await fetchJson(t2)
-		   title = `${tt2.results.title}`
-		   url = tiktok.result.audio_only.audio2
-		   console.log(url)
-		   let kntl = await getBuffer(url)
-		   cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
-		   break
+	   case 'tiktoknowm':
+   if (!q) return m.reply('Linknya?')
+   res = await TiktokDownloader(q)
+   nowm = res.result.nowatermark
+   await sendFileFromUrl(from,nowm,'Done',m)
+   break
+   
+   case 'tiktokwm':
+   if (!q) return m.reply('Linknya?')
+   res = await TiktokDownloader(q)
+   wm = res.result.watermark
+   await sendFileFromUrl(from,wm,'Done',m)
+   break
+   
+   case 'tiktokmp3':
+   if (!q) return m.reply('Linknya?')
+   res = await TiktokDownloader(q)
+   caf = res.result.audio
+   await sendFileFromUrl(from,caf,'Done',m)
+   break
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
@@ -1261,6 +1271,19 @@ break
                         await m.reply(m)
                     }
                 }
+                
+                if (budy.startsWith('assalamualaikum')) {  
+                cafnay.sendMessage(m.chat, {text: 'waalaikumusalam'}, {quoted: peksaya})
+	            }
+	            
+	            if (budy.startsWith(':')) {  
+                cafnay.sendMessage(m.chat, {text: 'Papepape ,Ngecht yg sopan bambang ⛔
+Utamakan salam bukan P'}, {quoted: peksaya})
+	            }
+
+	 	      if (budy.startsWith('+')) {  
+                m.reply(`Heh lu ya keyboard banyak ,tapi ngetiknya cuma se huruf , Dahlah buang aja tuh keyboard`)
+	            }
 
                 if (budy.startsWith('$')) {
                     if (!isCreator && !m.key.fromMe) return
