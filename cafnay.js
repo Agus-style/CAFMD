@@ -19,6 +19,7 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const hx = require('hxz-api')
 const { igDownloader } = require('./lib/igdown')
 const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
@@ -144,7 +145,7 @@ var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
 if (hour_now >= '03' && hour_now <= '10') {
 ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
 } else if (hour_now >= '10' && hour_now <= '14') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚??𝐠'//'Siang 🌞'
+ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
 } else if (hour_now >= '14' && hour_now <= '17') {
 ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞'//'Soree ☀️'
 } else if (hour_now >= '17' && hour_now <= '18') {
@@ -756,9 +757,7 @@ cafnay.sendMessage(from, buttonMessage)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
-                    anu1 = `${anu.url}`
-                    console.log(anu1)
-                    m.reply(util.format(anu1))
+                    m.reply(util.format(anu))
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
                     m.reply(util.format(anu))
