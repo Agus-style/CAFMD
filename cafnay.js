@@ -24,6 +24,7 @@ const { igDownloader } = require('./lib/igdown')
 const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const moment = require("moment-timezone")
+const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
@@ -140,21 +141,25 @@ m.reply('invalid type, please contact the owner bot')
 }
 
 
-const hour_now = moment().format('HH')
-var ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐏𝐚𝐠𝐢'//'Pagi🌄'
-if (hour_now >= '03' && hour_now <= '10') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Pagi 🌅'
-} else if (hour_now >= '10' && hour_now <= '14') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐢𝐚𝐧𝐠'//'Siang 🌞'
-} else if (hour_now >= '14' && hour_now <= '17') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐒𝐨𝐫𝐞'//'Soree ☀️'
-} else if (hour_now >= '17' && hour_now <= '18') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat 🌠'
-} else if (hour_now >= '18' && hour_now <= '23') {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Malam 🌌'
-} else {
-ucapanWaktu = '𝐒𝐞𝐥𝐚𝐦𝐚𝐭 𝐌𝐚𝐥𝐚𝐦'//'Selamat Malam!'
-}
+const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
+    if (time2 < "24:59:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+    if (time2 < "19:00:00") {
+      var ucapanWaktu = "GoodEvening🌞";
+    }
+    if (time2 < "18:00:00") {
+      var ucapanWaktu = "GoodEvening🌄";
+    }
+    if (time2 < "15:00:00") {
+      var ucapanWaktu = "GoodAfternoon☀️";
+    }
+    if (time2 < "11:00:00") {
+      var ucapanWaktu = "GoodMoorning🌅";
+    }
+    if (time2 < "05:00:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
 
 const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
 const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
@@ -208,8 +213,8 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `CAF•BOTz - MD`, 
-                         "orderTitle": 'CAF', 
+                         "message": `AGUS•STYLE - MD`, 
+                         "orderTitle": 'ASFI', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
