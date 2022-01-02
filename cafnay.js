@@ -526,14 +526,7 @@ Bot Admin : ${isBotAdmins}
    desc = res.result.desc
    await sendFileFromUrl(from,link,desc,m)
    break
-	
-	   case 'ttmp3':
-	m.reply(mess.wait)
-	ngent = `${q}`
-	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
-	kntl = memek.result.audio_only.audio2
-	m.reply(`${kntl}`)
-	break
+		   
 		   
 		   case 'ttnowm':
 	m.reply('tunggu anta')
