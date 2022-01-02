@@ -534,6 +534,7 @@ Bot Admin : ${isBotAdmins}
 if (!q) return m.reply('Linknya?')
 m.reply(mess.wait)
 res = await TiktokDownloader(q)
+res = res.result.nowatermark
 m.reply(res)
 break
 		   case 'ttwm':
