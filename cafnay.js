@@ -366,6 +366,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}play (nama lagu)
 │⭔ ${prefix}ttaudio (link tt)
 │⭔ ${prefix}igdl (link ig)
+│⭔ ${prefix}ttwm (link tt)
+│⭔ ${prefix}ttnowm (link ig)
 │
 └───────⭓
 
@@ -496,7 +498,26 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	
+	   case 'ytmp3':{
+		   if (!q) return m.reply('Masukan Link Yt')
+			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
+		   m.reply(mess.wait)
+		   dlmp3 = `${q}`
+		   var cafau = await y2mateA(dlmp3);
+		   console.log(cafau[0].link)
+		   sendFileFromUrl(m.chat, cafau[0].link, m)
+		  break
+	   }
+	   
+	   case 'ytmp4':{
+		   if (!q) return m.reply('Masukan Link Yt')
+			   if (!isUrl) return
+		  yt = await fetchJson(`(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot`)
+		  		  jasjus = `*Y*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.results.link, m)
+		  break
+	   }
 	   
 	   case 'igdl':
    if (!q) return m.reply('Linknya?')
@@ -505,7 +526,17 @@ Bot Admin : ${isBotAdmins}
    desc = res.result.desc
    await sendFileFromUrl(from,link,desc,m)
    break
-	case 'ttnowm':
+	
+	   case 'ttmp3':
+	m.reply(mess.wait)
+	ngent = `${q}`
+	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
+	kntl = memek.result.audio_only.audio2
+	m.reply(`${kntl}`)
+	/*sendFileFromUrl(from,kntl,'Done',m)*/
+	break
+		   
+		   case 'ttnowm':
 	m.reply('tunggu anta')
 	kntl = `${q}`
 	mmk = await TiktokDownloader(kntl)
@@ -519,15 +550,6 @@ Bot Admin : ${isBotAdmins}
 	link_bkp = mmk.result.watermark
 	sendFileFromUrl(from,link_bkp,'Done',m)
 	break
-	case 'ttmp3':
-	m.reply(mess.wait)
-	ngent = `${q}`
-	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
-	kntl = memek.result.audio_only.audio2
-	m.reply(`${kntl}`)
-	/*sendFileFromUrl(from,kntl,'Done',m)*/
-	break
-	   
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
@@ -608,8 +630,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
@@ -621,17 +643,17 @@ let button1 = [
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
 break
-	   case 'ytmp3':{
-		  cafau = await y2mateA(q)
-		  title = cafau[0].judul
-		  audio = cafau[0].link
+	   case 'cafmp3':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
+		  audio = yt.result.url
+		  console.log(yt.result.url)
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   case 'ytmp4':{
-		  cafau = await y2mateV(q)
-		  title = cafau[0].judul
-		  video = cafau[0].link
+	   case 'cafmp4':{
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=HHIy0nIGja`)
+		  video = yt.result.url
+		  console.log(yt.result.url)
 		  sendFileFromUrl(from,video,`Done`,m)
 		  break
 	   }
