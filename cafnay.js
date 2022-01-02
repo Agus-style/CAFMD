@@ -201,6 +201,36 @@ case 11: bulan = "Desember"; break;
 }
 var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
 
+switch(is) {
+case 'assalamualaikum':
+m.reply('waalaikumsallam')
+}
+switch(is) {
+case 'p':
+case 'bg':
+case 'bang':
+m.reply('Ape...')
+}
+switch(is) {
+case 'hallo':
+case 'kak':
+case 'bro':
+m.reply('Ape Sih...Ribet Bat Dh Iduplu')
+}
+switch(is) {
+case 'kontol': case 'bacot':
+case 'anjing': case 'anj':
+case 'babi': case 'cot':
+case 'ngentod': case 'bct':
+case 'ajg':
+case 'asw':
+case 'taek':
+case 'asu':
+case 'anjir':
+case 'memek':
+sticToxic(from)
+}     	        
+
 		const troli = {
                          "key": {
                          "remoteJid": "status@broadcast", 
