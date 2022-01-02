@@ -538,6 +538,13 @@ Bot Admin : ${isBotAdmins}
 	link_bkp = mmk.result.watermark
 	sendFileFromUrl(from,link_bkp,'Done',m)
 	break
+	case 'ttmp3':
+	m.reply(mess.wait)
+	ngent = `${q}`
+	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
+	kntl = memek.result.audio_only.audio2
+	sendFileFromUrl(from,kntl,'Done',m)
+	break
 	   
 	   
 	   case 'mediafire':{
