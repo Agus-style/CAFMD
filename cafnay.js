@@ -525,22 +525,12 @@ Bot Admin : ${isBotAdmins}
    await sendFileFromUrl(from,link,desc,m)
    break
 	case 'ttwm':
-	q = kntl
+	kntl = `${q}`
 	mmk = await TiktokDownloader(kntl)
 	link_bkp = mmk.result.nowatermark
 	m.reply(`${link_bkp}`)
 	break
-	   case 'ttaudio':
-		   t1 = `http://hadi-api.herokuapp.com/api/tiktok?url=${q}`
-		   t2 = `https://api-alphabot.herokuapp.com/api/downloader/tiktok2?url=${q}&apikey=Alphabot`
-		   tiktok = await fetchJson(t1)
-		   tt2 = await fetchJson(t2)
-		   title = `${tt2.results.title}`
-		   url = tiktok.result.audio_only.audio2
-		   console.log(url)
-		   let kntl = await getBuffer(url)
-		   cafnay.sendMessage(m.chat, {document: kntl, mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, {quoted:m})
-		   break
+	   
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
