@@ -533,7 +533,6 @@ Bot Admin : ${isBotAdmins}
 	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
 	kntl = memek.result.audio_only.audio2
 	m.reply(`${kntl}`)
-	/*sendFileFromUrl(from,kntl,'Done',m)*/
 	break
 		   
 		   case 'ttnowm':
