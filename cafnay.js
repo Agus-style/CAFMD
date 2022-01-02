@@ -524,7 +524,8 @@ Bot Admin : ${isBotAdmins}
 	ngent = `${q}`
 	memek = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${ngent}
 	kntl = memek.result.audio_only.audio2
-	sendFileFromUrl(from,kntl,'Done',m)
+	m.reply(`${kntl}`)
+	/*sendFileFromUrl(from,kntl,'Done',m)*/
 	break
 	   
 	   
