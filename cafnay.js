@@ -530,14 +530,17 @@ Bot Admin : ${isBotAdmins}
    break
 	
 	   case 'ttnowm':
-		   m.reply(mess.wait)
-		   hx.ttdownloader(q)
-		   .then(result => {
-		   const { wm, nowm, audio } = result
-		   console.log(nowm)
-		   sendFileFromUrl(from,nowm,'Done️',m)
-		   })
-		   break
+                   case 'tiktokdl':
+                   case 'tiktoknowm':
+if (!q) return m.reply('Linknya?')
+var { TiktokDownloader } = require('./lib/tiktokdl')
+m.reply(mess.wait)
+res = await TiktokDownloader(`${q}`).catch(e => {
+m.reply(mess.error.api)
+})
+console.log(res)
+sendMediaURL(from, `${res.result.nowatermark}`)
+break
 		   case 'ttwm':
 		   m.reply(mess.wait)
 		   hx.ttdownloader(q)
