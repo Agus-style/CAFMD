@@ -539,7 +539,7 @@ res = await TiktokDownloader(`${q}`).catch(e => {
 m.reply(mess.error.api)
 })
 console.log(res)
-sendMediaURL(from, `${res.result.nowatermark}`)
+sendFileFromUrl(from, `${res.result.nowatermark}`)
 break
 		   case 'ttwm':
 		   m.reply(mess.wait)
