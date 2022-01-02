@@ -499,23 +499,17 @@ Bot Admin : ${isBotAdmins}
 	   }
 	   
 	   case 'ytmp3':{
-		   if (!q) return m.reply('Masukan Link Yt')
-			  if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('link not valid')
-		   m.reply(mess.wait)
-		   dlmp3 = `${q}`
-		   var cafau = await y2mateA(dlmp3);
-		   console.log(cafau[0].link)
-		   sendFileFromUrl(m.chat, cafau[0].link, m)
+		  cafau = await y2mateA(q)
+		  title = cafau[0].judul
+		  audio = cafau[0].link
+		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   
 	   case 'ytmp4':{
-		   if (!q) return m.reply('Masukan Link Yt')
-			   if (!isUrl) return
-		  yt = await fetchJson(`(https://api-alphabot.herokuapp.com/api/downloader/youtube/video?url=${q}&apikey=Alphabot`)
-		  		  jasjus = `*Y*`
-		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
-		  sendFileFromUrl(m.chat, yt.results.link, m)
+		  cafau = await y2mateV(q)
+		  title = cafau[0].judul
+		  video = cafau[0].link
+		  sendFileFromUrl(from,video,`Done`,m)
 		  break
 	   }
 	   
@@ -628,8 +622,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
