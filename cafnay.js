@@ -524,11 +524,19 @@ Bot Admin : ${isBotAdmins}
    desc = res.result.desc
    await sendFileFromUrl(from,link,desc,m)
    break
-	case 'ttwm':
+	case 'ttnowm':
+	m.reply('tunggu anta')
 	kntl = `${q}`
 	mmk = await TiktokDownloader(kntl)
 	link_bkp = mmk.result.nowatermark
-	m.reply(`${link_bkp}`)
+	sendFileFromUrl(from,link_bkp,'Done',m)
+	break
+	case 'ttwm':
+	m.reply('sabar woi')
+	kntl = `${q}`
+	mmk = await TiktokDownloader(kntl)
+	link_bkp = mmk.result.watermark
+	sendFileFromUrl(from,link_bkp,'Done',m)
 	break
 	   
 	   
