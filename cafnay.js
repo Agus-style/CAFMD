@@ -199,37 +199,7 @@ case 9: bulan = "Oktober"; break;
 case 10: bulan = "November"; break;
 case 11: bulan = "Desember"; break;
 }
-var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
-
-switch(is) {
-case 'assalamualaikum':
-m.reply('waalaikumsallam')
-}
-switch(is) {
-case 'p':
-case 'bg':
-case 'bang':
-m.reply('Ape...')
-}
-switch(is) {
-case 'hallo':
-case 'kak':
-case 'bro':
-m.reply('Ape Sih...Ribet Bat Dh Iduplu')
-}
-switch(is) {
-case 'kontol': case 'bacot':
-case 'anjing': case 'anj':
-case 'babi': case 'cot':
-case 'ngentod': case 'bct':
-case 'ajg':
-case 'asw':
-case 'taek':
-case 'asu':
-case 'anjir':
-case 'memek':
-sticToxic(from)
-}     	        
+var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;   	        
 
 		const troli = {
                          "key": {
@@ -572,6 +542,12 @@ Bot Admin : ${isBotAdmins}
 	link_bkp = mmk.result.watermark
 	sendFileFromUrl(from,link_bkp,'Done',m)
 	break
+	case 'ttmp3':
+		   m.reply(mess.wait)
+		   audio = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${q}`)
+		   audio = audio.result.audio_only.original
+		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `audio_tiktok.mp3`}, {quoted:m})
+		   break
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
