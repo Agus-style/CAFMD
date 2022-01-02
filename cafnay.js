@@ -20,6 +20,7 @@ const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const hx = require('hxz-api')
+const { TiktokDownloader } = require('./lib/tiktokdl')
 const { igDownloader } = require('./lib/igdown')
 const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
@@ -530,16 +531,10 @@ Bot Admin : ${isBotAdmins}
    break
 	
 	   case 'ttnowm':
-                   case 'tiktokdl':
-                   case 'tiktoknowm':
 if (!q) return m.reply('Linknya?')
-var { TiktokDownloader } = require('./lib/tiktokdl')
 m.reply(mess.wait)
-res = await TiktokDownloader(`${q}`).catch(e => {
-m.reply(mess.error.api)
-})
-console.log(res)
-sendFileFromUrl(from, `${res.result.nowatermark}`)
+res = await TiktokDownloader(q)
+m.reply(res)
 break
 		   case 'ttwm':
 		   m.reply(mess.wait)
