@@ -21,6 +21,7 @@ const { performance } = require('perf_hooks')
 const yts = require('yt-search')
 const hx = require('hxz-api')
 const { igDownloader } = require('./lib/igdown')
+const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
 const moment = require("moment-timezone")
 const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
@@ -537,7 +538,6 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(from,nowm,'Done️',m)
 		   })
 		   break
-		   
 		   case 'ttwm':
 		   m.reply(mess.wait)
 		   hx.ttdownloader(q)
@@ -547,7 +547,6 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(from,wm,'Done️',m)
 		   })
 		   break
-		   
 		   case 'ttmp3':
 		   m.reply(mess.wait)
 		   audio = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${q}`)
