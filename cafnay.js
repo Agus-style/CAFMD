@@ -367,7 +367,8 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ttaudio (link tt)
 │⭔ ${prefix}igdl (link ig)
 │⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link ig)
+│⭔ ${prefix}ttnowm (link tt)
+│⭔ ${prefix}mediafire (link)
 │
 └───────⭓
 
@@ -551,6 +552,23 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(m.chat, url, m)
 		   break
 	   }
+	   
+	   case 'google':
+case 'googlesearch':
+case 'ggs':
+if (args.length < 1) return m.reply('Yang mau di cari apaan?')
+teks = args.join(' ')
+m.reply(mess.wait)
+res = await ggs({'query' : `${teks}`})
+kant = ``
+for (let i of res) {
+kant += `*Judul* : ${i.title}
+*Link* : ${i.link}
+*Keterangan* : ${i.snippet}`
+}
+var akhir = kant.trim()
+m.reply(akhir)
+break
 	  
 	  case 'kbbi':
 	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
