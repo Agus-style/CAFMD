@@ -571,6 +571,24 @@ var akhir = kant.trim()
 m.reply(akhir)
 break
 	  
+	  case '#google':
+            m.reply(mess.wait)
+             if (!q) return m.reply(from, 'apa yang mau diketik?', id)
+            m.reply(from, mess.wait, id)
+            const googleQuery = body.slice(8)
+            if(googleQuery == undefined || googleQuery == ' ') return m.reply(from, `*Hasil Pencarian : ${googleQuery}* tidak ditemukan`, id)
+            google({ 'query': googleQuery }).then(results => {
+            let vars = `_*Hasil Pencarian : ${googleQuery}*_\n`
+            for (let i = 0; i < results.length; i++) {
+                vars +=  `\n═════════════════\n\n*Judul* : ${results[i].title}\n\n*Deskripsi* : ${results[i].snippet}\n\n*Link* : ${results[i].link}\n\n`
+            }
+                m.reply(from, vars, id);
+            }).catch(e => {
+                console.log(e)
+                cafnay.sendText(ownerNumber, 'Google Error : ' + e);
+            })
+            break
+	  
 	  case 'kbbi':
 	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
 		  bi = await fetchJson(`https://human-apixyz.herokuapp.com/api/info/kbbi?kata=${q}&apikey=AnggaKey`)
