@@ -212,8 +212,8 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `CAF•BOTz - MD`, 
-                         "orderTitle": 'CAF', 
+                         "message": `Agus•Style`, 
+                         "orderTitle": 'ASFI', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
@@ -232,7 +232,7 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          
                          "surface": 200, 
                          "message": `Halo ${pushname}! dapet salam dari owner.`, 
-                         "orderTitle": 'dapet salam dari owner CAF!', 
+                         "orderTitle": 'dapet salam dari owner ASFI!', 
                          "sellerJid": '6285793887010@s.whatsapp.net'
                     } 
                           } 
@@ -546,10 +546,9 @@ Bot Admin : ${isBotAdmins}
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
-		   dl = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/mediafire?url=${q}&apikey=sQMpXbHimbTkxGC`)
-		   ep = `Tunggu sebentar...\n\nFile Name : ${dl.result.nama}\nJenis file : .${dl.result.mime}\nSize : ${dl.result.size}`
-		   cafnay.sendMessage(m.chat, {text: ep}, {quoted: m})
-		   sendFileFromUrl(m.chat, dl.result.link, m)
+		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
+		   url = dl.urlDown
+		   sendFileFromUrl(m.chat, url, m)
 		   break
 	   }
 	  
