@@ -555,8 +555,7 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   case 'google':
-case 'googlesearch':
+	   
 case 'ggs':
 m.reply(mess.wait)
 if (!q) return m.reply('Yang mau di cari apaan?')
@@ -571,7 +570,7 @@ var akhir = kant.trim()
 m.reply(akhir)
 break
 	  
-	  case '#google':
+	  case 'google':
             m.reply(mess.wait)
              if (!q) return m.reply(from, 'apa yang mau diketik?', id)
             m.reply(from, mess.wait, id)
