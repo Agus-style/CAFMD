@@ -931,6 +931,19 @@ break
                 cafnay.sendMessage(m.chat, { image: { url: result.image }, caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}` }, { quoted: troli })
             }
             break
+            
+            case 'brainly':
+			if (args.length < 1) return m.reply('Pertanyaan apa')
+          	brien = args.join(' ')
+			brainly(`${brien}`).then(res => {
+			teks = '❉───────────────────────❉\n'
+			for (let Y of res.data) {
+			teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
+			}
+			cafnay.sendMessage(from, teks, text,{quoted:mek,detectLinks: false})                        
+            })              
+			break
+            
             case 'porno': case 'porn': case 'bokep': {
  m.reply('Bokeppp tross')
 			}
