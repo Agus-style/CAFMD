@@ -556,10 +556,9 @@ Bot Admin : ${isBotAdmins}
 	   case 'google':
 case 'googlesearch':
 case 'ggs':
-if (args.length < 1) return m.reply('Yang mau di cari apaan?')
-teks = args.join(' ')
 m.reply(mess.wait)
-res = await ggs({'query' : `${teks}`})
+if (!q) return m.reply('Yang mau di cari apaan?')
+res = await ggs(q) 
 kant = ``
 for (let i of res) {
 kant += `*Judul* : ${i.title}
