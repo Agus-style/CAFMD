@@ -570,10 +570,9 @@ var akhir = kant.trim()
 m.reply(akhir)
 break
 	  
-	  case 'google':
+	  case 'google':            
+             if (!q) return m.reply('apa yang mau diketik?')
             m.reply(mess.wait)
-             if (!q) return m.reply(from, 'apa yang mau diketik?', id)
-            m.reply(from, mess.wait, id)
             const googleQuery = body.slice(8)
             if(googleQuery == undefined || googleQuery == ' ') return m.reply(from, `*Hasil Pencarian : ${googleQuery}* tidak ditemukan`, id)
             google({ 'query': googleQuery }).then(results => {
@@ -761,14 +760,12 @@ cafnay.sendMessage(from, buttonMessage)
                 await fs.unlinkSync(media)
             }
             break
-	    case 'tourl': {
+	        case 'tourl': {
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
-                    let anu = await UploadFileUgu(media)
-                    anu1 = `${anu.url}`
-                    console.log(anu1)
-                    m.reply(util.format(anu1))
+                    let anu = await TelegraPh(media)
+                    m.reply(util.format(anu))
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
                     m.reply(util.format(anu))
