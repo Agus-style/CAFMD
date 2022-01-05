@@ -633,7 +633,7 @@ case 'ohidetag':
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
             
-             case 'setprofile': case 'setpp': {
+             case 'setprofile': case 'setpap': {
                 if (!isCreator) throw mess.owner
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 cafnay.updateProfilePicture(media)
@@ -641,12 +641,23 @@ case 'ohidetag':
             break
             
             case 'setname':
-					if (!isOwner && !mek.key.fromMe) return m.reply(mess.only.owner)
+					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
 				if (args.length < 1) return m.reply('Teksnya?')
                 anu = body.slice(9)
                 cafnay.updateProfileName(anu)
-                reply(`Sukses mengganti nama ke ${body.slice(9)}`)
+                m.reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
+                
+                case 'setprofile':
+				case 'setpp':
+				cafnay.updatePresence(from, Presence.composing)
+				if (!quoted) return m.reply('Reply imagenya!')
+					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
+					enmediau = JSON.parse(JSON.stringify(mek).replace('quoted','m')).message.extendedTextMessage.contextInfo
+					mediau = await cafnay.downloadAndSaveMediaMessage(enmediau)
+					await cafnay.updateProfilePicture(botNumber, mediau)
+					m.reply('Sukses')
+					break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
