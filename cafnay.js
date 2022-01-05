@@ -934,7 +934,7 @@ break
             break
             
             case 'brainly':
-			if (args.length < 1) return m.reply('Pertanyaan apa')
+			if (!q) return m.reply('Pertanyaan apa')
           	brien = args.join(' ')
 			brainly(`${brien}`).then(res => {
 			teks = '❉───────────────────────❉\n'
