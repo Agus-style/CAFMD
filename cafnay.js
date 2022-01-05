@@ -503,6 +503,7 @@ Bot Admin : ${isBotAdmins}
 	   }
 	   
 	   case 'ytmp3':{
+	   if (!q) return m.reply('link nya cok')
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
@@ -510,6 +511,7 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   case 'ytmp4':{
+	   if (!q) return m.reply('link nya mana')
 		  cafau = await y2mateV(q)
 		  title = cafau[0].judul
 		  video = cafau[0].link
@@ -637,6 +639,14 @@ case 'ohidetag':
                 cafnay.updateProfilePicture(media)
             }
             break
+            
+            case 'setname':
+					if (!isOwner && !mek.key.fromMe) return m.reply(mess.only.owner)
+				if (args.length < 1) return m.reply('Teksnya?')
+                anu = body.slice(9)
+                cafnay.updateProfileName(anu)
+                reply(`Sukses mengganti nama ke ${body.slice(9)}`)
+                break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
