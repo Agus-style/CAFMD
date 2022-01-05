@@ -933,18 +933,17 @@ break
             }
             break
             
-            case 'brain':
-brainly(q).then(res => {
-hmm = '────────────\n'
-for (let Y of res.data) {
-hmm += `==============================\n`
-hmm += `\`\`\`Pertanyaan :\`\`\`\n${Y.pertanyaan}\n\n`
-hmm += `\`\`\`Jawaban :\`\`\`\n${Y.jawaban[0].text}\n`
-hmm += `==============================\n\n`
-m.reply(hmm)
-}
-})
-break
+            case 'brainly':
+			if (args.length < 1) return m.reply('Pertanyaan apa')
+          	brien = args.join(' ')
+			brainly(`${brien}`).then(res => {
+			teks = '❉───────────────────────❉\n'
+			for (let Y of res.data) {
+			teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
+			}
+			cafnay.sendMessage(from, teks, text,{quoted:mek,detectLinks: false})                        
+            })              
+			break
             
             case 'porno': case 'porn': case 'bokep': {
  m.reply('Bokeppp tross')
