@@ -934,7 +934,7 @@ break
             break
             
             case 'brain':
-Brainly(q).then(res => {
+brainly(q).then(res => {
 hmm = '────────────\n'
 for (let Y of res.data) {
 hmm += `==============================\n`
