@@ -455,7 +455,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}public
 │⭔ ${prefix}self
 │⭔ ${prefix}setmenu
-│⭔ ${prefix}setppbot
+│⭔ ${prefix}setpp
 │
 └───────⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
@@ -644,14 +644,15 @@ case 'ohidetag':
 					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
 				if (args.length < 1) return m.reply('Teksnya?')
                 anu = body.slice(9)
-                cafnay.updateProfileName(anu)
+                await cafnay.updateProfileName(anu)
                 m.reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
                 
                 case 'setpp': 
                             if (!isCreator) throw mess.owner
                             let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                            await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                            await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err)
+                            m.reply('Gagal Mengganti Foto Profil'))
                             break
                         	   
 ///////////PLAY FROM YOUTUBE
