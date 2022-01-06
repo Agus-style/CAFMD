@@ -517,15 +517,7 @@ Bot Admin : ${isBotAdmins}
 		  video = cafau[0].link
 		  sendFileFromUrl(from,video,`Done`,m)
 		  break
-	   }
-	   
-	  case'artinem':
-	 if (!q) return m.reply('nama nya)
-	res = await ArtiNama(q)
-	res = res.res
-	isi = res.result
-	cafnay.sendMessage(m.chat, {text: isi}, {quoted: m})
-	  break
+	   }	   	  
 	
 	   case 'igdl':
    if (!q) return m.reply('Linknya?')
@@ -604,6 +596,13 @@ break
 	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
+	  
+	  case'artinem':
+	 if (!q) return m.reply('nama nya)
+	res = await ArtiNama(q)	
+	isi = res.result
+	cafnay.sendMessage(m.chat, {text: isi}, {quoted: m})
+	  break
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
@@ -656,16 +655,11 @@ case 'ohidetag':
                 m.reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
                 
-                case 'setprofile':
-				case 'setpp':
-				cafnay.updatePresence(from, Presence.composing)
-				if (!quoted) return m.reply('Reply imagenya!')
-					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
-					enmediau = JSON.parse(JSON.stringify(mek).replace('quoted','m')).message.extendedTextMessage.contextInfo
-					mediau = await cafnay.downloadAndSaveMediaMessage(enmediau)
-					await cafnay.updateProfilePicture(botNumber, mediau)
-					m.reply('Sukses')
-					break
+                case 'setpp': 
+                            if (!isCreator) throw mess.owner
+                            let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                            await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                            break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
