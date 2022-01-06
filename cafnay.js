@@ -632,22 +632,7 @@ case 'ohidetag':
                 teks += `\n⋙ *${botname}* ⋘`
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
-            
-             case 'setprofile': case 'setpap': {
-                if (!isCreator) throw mess.owner
-                let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                cafnay.updateProfilePicture(media)
-            }
-            break
-            
-            case 'setname':
-					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
-				if (args.length < 1) return m.reply('Teksnya?')
-                anu = body.slice(9)
-                await cafnay.updateProfileName(anu)
-                m.reply(`Sukses mengganti nama ke ${body.slice(9)}`)
-                break
-                
+                         
                 case 'setpp': 
                             if (!isCreator) throw mess.owner
                             let media = await cafnay.downloadAndSaveMediaMessage(quoted)
