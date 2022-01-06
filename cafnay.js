@@ -644,7 +644,7 @@ case 'ohidetag':
 					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
 				if (args.length < 1) return m.reply('Teksnya?')
                 anu = body.slice(9)
-                await = fs.unlinkSync((anu)
+                cafnay.updateProfileName(anu)
                 m.reply(`Sukses mengganti nama ke ${body.slice(9)}`)
                 break
                 
@@ -655,7 +655,7 @@ case 'ohidetag':
 					if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)
 					enmediau = JSON.parse(JSON.stringify(mek).replace('quoted','m')).message.extendedTextMessage.contextInfo
 					mediau = await cafnay.downloadAndSaveMediaMessage(enmediau)
-					await fs.unlinkSync(botNumber, mediau)
+					await cafnay.updateProfilePicture(botNumber, mediau)
 					m.reply('Sukses')
 					break
                         	   
