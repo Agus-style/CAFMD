@@ -595,14 +595,7 @@ break
 		  bi = await fetchJson(`https://human-apixyz.herokuapp.com/api/info/kbbi?kata=${q}&apikey=AnggaKey`)
 	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
-	  break
-	  
-	  case'artinem':
-	 if (!q) return m.reply('nama nya)
-	res = await ArtiNama(q)	
-	isi = res.result
-	cafnay.sendMessage(m.chat, {text: isi}, {quoted: m})
-	  break
+	  break	  	  
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
