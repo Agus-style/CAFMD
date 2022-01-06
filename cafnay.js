@@ -16,9 +16,6 @@ const axios = require('axios')
 const { fromBuffer } = require('file-type')
 const path = require('path')
 const os = require('os')
-const ggs = require('google-it')
-const googleImage = require('g-i-s')
-const brainly = require('brainly-scraper')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
@@ -215,8 +212,8 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `Agus•Style`, 
-                         "orderTitle": 'ASFI', 
+                         "message": `CAF•BOTz - MD`, 
+                         "orderTitle": 'CAF', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
@@ -235,7 +232,7 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          
                          "surface": 200, 
                          "message": `Halo ${pushname}! dapet salam dari owner.`, 
-                         "orderTitle": 'dapet salam dari owner ASFI!', 
+                         "orderTitle": 'dapet salam dari owner CAF!', 
                          "sellerJid": '6285793887010@s.whatsapp.net'
                     } 
                           } 
@@ -370,8 +367,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ttaudio (link tt)
 │⭔ ${prefix}igdl (link ig)
 │⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link tt)
-│⭔ ${prefix}mediafire (link)
+│⭔ ${prefix}ttnowm (link ig)
 │
 └───────⭓
 
@@ -464,6 +460,24 @@ Bot Admin : ${isBotAdmins}
 ❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
 ❑ Jika menemukan bug/err silahkan hubungi owner
 
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒▒▒▒▒▒▒▒▄▄▄▄▄▄▄▄▒▒▒▒▒▒
+▒▒█▒▒▒▄██████████▄▒▒▒▒
+▒█▐▒▒▒████████████▒▒▒▒
+▒▌▐▒▒██▄▀██████▀▄██▒▒▒
+▐┼▐▒▒██▄▄▄▄██▄▄▄▄██▒▒▒
+▐┼▐▒▒██████████████▒▒▒
+▐▄▐████─▀▐▐▀█─█─▌▐██▄▒
+▒▒█████──────────▐███▌
+▒▒█▀▀██▄█─▄───▐─▄███▀▒
+▒▒█▒▒███████▄██████▒▒▒
+▒▒▒▒▒██████████████▒▒▒
+▒▒▒▒▒██████████████▒▒▒
+▒▒▒▒▒█████████▐▌██▌▒▒▒
+▒▒▒▒▒▐▀▐▒▌▀█▀▒▐▒█▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▌▒▒▒▒▒
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
 `
 
         // Public & Self
@@ -503,7 +517,6 @@ Bot Admin : ${isBotAdmins}
 	   }
 	   
 	   case 'ytmp3':{
-	   if (!q) return m.reply('link nya cok')
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
@@ -511,14 +524,13 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   case 'ytmp4':{
-	   if (!q) return m.reply('link nya mana')
 		  cafau = await y2mateV(q)
 		  title = cafau[0].judul
 		  video = cafau[0].link
 		  sendFileFromUrl(from,video,`Done`,m)
 		  break
-	   }	   	  
-	
+	   }
+	   
 	   case 'igdl':
    if (!q) return m.reply('Linknya?')
    res = await igDownloader(q)
@@ -557,45 +569,13 @@ Bot Admin : ${isBotAdmins}
 		   sendFileFromUrl(m.chat, url, m)
 		   break
 	   }
-	   
-	   
-case 'ggs':
-m.reply(mess.wait)
-if (!q) return m.reply('Yang mau di cari apaan?')
-res = await ggs(q) 
-kant = ``
-for (let i of res) {
-kant += `*Judul* : ${i.title}
-*Link* : ${i.link}
-*Keterangan* : ${i.snippet}`
-}
-var akhir = kant.trim()
-m.reply(akhir)
-break
-	  
-	  case 'google':            
-             if (!q) return m.reply('apa yang mau diketik?')
-            m.reply(mess.wait)
-            const googleQuery = body.slice(8)
-            if(googleQuery == undefined || googleQuery == ' ') return m.reply(from, `*Hasil Pencarian : ${googleQuery}* tidak ditemukan`, id)
-            google({ 'query': googleQuery }).then(results => {
-            let vars = `_*Hasil Pencarian : ${googleQuery}*_\n`
-            for (let i = 0; i < results.length; i++) {
-                vars +=  `\n═════════════════\n\n*Judul* : ${results[i].title}\n\n*Deskripsi* : ${results[i].snippet}\n\n*Link* : ${results[i].link}\n\n`
-            }
-                m.reply(from, vars, id);
-            }).catch(e => {
-                console.log(e)
-                cafnay.sendText(ownerNumber, 'Google Error : ' + e);
-            })
-            break
 	  
 	  case 'kbbi':
 	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
 		  bi = await fetchJson(`https://human-apixyz.herokuapp.com/api/info/kbbi?kata=${q}&apikey=AnggaKey`)
 	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
-	  break	  	  
+	  break
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
@@ -632,8 +612,8 @@ case 'ohidetag':
                 teks += `\n⋙ *${botname}* ⋘`
                 cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
             break
-                         
-                case 'setpp': 
+            
+             case 'setpp': 
                             if (!isCreator) throw mess.owner
                             let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                             await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err)
@@ -763,12 +743,14 @@ cafnay.sendMessage(from, buttonMessage)
                 await fs.unlinkSync(media)
             }
             break
-	        case 'tourl': {
+	    case 'tourl': {
                 m.reply(mess.wait)
                 let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                 if (/image/.test(mime)) {
-                    let anu = await TelegraPh(media)
-                    m.reply(util.format(anu))
+                    let anu = await UploadFileUgu(media)
+                    anu1 = `${anu.url}`
+                    console.log(anu1)
+                    m.reply(util.format(anu1))
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
                     m.reply(util.format(anu))
@@ -934,19 +916,6 @@ break
                 cafnay.sendMessage(m.chat, { image: { url: result.image }, caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}` }, { quoted: troli })
             }
             break
-            
-            case 'brainly':
-			if (!q) return m.reply('Pertanyaan apa')
-          	brien = args.join(' ')
-			brainly(`${brien}`).then(res => {
-			teks = '❉───────────────────────❉\n'
-			for (let Y of res.data) {
-			teks += `\n*「 _BRAINLY_ 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n❉──────────────────❉\n`
-			}
-			cafnay.sendMessage(from, teks, text,{quoted:mek,detectLinks: false})                        
-            })              
-			break
-            
             case 'porno': case 'porn': case 'bokep': {
  m.reply('Bokeppp tross')
 			}
