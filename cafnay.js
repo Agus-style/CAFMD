@@ -519,6 +519,14 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   
+	  case'artinem':
+	 if (!q) return m.reply('nama nya)
+	res = await ArtiNama(q)
+	res = res.res
+	isi = res.result
+	cafnay.sendMessage(m.chat, {text: isi}, {quoted: m})
+	  break
+	
 	   case 'igdl':
    if (!q) return m.reply('Linknya?')
    res = await igDownloader(q)
