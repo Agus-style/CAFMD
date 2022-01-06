@@ -368,6 +368,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}igdl (link ig)
 │⭔ ${prefix}ttwm (link tt)
 │⭔ ${prefix}ttnowm (link ig)
+│⭔ ${prefix}mediafire(link)
 │
 └───────⭓
 
@@ -596,11 +597,10 @@ case 'ohidetag':
             break
             
              case 'setpp': 
-                            if (!isCreator) throw mess.owner
-                            let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                            await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err)
-                            m.reply('Gagal Mengganti Foto Profil'))
-                            break
+                  if (!isCreator) throw mess.owner
+                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                  await cafnay.updateProfilePicture(m.chat, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                  break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
