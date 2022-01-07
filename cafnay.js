@@ -1156,12 +1156,26 @@ case 'get':
             }
             break
 ///////////////////////BATAS SUCI///////////////////
-case 'tes':
-if (!q) return m.reply('Masukan Link Yt')
-let gambar = fs.readFileSync('./media/caf.webp')
-teks = `Hanya Test Doank`
-await sendButtonImg(from, teks, fake, await cafnay.createMessage(from, {image: {url: "./media/caf.webp", caption: teks}}))
-break
+case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
+                let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
+                let buttons = [
+                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Random ' + command,
+                    buttons: buttons,
+                    headerType: 2
+                }
+                cafnay.sendMessage(from, buttonMessage, { quoted: mek })
+            }
+            break
+
+            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
+                buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
+                cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
+            break
+/////////////////////////BATASNYA ASU///////////////////            
                             
                   
             /*case 'tes': case 'menu': case 'help': case '?': {
