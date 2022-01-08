@@ -44,6 +44,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         var budy = (typeof m.text == 'string' ? m.text : '')
         var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
         const kuntul = cafnay.user.id
+        const ngen_uh = m.chat
         const isCmd = body.startsWith(prefix)
         const from = m.key.remoteJid
 		const type = Object.keys(m.message)[0] 
@@ -600,19 +601,18 @@ case 'ohidetag':
             break
             
              case 'setpp': 
-                  if (!isCreator) throw mess.owner
+                  if (!isCreator) throw mess.owner                  
                   let media = await cafnay.downloadAndSaveMediaMessage(quoted)
                   await cafnay.updateProfilePicture(kuntul, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
                   break
                   
-                  case 'setpap':				
-				if (!isCreator) return m.reply(`Kirim gambar dengan caption ${prefix}setpap atau tag gambar yang sudah dikirim`)
-					if (!isCreator) return m.reply(mess.only.owner)
-					enmedia = JSON.parse(JSON.stringify(mek).replace('quoted','m')).message.extendedTextMessage.contextInfo
-					media = await cafnay.downloadAndSaveMediaMessage(enmedia)
-					await cafnay.updateProfilePicture(botNumber, media)
-					m.reply('Makasih profile barunyaðŸ˜—')
-					break
+                  case 'setgp':
+                  if (isGroup) {
+                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                  await cafnay.updateProfilePicture(ngen_uh, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                  }
+                  break
+                 
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
