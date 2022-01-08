@@ -212,8 +212,8 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `CAF•BOTz - MD`, 
-                         "orderTitle": 'CAF', 
+                         "message": `AS•STYLE - MD`, 
+                         "orderTitle": 'AS', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
@@ -500,6 +500,7 @@ Bot Admin : ${isBotAdmins}
 	   }
 	   
 	   case 'ytmp3':{
+	   if (!q) return m.reply('link nya cok')
 		  cafau = await y2mateA(q)
 		  title = cafau[0].judul
 		  audio = cafau[0].link
@@ -507,6 +508,7 @@ Bot Admin : ${isBotAdmins}
 		  break
 	   }
 	   case 'ytmp4':{
+	   if (!q) return m.reply('link nya mana')
 		  cafau = await y2mateV(q)
 		  title = cafau[0].judul
 		  video = cafau[0].link
