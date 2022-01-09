@@ -1376,25 +1376,7 @@ m.reply(`Apikey *${command}* Undefined`)
 break
 ///////////////////////WELCOME///////////////////
 
-case 'motivasi': case 'bijak': case 'fakta': case 'telesticker': case 'katabijak': {
-                let anu = await fetchJson(`https://api.olabdev.my.id/api/${command}??text=${q}&apikey=z4jiRRSk`)
-                let buttons = [
-                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
-                ]
-                let buttonMessage = {
-                    text: anu.result.message,
-                    footer: 'Random ' + command,
-                    buttons: buttons,
-                    headerType: 2
-                }
-                cafnay.sendMessage(from, buttonMessage, { quoted: mek })
-            }
-            break
 
-            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
-                buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
-                cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
-            break
 /////////////////////////BATASNYA ASU///////////////////            
                             
                   
