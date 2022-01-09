@@ -1167,7 +1167,29 @@ case 'get':
                 await fs.unlinkSync(media)
             }
             break
-///////////////////////BATAS SUCI///////////////////
+            
+////////////////////////WELCOME/////////////////////
+
+////////////////////////PHOTOOXY/////////////////////
+ case '3d-summer': case 'wooden-boards': case 'flower-heart': case 'wood-heart': case 'coffe-cup': case 'undergrass': case 'naruto-banner':
+ case 'burn-paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny-cup': case 'love-text': case 'double-romantic':
+ case 'lol-rankboder': case 'lol-pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe-cup-2': case 'harrypotter':
+ case 'butterfly': case 'glow-metallic': case 'crisp-chrome': case 'fur': case 'glow-rainbow': case 'graffiti-cover': case 'glowing-neon': case 'underwater':
+ case '3d-nature': case 'golden-roses': case 'rainbow-shine': case 'rainbow-shine': case 'gradient': case 'night-sky': case 'flaming': case 'write-birthday':
+ case 'waterlemon': case '3d-wooden': case 'neon-light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark-metal':
+ case 'lol-coverglowing':
+if (!q) return m.reply(`Masukan query!`)
+command_r = command.replace("-", "_")
+try {
+tekpro = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
+console.log(photoxy)
+potoxy = await getBuffer(photoxy)
+cafnay.sendMessage(m.chat, { image: potoxy , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
+} catch (e) {
+m.reply(`Apikey *${command}* Undefined`)
+}
+break
+///////////////////////WELCOME///////////////////
 case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
                 let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
                 let buttons = [
