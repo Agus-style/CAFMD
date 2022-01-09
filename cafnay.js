@@ -1181,7 +1181,7 @@ case 'get':
 if (!q) return m.reply(`Masukan query!`)
 command_r = command.replace("-", "_")
 try {
-tekpro = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
+photoxy = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
 console.log(photoxy)
 potoxy = await getBuffer(photoxy)
 cafnay.sendMessage(m.chat, { image: potoxy , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
