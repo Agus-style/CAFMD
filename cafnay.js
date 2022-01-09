@@ -1377,7 +1377,7 @@ break
 ///////////////////////WELCOME///////////////////
 
 case 'motivasi': case 'bijak': case 'fakta': case 'telesticker': case 'katabijak': {
-                let anu = await fetchJson(`https://api.olabdev.my.id/api/${command}?apikey=${z4jiRRSk}`)
+                let anu = await fetchJson(`https://api.olabdev.my.id/api/${command}??text=${q}&apikey=z4jiRRSk`)
                 let buttons = [
                     { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
                 ]
