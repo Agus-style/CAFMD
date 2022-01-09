@@ -1190,6 +1190,35 @@ m.reply(`Apikey *${command}* Undefined`)
 }
 break
 ///////////////////////WELCOME///////////////////
+///////////////////////TEXT PRO///////////////////
+
+case 'blackpink': case 'rainbow': case 'water_pipe': case 'halloween': case 'sketch': case 'discovery': case 'sircuit': case 'metallic': case 'fiction': 
+case 'transformer': case 'demon': case 'berry': case 'thunder': case 'magma': case '3dstone': case 'neon': case 'glitch': case 'glitch': case 'embossed': 
+case 'harry_potter': case 'broken': case 'papercut': case 'gradient': case 'glossy': case 'watercolor': case 'multicolor': case 'underwater': case 'neon_devil': case 'bear': case 'wonderfulg': 
+case 'sparkling6': case 'sparkling7': case 'decorative': case 'strawberry': case 'chocolate': case 'koifish': case 'bread': case 'matrix': case 'blood2': case 'neonligth2': case 'thunder2': case 'neon2': 
+case '3dbox': case 'roadw': case 'bokeh': case 'gneon': case 'advanced': case 'dropwater': case 'wall': case 'chrismast': case 'honey': case 'drug': case 'marble': case 'marble2': case 'ice': case 'juice': case 'rusty': case 'abstra': 
+case 'biscuit': case 'wood': case 'scifi': case 'metalr': case 'purpleg': case 'shiny': case 'jewelry': case 'jewelry2': case 'jewelry3': case 'jewelry4': case 'jewelry5': case 'jewelry6': case 'jewelry7': case 'jewelry8': case 'metalh': case 'golden': 
+case 'glitter': case 'glitter2': case 'glitter3': case 'glitter4': case 'glitter5': case 'glitter6': case 'glitter7': case 'metale': case 'carbon': case 'candy': case 'candy': case 'metalb': case 'gemb': case 'metalb2': case 'metalg': 
+case 'neon_light':  case 'snow':  case 'cloudsky ': case 'gradient2 ': case ' luxury2': case 'christmas ': 
+case 'summer ': case 'minion': case 'oscar': case 'neonlight': case 'metaldark': case '3dglue': 
+case 'summery': case 'engraved': case 'writing': case 'newyear2': case 'newyear': case 'neonc': 
+case 'fabric': case 'glossyc': case 'deluxe2': 
+case 'glossyb': case 'holographic': case 'purple': case 'skeleton': case 'natural': case 'firework': case 'wicker': case 'joker': case 'darkg': case 'blood': case 'xmas': case 'metals': case 'denim': case 'gloss': 
+case 'steel': case 'balloon7': case 'balloon5': case 'balloon6': case 'balloon4': case 'balloon3': case 'balloon2': case 'balloon': case 'glass4': case 'glass3': case 'glass2': case 'glass': case 'rock': 
+case 'peridot': case 'decorate2': case 'decorate': case 'toxic': case 'equalizer': case 'captain_as2': case 'glass7': case 'glass5': case 'glass6': case 'glass8': case 'robot': case 'sparkling5': case 'sparkling4': case 'sparkling3': case 'sparkling2': case 'sparkling': 
+if (!q) return m.reply(`Masukan query!`)
+command_r = command.replace("-", "_")
+try {
+tekpro = `https://api-alphabot.herokuapp.com/api/textpro/${command_r}?text=${q}&apikey=Alphabot`
+console.log(tekpro)
+tekproimg = await getBuffer(tekpro)
+cafnay.sendMessage(m.chat, { image: tekproimg , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
+} catch (e) {
+m.reply(`Apikey *${command}* Undefined`)
+}
+break
+///////////////////////WELCOME///////////////////
+
 case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
                 let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
                 let buttons = [
