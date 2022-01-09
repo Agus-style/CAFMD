@@ -1,4 +1,4 @@
-(/**
+/**
    * Create By Dika Ardnt.
    * Contact Me on wa.me/6288292024190
    * Follow https://github.com/DikaArdnt
@@ -350,7 +350,7 @@ Ini MySelf : ${itsMe}
 Admin Gc : ${isGroupAdmins}
 Bot Admin : ${isBotAdmins}
 
-┌──⭓ *Group Menu*
+┌──●⭓ *Group Menu*
 │
 │⭔ ${prefix}linkgroup
 │⭔ ${prefix}hidetag (teks)
@@ -359,9 +359,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
 │
-└───────⭓
+└───────●⭓
 
-┌──⭓ *Downloader Menu*
+┌──●⭓ *Downloader Menu*
 │
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
@@ -372,9 +372,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}ttnowm (link ig)
 │⭔ ${prefix}mediafire(link)
 │
-└───────⭓
+└───────●⭓
 
-┌──⭓ *Search Menu*
+┌──●⭓ *Search Menu*
 │
 │⭔ ${prefix}pinterest
 │⭔ ${prefix}wallpaper
@@ -384,9 +384,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}gimg (query)
 │⭔ ${prefix}kbbi (query)
 │
-└───────⭓
+└───────●⭓
 
-┌──⭓ *Random Menu*
+┌──●⭓ *Random Menu*
 │
 │⭔ ${prefix}porno
 │⭔ ${prefix}hentai
@@ -424,7 +424,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}cringe
 │⭔ ${prefix}hilih (query)
 │
-└───────⭓
+└───────●⭓
 
 ┌──● TEXT PRO 1
 │
@@ -583,7 +583,7 @@ Bot Admin : ${isBotAdmins}
 │
 └───────●
 
-┌──⭓ *Main Menu*
+┌──● *Main Menu*
 │
 │⭔ ${prefix}ping
 │⭔ ${prefix}owner
@@ -597,15 +597,15 @@ Bot Admin : ${isBotAdmins}
 │  ${prefix}tagall (query)
 │⭔ ${prefix}toimg (foto) 
 │
-└───────⭓
+└───────●⭓
 
-┌──⭓ *Maker Menu*
+┌──●⭓ *Maker Menu*
 │
 │⭔ ${prefix}ktpmaker
 │
-└───────⭓
+└───────●⭓
 
-┌──⭓ *Owner Menu*
+┌──●⭓ *Owner Menu*
 │
 │⭔ ${prefix}chat [option]
 │⭔ ${prefix}public
@@ -613,7 +613,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}setmenu
 │⭔ ${prefix}setpp
 │
-└───────⭓
+└───────●⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
 ❑ Jika bot tidak merespon, mungkin bot sedang off
 ❑ bot tidak menyimpan riwayat foto/media
@@ -1325,34 +1325,47 @@ case 'get':
             }
             break
             
-///////////////////////TEXT PRO///////////////////
+///////////////////////TEXT PRO 2///////////////////
 
-case 'blackpink': case 'rainbow': case 'water_pipe': case 'halloween': case 'sketch': case 'discovery': case 'sircuit': case 'metallic': case 'fiction': 
-case 'transformer': case 'demon': case 'berry': case 'thunder': case 'magma': case '3dstone': case 'neon': case 'glitch': case 'glitch': case 'embossed': 
-case 'harry_potter': case 'broken': case 'papercut': case 'gradient': case 'glossy': case 'watercolor': case 'multicolor': case 'underwater': case 'neon_devil': case 'bear': case 'wonderfulg': 
-case 'sparkling6': case 'sparkling7': case 'decorative': case 'strawberry': case 'chocolate': case 'koifish': case 'bread': case 'matrix': case 'blood2': case 'neonligth2': case 'thunder2': case 'neon2': 
-case '3dbox': case 'roadw': case 'bokeh': case 'gneon': case 'advanced': case 'dropwater': case 'wall': case 'chrismast': case 'honey': case 'drug': case 'marble': case 'marble2': case 'ice': case 'juice': case 'rusty': case 'abstra': 
-case 'biscuit': case 'wood': case 'scifi': case 'metalr': case 'purpleg': case 'shiny': case 'jewelry': case 'jewelry2': case 'jewelry3': case 'jewelry4': case 'jewelry5': case 'jewelry6': case 'jewelry7': case 'jewelry8': case 'metalh': case 'golden': 
-case 'glitter': case 'glitter2': case 'glitter3': case 'glitter4': case 'glitter5': case 'glitter6': case 'glitter7': case 'metale': case 'carbon': case 'candy': case 'candy': case 'metalb': case 'gemb': case 'metalb2': case 'metalg': 
-case 'neon_light':  case 'snow':  case 'cloudsky ': case 'gradient2 ': case ' luxury2': case 'christmas ': 
-case 'summer ': case 'minion': case 'oscar': case 'neonlight': case 'metaldark': case '3dglue': 
-case 'summery': case 'engraved': case 'writing': case 'newyear2': case 'newyear': case 'neonc': 
-case 'fabric': case 'glossyc': case 'deluxe2': 
-case 'glossyb': case 'holographic': case 'purple': case 'skeleton': case 'natural': case 'firework': case 'wicker': case 'joker': case 'darkg': case 'blood': case 'xmas': case 'metals': case 'denim': case 'gloss': 
-case 'steel': case 'balloon7': case 'balloon5': case 'balloon6': case 'balloon4': case 'balloon3': case 'balloon2': case 'balloon': case 'glass4': case 'glass3': case 'glass2': case 'glass': case 'rock': 
-case 'peridot': case 'decorate2': case 'decorate': case 'toxic': case 'equalizer': case 'captain_as2': case 'glass7': case 'glass5': case 'glass6': case 'glass8': case 'robot': case 'sparkling5': case 'sparkling4': case 'sparkling3': case 'sparkling2': case 'sparkling': 
+case '3d-summer': case 'wooden-boards': case 'flower-heart': case 'wood-heart': case 'coffe-cup': case 'undergrass': case 'naruto-banner':
+ case 'burn-paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny-cup': case 'love-text': case 'double-romantic':
+ case 'lol-rankboder': case 'lol-pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe-cup-2': case 'harrypotter':
+ case 'butterfly': case 'glow-metallic': case 'crisp-chrome': case 'fur': case 'glow-rainbow': case 'graffiti-cover': case 'glowing-neon': case 'underwater':
+ case '3d-nature': case 'golden-roses': case 'rainbow-shine': case 'rainbow-shine': case 'gradient': case 'night-sky': case 'flaming': case 'write-birthday':
+ case 'waterlemon': case '3d-wooden': case 'neon-light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark-metal':
+ case 'lol-coverglowing':
 if (!q) return m.reply(`Masukan query!`)
 command_r = command.replace("-", "_")
 try {
-tekpro = `https://api-alphabot.herokuapp.com/api/textpro/${command_r}?text=${q}&apikey=Alphabot`
-console.log(tekpro)
-tekproimg = await getBuffer(tekpro)
-cafnay.sendMessage(m.chat, { image: tekproimg , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
+tekpro = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
+console.log(photoxy)
+potoxy = await getBuffer(photoxy)
+cafnay.sendMessage(m.chat, { image: potoxy , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
 } catch (e) {
 m.reply(`Apikey *${command}* Undefined`)
 }
 break
+          
+///////////////////////BATAS SUCI///////////////////
+case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
+                let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
+                let buttons = [
+                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Random ' + command,
+                    buttons: buttons,
+                    headerType: 2
+                }
+                cafnay.sendMessage(from, buttonMessage, { quoted: mek })
+            }
+            break
 
+            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
+                buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
+                cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
+            break
 /////////////////////////BATASNYA ASU///////////////////            
                             
                   
