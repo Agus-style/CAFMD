@@ -1,4 +1,4 @@
-/**
+(/**
    * Create By Dika Ardnt.
    * Contact Me on wa.me/6288292024190
    * Follow https://github.com/DikaArdnt
@@ -425,6 +425,163 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}hilih (query)
 │
 └───────⭓
+
+┌──● TEXT PRO 1
+│
+│⭔ ${prefix}fiction
+│⭔ ${prefix}transformer
+│⭔ ${prefix}demon
+│⭔ ${prefix}berry
+│⭔ ${prefix}thunder
+│⭔ ${prefix}magma
+│⭔ ${prefix}3dstone
+│⭔ ${prefix}neon
+│⭔ ${prefix}glitch
+│⭔ ${prefix}embossed
+│⭔ ${prefix}harry-potter
+│⭔ ${prefix}broken
+│⭔ ${prefix}papercut
+│⭔ ${prefix}gradient
+│⭔ ${prefix}glossy
+│⭔ ${prefix}watercolor
+│⭔ ${prefix}multicolor
+│⭔ ${prefix}underwater
+│⭔ ${prefix}neon-devil
+│⭔ ${prefix}bear
+│⭔ ${prefix}wonderfulg
+│⭔ ${prefix}sparkling6
+│⭔ ${prefix}sparkling7
+│⭔ ${prefix}decorative
+│⭔ ${prefix}strawberry
+│⭔ ${prefix}chocolate
+│⭔ ${prefix}koifish
+│⭔ ${prefix}bread
+│⭔ ${prefix}matrix
+│⭔ ${prefix}blood2
+│⭔ ${prefix}neonligth2
+│⭔ ${prefix}thunder2
+│⭔ ${prefix}neon2
+│⭔ ${prefix}3dbox
+│⭔ ${prefix}roadw
+│⭔ ${prefix}bokeh
+│⭔ ${prefix}gneon
+│⭔ ${prefix}advanced
+│⭔ ${prefix}dropwater
+│⭔ ${prefix}wall
+│⭔ ${prefix}chrismast
+│⭔ ${prefix}honey
+│⭔ ${prefix}drug
+│⭔ ${prefix}marble
+│⭔ ${prefix}marble2
+│⭔ ${prefix}ice
+│⭔ ${prefix}juice
+│⭔ ${prefix}rusty
+│⭔ ${prefix}abstra
+│⭔ ${prefix}biscuit
+│⭔ ${prefix}wood
+│⭔ ${prefix}scifi
+│⭔ ${prefix}metalr
+│⭔ ${prefix}purpleg
+│⭔ ${prefix}shiny
+│⭔ ${prefix}jewelry
+│⭔ ${prefix}jewelry2
+│⭔ ${prefix}jewelry3
+│⭔ ${prefix}jewelry4
+│⭔ ${prefix}jewelry5
+│⭔ ${prefix}jewelry6
+│⭔ ${prefix}jewelry7
+│⭔ ${prefix}jewelry8
+│⭔ ${prefix}metalh
+│⭔ ${prefix}golden
+│⭔ ${prefix}glitter
+│⭔ ${prefix}glitter2
+│⭔ ${prefix}glitter3
+│⭔ ${prefix}glitter4
+│⭔ ${prefix}glitter5
+│⭔ ${prefix}glitter6
+│⭔ ${prefix}glitter7
+│⭔ ${prefix}metale
+│⭔ ${prefix}carbon
+│⭔ ${prefix}candy
+│⭔ ${prefix}candy
+│⭔ ${prefix}metalb
+│⭔ ${prefix}gemb
+│⭔ ${prefix}metalb2
+│⭔ ${prefix}metalg
+│⭔ ${prefix}neon-light 
+│⭔ ${prefix}snow 
+│⭔ ${prefix}cloudsky 
+│⭔ ${prefix}gradient2 
+│⭔ ${prefix} luxury2
+│⭔ ${prefix}christmas 
+│⭔ ${prefix}summer 
+│⭔ ${prefix}minion
+│⭔ ${prefix}oscar
+│⭔ ${prefix}neonlight
+│⭔ ${prefix}metaldark
+│⭔ ${prefix}3dglue
+│⭔ ${prefix}summery
+│⭔ ${prefix}engraved
+│⭔ ${prefix}writing
+│⭔ ${prefix}newyear2
+│⭔ ${prefix}newyear
+│⭔ ${prefix}neonc
+│⭔ ${prefix}fabric
+│⭔ ${prefix}glossyc
+│⭔ ${prefix}deluxe2
+│⭔ ${prefix}glossyb
+│⭔ ${prefix}holographic
+│⭔ ${prefix}purple
+│⭔ ${prefix}skeleton
+│⭔ ${prefix}natural
+│⭔ ${prefix}firework
+│⭔ ${prefix}wicker
+│⭔ ${prefix}joker
+│⭔ ${prefix}darkg
+│⭔ ${prefix}blood
+│⭔ ${prefix}xmas
+│⭔ ${prefix}metals
+│⭔ ${prefix}denim
+│⭔ ${prefix}gloss
+│⭔ ${prefix}steel
+│⭔ ${prefix}balloon7
+│⭔ ${prefix}balloon5
+│⭔ ${prefix}balloon6
+│⭔ ${prefix}balloon4
+│⭔ ${prefix}balloon3
+│⭔ ${prefix}balloon2
+│⭔ ${prefix}balloon
+│⭔ ${prefix}glass4
+│⭔ ${prefix}glass3
+│⭔ ${prefix}glass2
+│⭔ ${prefix}glass
+│⭔ ${prefix}rock
+│⭔ ${prefix}peridot
+│⭔ ${prefix}decorate2
+│⭔ ${prefix}decorate
+│⭔ ${prefix}toxic
+│⭔ ${prefix}equalizer
+│⭔ ${prefix}captain-as2
+│⭔ ${prefix}glass7
+│⭔ ${prefix}glass5
+│⭔ ${prefix}glass6
+│⭔ ${prefix}glass8
+│⭔ ${prefix}robot
+│⭔ ${prefix}sparkling5
+│⭔ ${prefix}sparkling4
+│⭔ ${prefix}sparkling3
+│⭔ ${prefix}sparkling2
+│⭔ ${prefix}sparkling
+│⭔ ${prefix}metallic
+│⭔ ${prefix}sircuit
+│⭔ ${prefix}sketch
+│⭔ ${prefix}water-pipe
+│⭔ ${prefix}blackpink
+│⭔ ${prefix}rainbow
+│⭔ ${prefix}halloween
+│⭔ ${prefix}discovery
+│
+└───────●
 
 ┌──⭓ *Main Menu*
 │
@@ -1219,8 +1376,8 @@ m.reply(`Apikey *${command}* Undefined`)
 break
 ///////////////////////WELCOME///////////////////
 
-case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
-                let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
+case 'motivasi': case 'bijak': case 'fakta': case 'telesticker': case 'katabijak': {
+                let anu = await fetchJson(`https://api.olabdev.my.id/api/${command}?apikey=${z4jiRRSk}`)
                 let buttons = [
                     { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
                 ]
