@@ -979,8 +979,27 @@ cafnay.sendMessage(from, buttonMessage)
                     fs.unlinkSync(ran)
                 })
             }
-            break			
-							
+            break
+			
+			
+			
+			
+			
+			
+			case 'gimg':{
+				if (!q) return m.reply('masukan query!')
+					m.reply('searching......')
+					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=${BETA}`)
+				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
+				.catch((err) => {
+                    for (let x of ownerNumber) {
+                        sendMess(x, `${command} Error: \n\n` + err)
+                    }
+                   m.reply('Maaf, tidak ada hasil google untuk')
+			})
+				break
+				
+			}
             case 'pinterest': {
                 m.reply(mess.wait)
                 anu = await pinterest(q)
@@ -1210,8 +1229,8 @@ ytresult += `*${botname}*`
 cafnay.sendMessage(m.chat, { image: tbuff, caption: ytresult }, { quoted: m } )
 break
 
-case 'gimg':
-if (args.length < 1) return m.reply('Apa Yang Mau Dicari?')
+case 'googleimage':
+if (!q) return m.reply('Ada Yang Mau Dicari')
 m.reply(mess.wait)
 teks = args.join(' ')
 res = await googleImage(teks, google)
@@ -1219,7 +1238,7 @@ function google(error, result){
 if (error){ return m.reply('_[ ! ] Error Terjari Kesalahan Atau Hasil Tidak Ditemukan_')}
 else {
 var gugIm = result
-var random =  gugIm[Math.floor(Math.random() * gugIm.length)].url
+var random =  gugIm[Math.floor(Math.random(), guglm.length)]
 sendFileFromUrl(random, image, {quoted: mek, caption: `*Hasil Pencarian Dari :* ${teks}`})
 }
 }
@@ -1277,7 +1296,7 @@ case 'get':
                 await sendFileFromUrl(from,waifu.url,`Done`,m)
                 .catch((err) => {
                     for (let x of ownerNumber) {
-                        sendMess(x, `${prefix+command} Error: \n\n` + err)
+                        sendMess(x,  `${command} Error: \n\n` + err)
                     }
                     m.reply('Sedang Error !! Coba Beberapa Saat Lagi')
                 })
