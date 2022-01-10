@@ -987,7 +987,8 @@ cafnay.sendMessage(from, buttonMessage)
 			case 'gimg':{
 				if (!q) return m.reply('masukan query!')
 					m.reply(`searching google img for ${q}`)
-					G = await fetchJson(`https://api.dapuhy.ga/api/search/googleimage?query=${q}&apikey=${apikeyy}`)
+					G = await fetchJson(`
+					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=${BETA}`)
 				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
 				.catch((err) => {
                     for (let x of ownerNumber) {
