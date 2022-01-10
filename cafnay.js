@@ -979,27 +979,8 @@ cafnay.sendMessage(from, buttonMessage)
                     fs.unlinkSync(ran)
                 })
             }
-            break
-			
-			
-			
-			
-			
-			
-			case 'gimg':{
-				if (!q) return m.reply('masukan query!')
-					m.reply(`searching google img for ${q}`)
-					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=${BETA}`)
-				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
-				.catch((err) => {
-                    for (let x of ownerNumber) {
-                        reply(x, `${command.split(prefix)[1]} Error: \n\n` + err)
-                    }
-                   m.reply(`Maaf, tidak ada hasil google untuk ${q}`)
-			})
-				break
-				
-			}
+            break			
+							
             case 'pinterest': {
                 m.reply(mess.wait)
                 anu = await pinterest(q)
@@ -1229,7 +1210,7 @@ ytresult += `*${botname}*`
 cafnay.sendMessage(m.chat, { image: tbuff, caption: ytresult }, { quoted: m } )
 break
 
-case 'googleimage':
+case 'gimg':
 if (args.length < 1) return m.reply('Apa Yang Mau Dicari?')
 m.reply(mess.wait)
 teks = args.join(' ')
