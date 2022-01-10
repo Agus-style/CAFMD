@@ -986,10 +986,11 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			case 'gimg':
 				if (!q) return m.reply('masukan query!')
-					m.reply(`searching google img for ${q}`)
+					m.reply(mess.wait)
 					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=BETA`)
-					gambar = await getBuffer(G.url)
-				cafnay.sendMessage(m.chat, { image: gambar , caption: `Hasil Dari ${q}` }, {quoted: m})		
+					linkgmbr = G.url
+                    gambar = await getBuffer(`${linkgmbr}`)
+				cafnay.sendMessage(m.chat, { image: gambar, caption: `Hasil Dari ${q}`}, {quoted: m})		
 				break
 							
             case 'pinterest': {
