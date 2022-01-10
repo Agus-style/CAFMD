@@ -988,8 +988,8 @@ cafnay.sendMessage(from, buttonMessage)
 				if (!q) return m.reply('masukan query!')
 					m.reply(mess.wait)
 					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=BETA`)
-					linkgmbr = G.url
-                    gambar = await getBuffer(`${linkgmbr}`)
+					let linkgmbr = G.url
+                    let gambar = await getBuffer(`${linkgmbr}`)
 				cafnay.sendMessage(m.chat, { image: gambar, caption: `Hasil Dari ${q}`}, {quoted: m})		
 				break
 							
@@ -1480,8 +1480,86 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                 }
         }
       if (budy.includes('CAF')) {  
-cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
-	  }	  
+cafnay.sendFileFromUrl(m.chat, {':}, {quoted: peksaya})
+	  }
+	  
+	  if (budy == 'p') {
+
+                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
+
+            }
+
+            if (budy == 'P') {
+
+                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
+
+            }            
+
+            if (budy == 'assalamualaikum') {
+
+				m.reply(` وَعَلَيْكُمُ السَّلاَمُ \nAda Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
+
+			}
+			
+			if (budy == 'mastah') {
+
+				m.reply(`Waw Ada Mastah Ampun Mastah`)
+
+			}
+			
+			if (budy == 'Mastah') {
+
+				m.reply(`Waw Ada Mastah Ampun Mastah`)
+
+			}
+
+			if (budy == 'Assalamualaikum') {
+
+				m.reply(`Waalaikumsalam, Ada Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
+
+			}
+
+			if (budy == 'Terimakasih') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'terimakasih') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'makasih') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'Thanks') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'thanks') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'Tq') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}
+
+			if (budy == 'tq') {
+
+				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
+
+			}	  	  
 
     } catch (err) {
         m.reply(util.format(err))
