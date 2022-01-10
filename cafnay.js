@@ -984,15 +984,20 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			
 			
-			case 'gimg':
+			case 'gimg':{
 				if (!q) return m.reply('masukan query!')
-					m.reply(mess.wait)
-					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=BETA`)
-					let linkgmbr = G.url
-                    let gambar = await getBuffer(`${linkgmbr}`)
-				cafnay.sendMessage(m.chat, { image: gambar, caption: `Hasil Dari ${q}`}, {quoted: m})		
+					m.reply(`searching google img for ${q}`)
+					G = await fetchJson(`https://api.dapuhy.ga/api/search/googleimage?query=${q}&apikey=${apikeyy}`)
+				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
+				.catch((err) => {
+                    for (let x of ownerNumber) {
+                        reply(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                    }
+                   m.reply(`Maaf, tidak ada hasil google untuk ${q}`)
+			})
 				break
-							
+				
+			}
             case 'pinterest': {
                 m.reply(mess.wait)
                 anu = await pinterest(q)
@@ -1480,86 +1485,8 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                 }
         }
       if (budy.includes('CAF')) {  
-cafnay.sendFileFromUrl(m.chat, {':}, {quoted: peksaya})
-	  }
-	  
-	  if (budy == 'p') {
-
-                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-            }
-
-            if (budy == 'P') {
-
-                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-            }            
-
-            if (budy == 'assalamualaikum') {
-
-				m.reply(` وَعَلَيْكُمُ السَّلاَمُ \nAda Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-			}
-			
-			if (budy == 'mastah') {
-
-				m.reply(`Waw Ada Mastah Ampun Mastah`)
-
-			}
-			
-			if (budy == 'Mastah') {
-
-				m.reply(`Waw Ada Mastah Ampun Mastah`)
-
-			}
-
-			if (budy == 'Assalamualaikum') {
-
-				m.reply(`Waalaikumsalam, Ada Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-			}
-
-			if (budy == 'Terimakasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'terimakasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'makasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'Thanks') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'thanks') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'Tq') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'tq') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}	  	  
+cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
+	  }	  
 
     } catch (err) {
         m.reply(util.format(err))
