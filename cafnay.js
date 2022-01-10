@@ -19,8 +19,6 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
-const ggs = require('google-it')
-const googleImage = require('g-i-s')
 const { igDownloader } = require('./lib/igdown')
 const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
@@ -988,14 +986,14 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			case 'gimg':{
 				if (!q) return m.reply('masukan query!')
-					m.reply('searching......')
-					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=${BETA}`)
+					m.reply(`searching google img for ${q}`)
+					G = await fetchJson(`https://api.dapuhy.ga/api/search/googleimage?query=${q}&apikey=${apikeyy}`)
 				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
 				.catch((err) => {
                     for (let x of ownerNumber) {
-                        sendMess(x, `${command} Error: \n\n` + err)
+                        reply(x, `${command.split(prefix)[1]} Error: \n\n` + err)
                     }
-                   m.reply('Maaf, tidak ada hasil google untuk')
+                   m.reply(`Maaf, tidak ada hasil google untuk ${q}`)
 			})
 				break
 				
@@ -1228,21 +1226,6 @@ ytresult += '❖ Upload: ' + video.ago + '\n⬣───────────
 ytresult += `*${botname}*`
 cafnay.sendMessage(m.chat, { image: tbuff, caption: ytresult }, { quoted: m } )
 break
-
-case 'googleimage':
-if (!q) return m.reply('Ada Yang Mau Dicari')
-m.reply(mess.wait)
-teks = args.join(' ')
-res = await googleImage(teks, google)
-function google(error, result){
-if (error){ return m.reply('_[ ! ] Error Terjari Kesalahan Atau Hasil Tidak Ditemukan_')}
-else {
-var gugIm = result
-var random =  gugIm[Math.floor(Math.random(), guglm.length)]
-sendFileFromUrl(random, image, {quoted: mek, caption: `*Hasil Pencarian Dari :* ${teks}`})
-}
-}
-break
 //////////////GITHUB DOWNLOADER/////////////
 case 'ghdl':
 if (args.length == 0) return m.reply(`Usage: ${prefix + command} USER|REPO`)
@@ -1296,7 +1279,7 @@ case 'get':
                 await sendFileFromUrl(from,waifu.url,`Done`,m)
                 .catch((err) => {
                     for (let x of ownerNumber) {
-                        sendMess(x,  `${command} Error: \n\n` + err)
+                        sendMess(x, `${prefix+command} Error: \n\n` + err)
                     }
                     m.reply('Sedang Error !! Coba Beberapa Saat Lagi')
                 })
