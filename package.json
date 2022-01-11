@@ -40,6 +40,7 @@
     "request": "^2.88.2",
     "util": "^0.12.4",
     "xfarr-api": "^1.0.0",
+    "scrape-primbon": "^1.0.0",
     "yargs": "^17.2.1"
   },
   "directories": {
