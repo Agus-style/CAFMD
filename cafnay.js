@@ -801,7 +801,7 @@ Bot Admin : ${isBotAdmins}
             }
             break
             case 'sifatusaha': {
-                if (!ext)throw `Example : ${prefix+ command} 28, 12, 2021`
+                if (!text)throw `Example : ${prefix+ command} 28, 12, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -833,7 +833,7 @@ Bot Admin : ${isBotAdmins}
             }
             break
             case 'potensipenyakit': case 'penyakit': {
-                if (!texthispk) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
