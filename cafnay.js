@@ -19,8 +19,6 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
-const { Primbon } = require('scrape-primbon')
-const primbon = new Primbon()
 const { igDownloader } = require('./lib/igdown')
 const {TiktokDownloader} = require('./lib/tiktokdl')
 const { y2mateA, y2mateV } = require('./lib/y2mate.js')
@@ -716,13 +714,6 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	  
-	  case 'kbbi':
-	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
-		  bi = await fetchJson(`https://human-apixyz.herokuapp.com/api/info/kbbi?kata=${q}&apikey=AnggaKey`)
-	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
-	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
-	  break
-	  
 	  case 'nomerhoki': case 'nomorhoki': {
                 if (!Number(text)) throw `Example : ${prefix + command} 6288292024190`
                 let anu = await primbon.nomer_hoki(Number(text))
@@ -801,7 +792,7 @@ Bot Admin : ${isBotAdmins}
             }
             break
             case 'sifatusaha': {
-                if (!text)throw `Example : ${prefix+ command} 28, 12, 2021`
+                if (!ext)throw `Example : ${prefix+ command} 28, 12, 2021`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -833,7 +824,7 @@ Bot Admin : ${isBotAdmins}
             }
             break
             case 'potensipenyakit': case 'penyakit': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
+                if (!texthispk) throw `Example : ${prefix + command} 7, 7, 2005`
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return m.reply(anu.message)
@@ -951,6 +942,13 @@ Bot Admin : ${isBotAdmins}
                 m.reply(`⭔ *Hasil :* ${anu.message}`)
             }
             break
+	  
+	  case 'kbbi':
+	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
+		  bi = await fetchJson(`https://human-apixyz.herokuapp.com/api/info/kbbi?kata=${q}&apikey=AnggaKey`)
+	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
+	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
+	  break
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
@@ -1215,15 +1213,20 @@ cafnay.sendMessage(from, buttonMessage)
 			
 			
 			
-			case 'gimg':
+			case 'gimg':{
 				if (!q) return m.reply('masukan query!')
-					m.reply(mess.wait)
-					G = await fetchJson(`https://x-restapi.herokuapp.com/api/google-image?query=${q}&apikey=BETA`)
-					let linkgmbr = G.url
-                    let gambar = await getBuffer(`${linkgmbr}`)
-				cafnay.sendMessage(m.chat, { image: gambar, caption: `Hasil Dari ${q}`}, {quoted: m})		
+					m.reply(`searching google img for ${q}`)
+					G = await fetchJson(`https://api.dapuhy.ga/api/search/googleimage?query=${q}&apikey=${apikeyy}`)
+				cafnay.sendMessage(m.chat, { image: { url: G.image }, caption: `Hasil Dari ${q}` }, {quoted: m})
+				.catch((err) => {
+                    for (let x of ownerNumber) {
+                        reply(x, `${command.split(prefix)[1]} Error: \n\n` + err)
+                    }
+                   m.reply(`Maaf, tidak ada hasil google untuk ${q}`)
+			})
 				break
-							
+				
+			}
             case 'pinterest': {
                 m.reply(mess.wait)
                 anu = await pinterest(q)
@@ -1711,86 +1714,8 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                 }
         }
       if (budy.includes('CAF')) {  
-cafnay.sendFileFromUrl(m.chat, {':}, {quoted: peksaya})
-	  }
-	  
-	  if (budy == 'p') {
-
-                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-            }
-
-            if (budy == 'P') {
-
-                m.reply(`Ya, Ada Yang Bisa Saya Bantu? Kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-            }            
-
-            if (budy == 'assalamualaikum') {
-
-				m.reply(` وَعَلَيْكُمُ السَّلاَمُ \nAda Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-			}
-			
-			if (budy == 'mastah') {
-
-				m.reply(`Waw Ada Mastah Ampun Mastah`)
-
-			}
-			
-			if (budy == 'Mastah') {
-
-				m.reply(`Waw Ada Mastah Ampun Mastah`)
-
-			}
-
-			if (budy == 'Assalamualaikum') {
-
-				m.reply(`Waalaikumsalam, Ada Yang Bisa Saya Bantu? kalo Bingung Ketik ${prefix}menu Ya Kak`)
-
-			}
-
-			if (budy == 'Terimakasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'terimakasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'makasih') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'Thanks') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'thanks') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'Tq') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}
-
-			if (budy == 'tq') {
-
-				m.reply(`Sama sama, Semoga Harimu Menyenangkan :)`)
-
-			}	  	  
+cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
+	  }	  
 
     } catch (err) {
         m.reply(util.format(err))
