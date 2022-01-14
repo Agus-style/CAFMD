@@ -45,6 +45,8 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.buttonsResponseMessage.selectedButtonId : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
         var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
+        const kuntul = cafnay.user.id
+        const ngen_uh = m.chat
         const isCmd = body.startsWith(prefix)
         const from = m.key.remoteJid
 		const type = Object.keys(m.message)[0] 
@@ -653,6 +655,7 @@ Bot Admin : ${isBotAdmins}
 ❑ bot tidak menyimpan riwayat foto/media
 ❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
 ❑ Jika menemukan bug/err silahkan hubungi owner
+
 `
 
         // Public & Self
@@ -707,7 +710,8 @@ Bot Admin : ${isBotAdmins}
 		  sendFileFromUrl(from,video,`Done`,m)
 		  break
 	   }
-	  	   case 'igdl':
+	   
+	   case 'igdl':
    if (!q) return m.reply('Linknya?')
    res = await igDownloader(q)
    link = res.result.link
@@ -982,6 +986,20 @@ Bot Admin : ${isBotAdmins}
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
 	
+	case 'join': {
+                if (!isCreator) throw mess.owner
+                if (!text) throw 'Masukkan Link Group!'
+                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
+                m.reply(mess.wait)
+                let result = args[0].split('https://chat.whatsapp.com/')[1]
+                await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+            }
+            break
+            case 'leave':
+				if (!isGroup) return m.reply(mess.only.group)
+				if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)				
+				cafnay.groupLeave(from)
+						break
 	  
 case 'hidetag':
                 if (!isGroup) return m.reply(mess.group)
@@ -993,6 +1011,30 @@ case 'ohidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
+            
+            case 'tagall': case 'infoall':
+                if (!isGroup) return m.reply(mess.groupOnly)               
+                let teks = `══✪〘 *👥 Mention All* 〙✪══\n\n➲ *Message : ${q ? q : 'Nothing'}*\n\n`
+		      	for (let mem of groupMembers) {
+		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
+				}
+                teks += `\n⋙ *${botname}* ⋘`
+                cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
+            break
+            
+             case 'setpp': 
+                  if (!isCreator) throw mess.owner                  
+                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                  await cafnay.updateProfilePicture(kuntul, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                  break
+                  
+                  case 'setgp':
+                  if (isGroup) {
+                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
+                  await cafnay.updateProfilePicture(ngen_uh, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
+                  }
+                  break
+                 
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
@@ -1013,8 +1055,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
@@ -1077,30 +1119,26 @@ const buttonMessage = {
     headerType: 1
 }
 cafnay.sendMessage(from, buttonMessage)
-               break
-
-			   
-			   
-			   
-			   
-    
+               break			   			   			   
+			       
                case 'sticker': case 's': case 'stickergif': case 'sgif': {
-		if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
-		
-                if (/image/.test(mime)) {
-		    let media = await quoted.download()
-		    let encmedia = await cafnay.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-		    await fs.unlinkSync(encmedia)
-		} else if (/video/.test(mime)) {
-		    if ((quoted.msg || quoted).seconds > 31) return m.reply('Maksimal 30 detik!')
-		    let media = await quoted.download()
-		    let encmedia = await cafnay.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-		    await fs.unlinkSync(encmedia)
-		} else {
-              throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
-        	}
-	    }
-	    break
+            if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
+            m.reply(mess.wait)
+                    if (/image/.test(mime)) {
+                let media = await quoted.download()
+                let encmedia = await cafnay.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+            } else if (/video/.test(mime)) {
+                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
+                let media = await quoted.download()
+                let encmedia = await cafnay.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+            } else {
+                        throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
+                }
+            }
+            break
+                        
 	    case 'tomp4': case 'tovideo': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
@@ -1354,7 +1392,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     + 'N:;CAF;;;'
                     + 'FN:CAF•NAY\n' // full name
                     + 'ORG:Owner - CAF;\n' // the organization of the contact
-                    + 'TEL;type=CELL;type=VOICE;waid=6283167714830:+62 857-6217-9624\n' // WhatsApp ID + phone number
+                    + 'TEL;type=CELL;type=VOICE;waid=6282268562601:+62 857-6217-9624\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
                 cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - CAF', contacts: [{ vcard }] } }, { quoted: troli })
             }
@@ -1551,6 +1589,7 @@ case 'get':
                 await fs.unlinkSync(media)
             }
             break
+            
 ///////////////////////TEXT PRO 2///////////////////
 
 case '3d-summer': case 'wooden-boards': case 'flower-heart': case 'wood-heart': case 'coffe-cup': case 'undergrass': case 'naruto-banner':
@@ -1573,6 +1612,26 @@ m.reply(`Apikey *${command}* Undefined`)
 break
           
 ///////////////////////BATAS SUCI///////////////////
+case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
+                let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
+                let buttons = [
+                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
+                ]
+                let buttonMessage = {
+                    text: anu.result.message,
+                    footer: 'Random ' + command,
+                    buttons: buttons,
+                    headerType: 2
+                }
+                cafnay.sendMessage(from, buttonMessage, { quoted: mek })
+            }
+            break
+
+            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
+                buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
+                cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
+            break
+/////////////////////////BATASNYA ASU///////////////////            
                             
                   
             /*case 'tes': case 'menu': case 'help': case '?': {
