@@ -19,14 +19,16 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
+const moment = require("moment-timezone")
+const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
 botname = setting.namabot
-const fake = 'CAF BOTz - Bot MD'
-ownerNumber = ["6285793887010@s.whatsapp.net"]
+const fake = 'AGUS STYLE - Bot MD'
+ownerNumber = ["6282268562601@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
 
@@ -134,6 +136,67 @@ m.reply('invalid type, please contact the owner bot')
 }
 }
 
+const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
+    if (time2 < "24:59:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+    if (time2 < "19:00:00") {
+      var ucapanWaktu = "GoodEvening🌞";
+    }
+    if (time2 < "18:00:00") {
+      var ucapanWaktu = "GoodEvening🌄";
+    }
+    if (time2 < "15:00:00") {
+      var ucapanWaktu = "GoodAfternoon☀️";
+    }
+    if (time2 < "11:00:00") {
+      var ucapanWaktu = "GoodMoorning🌅";
+    }
+    if (time2 < "05:00:00") {
+      var ucapanWaktu = "GoodNight🌃";
+    }
+
+const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
+const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
+const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
+
+var dates = moment().tz('Asia/Jakarta').format("YYYY-MM-DDTHH:mm:ss");
+var date = new Date(dates);
+var tahun = date.getFullYear();
+var bulan = date.getMonth();
+var tanggal = date.getDate();
+var hari = date.getDay();
+var jam = date.getHours();
+var menit = date.getMinutes();
+var detik = date.getSeconds();
+var waktoo = date.getHours();
+
+switch(hari) {
+case 0: hari = "Minggu"; break;
+case 1: hari = "Senin"; break;
+case 2: hari = "Selasa"; break;
+case 3: hari = "Rabu"; break;
+case 4: hari = "Kamis"; break;
+case 5: hari = "Jum`at"; break;
+case 6: hari = "Sabtu"; break;
+}
+switch(bulan) {
+case 0: bulan = "Januari"; break;
+case 1: bulan = "Februari"; break;
+case 2: bulan = "Maret"; break;
+case 3: bulan = "April"; break;
+case 4: bulan = "Mei"; break;
+case 5: bulan = "Juni"; break;
+case 6: bulan = "Juli"; break;
+case 7: bulan = "Agustus"; break;
+case 8: bulan = "September"; break;
+case 9: bulan = "Oktober"; break;
+case 10: bulan = "November"; break;
+case 11: bulan = "Desember"; break;
+}
+var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;   	        
+
 		const troli = {
                          "key": {
                          "remoteJid": "status@broadcast", 
@@ -145,8 +208,8 @@ m.reply('invalid type, please contact the owner bot')
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `CAF•BOTz - MD`, 
-                         "orderTitle": 'CAF', 
+                         "message": `AS•STYLE - MD`, 
+                         "orderTitle": 'AS', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
