@@ -36,6 +36,9 @@ const fake = 'AGUS STYLE - Bot MD'
 ownerNumber = ["6282268562601@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
+angka = ['1','2','3','4','5','6','7','8','9']
+const randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+const randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
 
 
 module.exports = cafnay = async (cafnay, m, chatUpdate) => {
