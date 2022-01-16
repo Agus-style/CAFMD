@@ -49,7 +49,7 @@ async function startcafnay() {
         }
     })
 
-    cafnay.ev.on('group-participants.update', async (anu) => {
+cafnay.ev.on('group-participants.update', async (anu) => {
         console.log(anu)
         try {
             let metadata = await cafnay.groupMetadata(anu.id)
@@ -59,21 +59,33 @@ async function startcafnay() {
                 try {
                     ppuser = await cafnay.profilePictureUrl(num, 'image')
                 } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    ppuser = 'https://telegra.ph/file/bff9f7939175383e186e1.jpg'
                 }
 
                 // Get Profile Picture Group
                 try {
                     ppgroup = await cafnay.profilePictureUrl(anu.id, 'image')
                 } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    ppgroup = 'https://telegra.ph/file/bff9f7939175383e186e1.jpg'
                 }
 
                 if (anu.action == 'add') {
                     cafnay.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` })
                 } else if (anu.action == 'remove') {
-                    cafnay.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leaving from ${metadata.subject}` })
+                    let loc_img = fs.readFileSync('./media/cafnay.jpg')
+let buttonLoc = [
+                    {buttonId: `id`, buttonText: {displayText: '☰ PING!'}, type: 1},
+                    {buttonId: `id`, buttonText: {displayText: '☰ Owner'}, type: 1}
+                ]
+                let buttonMessageLoc = {
+                    location: { degreesLatitude: 0, degreesLongitude: 0, jpegThumbnail: loc_img },
+                    caption: 'Hello World',
+                    footerText: fake,
+                    buttons: buttonLoc,
+                    headerType: 4
                 }
+                cafnay.sendMessage(from, buttonMessageLoc)               
+                 }
             }
         } catch (err) {
             console.log(err)
