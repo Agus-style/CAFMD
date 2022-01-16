@@ -619,6 +619,30 @@ Bot Admin : ${isBotAdmins}
 │
 └───────●
 
+┌──●⭓ * Riview Cek *
+│
+│${prefix}gantengcek
+│${prefix}cantikcek
+│${prefix}jelekcek
+│${prefix}goblokcek
+│${prefix}begocek
+│${prefix}pintarcek
+│${prefix}jagocek 
+│${prefix}nolepcek
+│${prefix}babicek 
+│${prefix}bebancek
+│${prefix}baikcek
+│${prefix}jahatcek 
+│${prefix}anjingcek
+│${prefix}haramcek
+│${prefix}kontolcek 
+│${prefix}pakboycek 
+│${prefix}pakgirlcek	
+│${prefix}sangecek
+│${prefix}bapercek
+│
+└───────●⭓
+
 ┌──● *Main Menu*
 │
 │⭔ ${prefix}ping
@@ -1325,6 +1349,199 @@ break
 				   var Lirik = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/liriklagu?query=${q}&apikey=sQMpXbHimbTkxGC`)
 cafnay.sendMessage(from, {text: Lirik.result}, {quoted: m})
 break
+
+case 'gantengcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *GANTENGAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'cantikcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *CANTIKAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}% :v*`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break
+            case 'jelekcek':             
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *J3L3K4N* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'goblokcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *GOBLOKAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'begocek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *BEGO* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'pintercek': 
+            case 'pintarcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *PINTARAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'jagocek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *JAGOAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'nolepcek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *NOLEPAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'babicek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *BABIAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'bebancek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *BEBANAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'baikcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *BAIKAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'jahatcek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *JAHATAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'anjingcek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *ANJINGAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break              
+            case 'haramcek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *HARAMAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break  
+            case 'kontolcek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *KOMTOLAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'pakboycek': 
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *PAKBOYZ* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break 
+            case 'pakgirlcek':	
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `KE *PAKGILR* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break             
+            case 'sangecek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `JIWA *SANGE* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break
+            case 'bapercek':
+            if (!m.isGroup) return m.reply(mess.group)
+            userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+            num_user = userscek.replace('@s.whatsapp.net', '')
+            console.log(num_user)
+            if (!q) return m.reply('TAG ORANG NYA KAK')
+            N = `JIWA *BEPERAN* @${num_user}\n`
+            N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
+            cafnay.sendTextWithMentions(m.chat, N, m)
+            break
+
             case 'wikimedia': {
                 m.reply(mess.wait)
                 anu = wikimedia(q)

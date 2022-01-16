@@ -49,6 +49,48 @@ async function startcafnay() {
         }
     })
 
+cafnay.ev.on('group-participants.update', async (anu) => {
+        console.log(anu)
+        try {
+            let metadata = await cafnay.groupMetadata(anu.id)
+            let participants = anu.participants
+            for (let num of participants) {
+                // Get Profile Picture User
+                try {
+                    ppuser = await cafnay.profilePictureUrl(num, 'image')
+                } catch {
+                    ppuser = 'https://telegra.ph/file/bff9f7939175383e186e1.jpg'
+                }
+
+                // Get Profile Picture Group
+                try {
+                    ppgroup = await cafnay.profilePictureUrl(anu.id, 'image')
+                } catch {
+                    ppgroup = 'https://telegra.ph/file/bff9f7939175383e186e1.jpg'
+                }
+
+                if (anu.action == 'add') {
+                    cafnay.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` })
+                } else if (anu.action == 'remove') {
+                    let loc_img = fs.readFileSync('./media/caf.webp')
+let buttonLoc = [
+                    {buttonId: `id`, buttonText: {displayText: '☰ PING!'}, type: 1},
+                    {buttonId: `id`, buttonText: {displayText: '☰ Owner'}, type: 1}
+                ]
+                let buttonMessageLoc = {
+                    location: { degreesLatitude: 0, degreesLongitude: 0, jpegThumbnail: loc_img },
+                    caption: 'Hello World',
+                    footerText: fake,
+                    buttons: buttonLoc,
+                    headerType: 4
+                }
+                cafnay.sendMessage(from, buttonMessageLoc, { quoted: m })               
+                 }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    })
 	
     // Setting
     cafnay.public = true
