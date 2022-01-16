@@ -1,4 +1,4 @@
-/**
+"/**
    * Create By Dika Ardnt.
    * Contact Me on wa.me/6288292024190
    * Follow https://github.com/DikaArdnt
@@ -767,6 +767,14 @@ Bot Admin : ${isBotAdmins}
 		   audio = audio.result.audio_only.original
 		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `audio_tiktok.mp3`}, {quoted:m})
 		   break
+	   
+	       case 'simi':
+         if (!q) return m.reply(`Text Nya Mana\nContoh: ${prefix + command} hai`)
+         boo = args.join(" ")
+         bll = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${apiKey}&query=${boo}`)
+         ini_txt =`*Simi: ${bll.result}*`
+         m.reply(ini_txt)
+         break
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
