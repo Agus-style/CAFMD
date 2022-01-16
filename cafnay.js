@@ -37,8 +37,8 @@ ownerNumber = ["6282268562601@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
 angka = ['1','2','3','4','5','6','7','8','9']
-const randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
-const randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
+randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
 
 
 module.exports = cafnay = async (cafnay, m, chatUpdate) => {
@@ -1353,11 +1353,14 @@ break
 cafnay.sendMessage(from, {text: Lirik.result}, {quoted: m})
 break
 
-case 'gantengcek':
+            case 'gantengcek':
             if (!m.isGroup) return m.reply(mess.group)
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *GANTENGAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1368,6 +1371,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *CANTIKAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}% :v*`
@@ -1378,6 +1384,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *J3L3K4N* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1388,6 +1397,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *GOBLOKAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1398,6 +1410,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *BEGO* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1409,6 +1424,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *PINTARAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1419,6 +1437,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *JAGOAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1429,6 +1450,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *NOLEPAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1439,6 +1463,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *BABIAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1449,6 +1476,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *BEBANAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1459,6 +1489,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *BAIKAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1469,6 +1502,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *JAHATAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1479,6 +1515,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *ANJINGAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1489,6 +1528,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *HARAMAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1499,6 +1541,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *KOMTOLAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1509,6 +1554,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *PAKBOYZ* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1519,6 +1567,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `KE *PAKGILR* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1529,6 +1580,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `JIWA *SANGE* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
@@ -1539,6 +1593,9 @@ case 'gantengcek':
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
+            angka = ['1','2','3','4','5','6','7','8','9']
+            randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
+            randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
             if (!q) return m.reply('TAG ORANG NYA KAK')
             N = `JIWA *BEPERAN* @${num_user}\n`
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`

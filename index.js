@@ -70,9 +70,20 @@ cafnay.ev.on('group-participants.update', async (anu) => {
                 }
 
                 if (anu.action == 'add') {
-                    cafnay.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}` })
+                    let buttonLoc = [
+                    {buttonId: `id`, buttonText: {displayText: '☰ PING!'}, type: 1},
+                    {buttonId: `id`, buttonText: {displayText: '☰ Owner'}, type: 1}
+                ]
+                let buttonMessageLoc = {
+                    location: { degreesLatitude: 0, degreesLongitude: 0, jpegThumbnail: loc_img },
+                    caption: 'Hello World',
+                    footerText: fake,
+                    buttons: buttonLoc,
+                    headerType: 4
+                }
+                cafnay.sendMessage(from, buttonMessageLoc)
                 } else if (anu.action == 'remove') {
-                    let loc_img = fs.readFileSync('./media/caf.webp')
+                    let loc_img = fs.readFileSync('./media/cafnay.jpg')
 let buttonLoc = [
                     {buttonId: `id`, buttonText: {displayText: '☰ PING!'}, type: 1},
                     {buttonId: `id`, buttonText: {displayText: '☰ Owner'}, type: 1}
@@ -84,7 +95,7 @@ let buttonLoc = [
                     buttons: buttonLoc,
                     headerType: 4
                 }
-                cafnay.sendMessage(from, buttonMessageLoc, { quoted: m })               
+                cafnay.sendMessage(from, buttonMessageLoc)               
                  }
             }
         } catch (err) {
