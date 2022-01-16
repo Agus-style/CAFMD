@@ -768,13 +768,14 @@ Bot Admin : ${isBotAdmins}
 		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `audio_tiktok.mp3`}, {quoted:m})
 		   break
 	   
-	       case 'simi':
-         if (!q) return m.reply(`Text Nya Mana\nContoh: ${prefix + command} hai`)
-         boo = args.join(" ")
-         bll = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${apiKey}&query=${boo}`)
+//////////////Simi///////////////
+	       /*case 'simi':
+         if (!q) return m.reply(`Text Nya Mana\nContoh: ${prefix + command} hai`)         
+         bll = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${YfwKnjDf}&query=${q}`)
          ini_txt =`*Simi: ${bll.result}*`
-         m.reply(ini_txt)
-         break
+         cafnay.sendMessage(m.chat, {text: ini_txt}, {quoted: m})
+         break*/
+/////////////BATAS SUCI////////////////
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
