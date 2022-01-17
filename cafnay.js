@@ -1014,13 +1014,12 @@ Bot Admin : ${isBotAdmins}
 	  break
 	  
 	  case 'usa':
-	   if (!q) return m.reply('tanya aja')
-	    boo = args.join(" ")
-	    to = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${q}&query=${boo}`)
-     ini_txt = to.result
-     console.log(to.result)
-     sendFileFromUrl(m.chat,ini_txt,`Done`,m)
-	   break
+	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
+      to = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=KingOfBear&query=${q}`)
+      ini_txt = to.result
+      console.log(to.result)
+      sendFileFromUrl(m.chat,ini_txt,`Done`,m)
+	  break	
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
