@@ -1015,6 +1015,7 @@ Bot Admin : ${isBotAdmins}
 	  
 	  case 'usa':
 	   if (!q) return m.reply('tanya aja')
+	    boo = args.join(" ")
 	    to = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${q}&query=${boo}`)
      ini_txt = to.result
      console.log(to.result)
