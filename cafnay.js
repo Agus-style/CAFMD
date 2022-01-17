@@ -31,6 +31,7 @@ const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
+const { simih } = require('./lib/functions')
 botname = setting.namabot
 const fake = 'AGUS STYLE - Bot MD'
 ownerNumber = ["6282268562601@s.whatsapp.net"]
@@ -1014,12 +1015,13 @@ Bot Admin : ${isBotAdmins}
 	  break
 	  
 	  case 'usa':
-	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
-      to = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=KingOfBear&query=${q}`)
-      ini_txt = to.result
-      console.log(to.result)
-      sendFileFromUrl(m.chat,ini_txt,`Done`,m)
-	  break	
+	  case 'simih':	  
+  if (args.length == 0) return m.reply(`Text Nya Mana\nContoh: ${prefix + command} hai`)
+  boo = args.join(" ")
+  bll = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=KingOfBear&query=${boo}`)
+  ini_txt =`*Simi: ${bll.result}*`
+  m.reply(ini_txt)
+  break
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
