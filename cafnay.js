@@ -1012,6 +1012,14 @@ Bot Admin : ${isBotAdmins}
 	  biba = `KBBI RESULT\n\nLema : ${bi.result.lema}\nArti : ${bi.result.arti}`
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
+	  
+	  case 'usa':
+	   if (!q) return m.reply('tanya aja')
+	    to = await fetchJson(`https://apikey-bear3.herokuapp.com/api/f/simi?apikey=${KingOfBear}&query=${boo}`)
+     ini_txt = to.result
+     console.log(to.result)
+     sendFileFromUrl(m.chat,ini_txt,`Done`,m)
+	   break
 	
 	case 'join': {
                 if (!isCreator) throw mess.owner
