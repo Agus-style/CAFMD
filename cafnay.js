@@ -107,7 +107,38 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
             return await generateWAMessage(jidnya, kontennya, {...optionnya,userJid: cafnay.authState.creds.me.id,upload: cafnay.waUploadToServer})
             }
 			
-			
+			//=================( STICKER )=================//
+
+const sticOwner = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/owner.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticWait = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/wait.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticLoad = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/loading.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticGroup = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/group.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticBotAdmin = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/botadmin.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticBanned = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/banned.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+const sticAdmin = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/admin.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+}
+
+//=================( BATASNYA )=========
 	
 			
             
@@ -771,6 +802,8 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
+		   if (isCreator)return sticBanned(from)
+              sticWait(from)
 			   if (!isUrl) return
 		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
 		   url = dl.urlDown
