@@ -58,10 +58,8 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
         const isGroup = m.key.remoteJid.endsWith('@g.us')
-        const isCreator = [cafnay.user.id, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isUser = pendaftar.includes(sender)
-        const isBanned = ban.includes(sender)
-        const isPremier = prem.includes(sender)
+        const isCreator = [cafnay.user.id, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)        
+        const isPremier = prem.includes(m.sender)
         const itsMe = m.sender == cafnay.user.id ? true : false
         const text = args.join(" ")
         const q = args.join(" ")
@@ -805,8 +803,7 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
-		   if (isBanned)return sticBanned(from)
-              sticWait(from)              
+		   if (!sCreator)return m.reply sticBanned(from)              
 			   if (!isUrl) return
 		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
 		   url = dl.urlDown
