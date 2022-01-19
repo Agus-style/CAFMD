@@ -802,8 +802,7 @@ Bot Admin : ${isBotAdmins}
 	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
-		   if (!isCreator)return sticBanned(from)
-              sticWait(from)
+		   if (!isCreator)return sticWait(from)              
 			   if (!isUrl) return
 		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
 		   url = dl.urlDown
