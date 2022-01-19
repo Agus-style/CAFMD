@@ -67,6 +67,14 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const mime = (quoted.msg || quoted).mimetype || ''
 	    const isMedia = /image|video|sticker|audio/.test(mime)
 	    
+	       //DATABASE
+       const setting = JSON.parse(fs.readFileSync('./setting.json'))
+       const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
+       const ban = JSON.parse(fs.readFileSync('./database/banned.json'))
+       const prem = JSON.parse(fs.readFileSync('./database/premium.json'))
+       const pendaftar = JSON.parse(fs.readFileSync('./database/pendaftar.json'))
+       const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
+
 	     
 	    // Group
         const groupMetadata = m.isGroup ? await cafnay.groupMetadata(m.chat).catch(e => {}) : ''
@@ -1643,6 +1651,21 @@ break
             N += `ADALAH : *${randomcek1}${randomcek2}%* :v`
             cafnay.sendTextWithMentions(m.chat, N, m)
             break
+
+           case 'ban':
+if (!isOwner) return sticOwner(from)
+bnnd = body.slice(5)
+ban.push(`${bnnd}@s.whatsapp.net`)
+fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+fakeText(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
+break
+case 'unban':
+if (!isOwner) return sticOwner(from)
+bnnd = body.slice(7)
+ban.splice(`${bnnd}@s.whatsapp.ne5t`)
+fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+fakeText(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
+break
 
             case 'wikimedia': {
                 m.reply(mess.wait)
