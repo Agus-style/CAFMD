@@ -65,16 +65,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const aq = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
-	    const isMedia = /image|video|sticker|audio/.test(mime)
-	    
-	       //DATABASE
-       const setting = JSON.parse(fs.readFileSync('./setting.json'))
-       const welkom = JSON.parse(fs.readFileSync('./database/welkom.json'))
-       const ban = JSON.parse(fs.readFileSync('./database/banned.json'))
-       const prem = JSON.parse(fs.readFileSync('./database/premium.json'))
-       const pendaftar = JSON.parse(fs.readFileSync('./database/pendaftar.json'))
-       const antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
-
+	    const isMedia = /image|video|sticker|audio/.test(mime)	    	       
 	     
 	    // Group
         const groupMetadata = m.isGroup ? await cafnay.groupMetadata(m.chat).catch(e => {}) : ''
