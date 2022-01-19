@@ -1338,6 +1338,19 @@ cafnay.sendMessage(from, buttonMessage)
                 cafnay.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: troli })
             }
             break
+            
+            case 'telesticker':
+                    case 'stickertele':
+                    if (args.length == 0) return m.reply(`Example: ${prefix + command} https://t.me/addstickers/LINE_Menhera_chan_ENG`)
+                    ini_url = args[0]
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
+                    ini_sticker = ini_url.result.sticker
+                    for (sticker_ in ini_sticker) {
+                        ini_buffer = await getBuffer(ini_sticker[sticker_])
+                        cafnay.sendMessage(from, ini_buffer, sticker)
+                    }      
+                  break
+            
             case 'wallpaper': {
                 m.reply(mess.wait)
                 anu = await wallpaper(q)
