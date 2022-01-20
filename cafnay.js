@@ -1401,7 +1401,8 @@ break
                     ini_url = args[0]
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
                     ini_sticker = ini_url.result.sticker                 
-                    cafnay.sendMessage(from, ini_url, sticker)                         
+                    m.reply(ini_url)
+                    /*cafnay.sendMessage(from, ini_url, sticker)*/                         
                   break       
 
             case 'gantengcek':
@@ -1457,7 +1458,7 @@ break
             cafnay.sendTextWithMentions(m.chat, N, m)
             break 
             case 'begocek':
-            if (!m.isGroup) return m.reply(mess.group)
+            if (!m.isGroup) return m.cafnay(mess.group)
             userscek = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
             num_user = userscek.replace('@s.whatsapp.net', '')
             console.log(num_user)
