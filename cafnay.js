@@ -1400,9 +1400,8 @@ break
                     if (args.length == 0) return m.reply(`Example: ${prefix + command} https://t.me/addstickers/LINE_Menhera_chan_ENG`)
                     ini_url = args[0]
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
-                    ini_sticker = ini_url.result.sticker                 
-                    m.reply(ini_url)
-                    /*cafnay.sendMessage(from, ini_url, sticker)*/                         
+                    ini_sticker = ini_url.result.sticker
+                    cafnay.sendMessage(from, {text: ini_sticker}, {quoted: m})                    
                   break       
 
             case 'gantengcek':
