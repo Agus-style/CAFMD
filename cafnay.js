@@ -752,13 +752,11 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   case'katakataml': case'katailham': case'katabucin': 
-case'katabucin2': case'katasindiran': case'katabijak':
-if (!q) return m.reply(`Masukan query!`)
-gsz = await fetchJson(`https://apidhani.herokuapp.com/api/${command}?apikey=NisaaCantik`)
-anu = gsz.result
-cafnay.sendMessage(from, anu, text, { quoted: mek, caption: `*©Random ${comnand}*` })
-break
+	   case'katakataml':
+            anu = await fetchJson(`https://apidhani.herokuapp.com/api/katakataml=${q}?apikey=NisaaCantik`)
+            kataml = anu.result
+		    cafnay.sendMessage(from, kataml, text, {quoted: m})			
+		  break
 	   
 	   case 'ytmp3':{
 	   if (!q) return m.reply('link nya cok')
