@@ -752,11 +752,10 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   }
 	   
-	   case'katakataml':
-            anu = await fetchJson(`https://apidhani.herokuapp.com/api/katakataml=${q}?apikey=NisaaCantik`)
-            kataml = anu.result
-		    cafnay.sendMessage(from, kataml, text, {quoted: m})			
-		  break
+	   case 'katailham':
+anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=IkyOgiwara`)
+m.reply(`*Random Kata Ilham*\n${anu.result}`)
+break
 	   
 	   case 'ytmp3':{
 	   if (!q) return m.reply('link nya cok')
