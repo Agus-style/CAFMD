@@ -760,7 +760,7 @@ Bot Admin : ${isBotAdmins}
      case'katasindiran': case'katabijak': case'katakataml':
         get_result = await fetchJson(`https://apidhani.herokuapp.com/api/random/${command}?apikey=NisaaCantik`)
         titid = get_result.result
-        cafnaysendMessage(from, titid, `Klik Untuk Ke Quotes Selanjutnya`, [
+        cafnay.sendMessage(from, titid, `Klik Untuk Ke Quotes Selanjutnya`, [
           {
             buttonId: `${prefix + command}`,
             buttonText: {
