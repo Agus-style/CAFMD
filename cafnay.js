@@ -758,7 +758,7 @@ Bot Admin : ${isBotAdmins}
    break
     case'katabucin': case'katabucin2': 
      case'katasindiran': case'katabijak': case'katakataml':
-        get_result = await fetchJson(`https://apidhani.herokuapp.com/api/random/${command}?apikey=NisaaCantik`)
+        get_result = await fetchJson(`https://apidhani.herokuapp.com/api/katabucin2?apikey=NisaaCantik`)
         titid = get_result.result
         cafnay.sendMessage(from, titid, `Klik Untuk Ke Quotes Selanjutnya`, [
           {
