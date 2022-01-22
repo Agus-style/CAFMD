@@ -756,26 +756,12 @@ Bot Admin : ${isBotAdmins}
      anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=IkyOgiwara`)
      m.reply(`*Random Kata Ilham*\n${anu.result}`)
    break
-   case 'katakataml':
-     anu = await fetchJson(`https://apidhani.herokuapp.com/api/katakataml?apikey=NisaaCantik`)
-     m.reply(`*Random Kata ml*\n${anu.result}`)
-   break
-   case 'katabucin':
-     anu = await fetchJson(`https://apidhani.herokuapp.com/api/katabucin?apikey=NisaaCantik`)
-     m.reply(`*Random Kata bucin*\n${anu.result}`)
-   break
-   case 'katabucin2':
-     anu = await fetchJson(`https://apidhani.herokuapp.com/api/katabucin2?apikey=NisaaCantik`)
-     m.reply(`*Random Kata bucin*\n${anu.result}`)
-   break
-   case 'katasindiran':
-     anu = await fetchJson(`https://apidhani.herokuapp.com/api/katasindiran?apikey=NisaaCantik`)
-     m.reply(`*Random Kata sindiran*\n${anu.result}`)
-   break
-   case 'katabijak':
-     anu = await fetchJson(`https://apidhani.herokuapp.com/api/katabijak?apikey=NisaaCantik`)
-     m.reply(`*Random Kata bijak*\n${anu.result}`)
-   break
+   case'katabucin': case'katabucin2': case'katasindiran':
+     case'katabijak': case'katakataml':
+       zks = await fetchJson(`https://apidhani.herokuapp.com/api/${command}?apikey=NisaaCantik`)
+     anu = zks.result
+cafnay.sendMessage(m.chat, anu, m)
+break
 	   
 	   case 'ytmp3':{
 	   if (!q) return m.reply('link nya cok')
