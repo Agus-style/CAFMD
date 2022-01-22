@@ -1401,7 +1401,7 @@ break
                     ini_url = args[0]
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
                     ini_sticker = ini_url.result.sticker
-                    cafnay.sendMessage(from, {text: ini_sticker}, {quoted: m})                    
+                    cafnay.sendMessage(from, {image: ini_sticker}, {quoted: m})                    
                   break       
 
             case 'gantengcek':
