@@ -66,15 +66,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const aq = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
-	    const isMedia = /image|video|sticker|audio/.test(mime)	    	       
-	     
- //=================( STICKER )=================//
-
-const sticOwner = (hehe) => {
-ano = fs.readFileSync('./lib/sticker/owner.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
-	
- //=================( STICKER )=================//	     
+	    const isMedia = /image|video|sticker|audio/.test(mime)	    	            
 	               
 	    // Group
         const groupMetadata = m.isGroup ? await cafnay.groupMetadata(m.chat).catch(e => {}) : ''
@@ -115,7 +107,7 @@ cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
             return await generateWAMessage(jidnya, kontennya, {...optionnya,userJid: cafnay.authState.creds.me.id,upload: cafnay.waUploadToServer})
             }
 			
-			//=================( STICKER )=================//
+//=================( STICKER )=================//
 
 const sticOwner = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/owner.webp')
