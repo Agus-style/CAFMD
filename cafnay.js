@@ -40,7 +40,8 @@ apikeyy = 'sQMpXbHimbTkxGC'
 angka = ['1','2','3','4','5','6','7','8','9']
 randomcek1 = angka[Math.floor(Math.random() * (angka.length))]
 randomcek2 = angka[Math.floor(Math.random() * (angka.length))]
-
+//UH
+const ban = JSON.parse(fs.readFileSync('./database/banned.json'))
 
 module.exports = cafnay = async (cafnay, m, chatUpdate) => {
     try {
@@ -139,9 +140,7 @@ cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 
 //=================( BATASNYA )=========
-	
-			
-            
+			            
         const sendFileFromUrl = async (from, url, caption, m, men) => {
             let mime = '';
             let res = await axios.head(url)
