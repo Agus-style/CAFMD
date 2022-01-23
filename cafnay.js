@@ -59,6 +59,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const pushname = m.pushName || "No Name"
         const isGroup = m.key.remoteJid.endsWith('@g.us')
         const isCreator = [cafnay.user.id, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const isBanned = ban.includes(m.sender)
         const itsMe = m.sender == cafnay.user.id ? true : false
         const text = args.join(" ")
         const q = args.join(" ")
@@ -67,6 +68,14 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         const mime = (quoted.msg || quoted).mimetype || ''
 	    const isMedia = /image|video|sticker|audio/.test(mime)	    	       
 	     
+ //=================( STICKER )=================//
+
+const sticOwner = (hehe) => {
+ano = fs.readFileSync('./lib/sticker/owner.webp')
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+	
+ //=================( STICKER )=================//	     
+	               
 	    // Group
         const groupMetadata = m.isGroup ? await cafnay.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
@@ -333,7 +342,7 @@ var buatpesan = await generateWAMessageFromContent(from, {
           {
             "urlButton": {
               "displayText": "My GITHUB",
-              "url": "https://github.com/CAF-ID"
+              "url": "https://github.com/KepoLuh"
             }
           },
           {
@@ -820,9 +829,8 @@ Bot Admin : ${isBotAdmins}
 		   break
 	   
 	   case 'mediafire':{
-		   if (!q) return m.reply('masukan link mediafire!')
-if (!isCreator)return sticBanned(from)
-			   if (!isUrl) return
+		   if (isBanned)return sticBanned(from)
+		   if (!q) return m.reply('masukan link mediafire!')			   
 		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
 		   url = dl.urlDown
 		   sendFileFromUrl(m.chat, url, m)
@@ -1993,6 +2001,9 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
             case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
                 buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
                 cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
+            break
+            case'banar':
+            If(isBanned) return sticBanned(from)
             break
 /////////////////////////BATASNYA ASU///////////////////            
                             
