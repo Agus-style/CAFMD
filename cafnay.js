@@ -422,11 +422,22 @@ Bot Admin : ${isBotAdmins}
 │
 └───────●⭓
 
+┌──●⭓ *kata kata*
+│
+│⭔ ${prefix}katailham
+│⭔ ${prefix}katakataml
+│⭔ ${prefix}katabucin
+│⭔ ${prefix}katabijak
+│⭔ ${prefix}katabucin2
+│⭔ ${prefix}katasindiran
+│⭔ ${prefix}quotesanime
+│
+└───────●⭓
+
 ┌──●⭓ *Random Menu*
 │
 │⭔ ${prefix}porno
 │⭔ ${prefix}hentai
-│⭔ ${prefix}quotesanime
 │⭔ ${prefix}loli
 │⭔ ${prefix}neko
 │⭔ ${prefix}waifu
@@ -760,7 +771,7 @@ Bot Admin : ${isBotAdmins}
      case'katasindiran': case'katabijak': case'katakataml':
          kat = await fetchJson(`https://apidhani.herokuapp.com/api/random/${command}?apikey=NisaaCantik`)
          m.reply(kat.result)
-   	   
+   	   break
 	   case 'ytmp3':{
 	   if (!q) return m.reply('link nya cok')
 		  cafau = await y2mateA(q)
@@ -1973,9 +1984,26 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                     text: anu.result.message,
                     footer: 'Random ' + command,
                     buttons: buttons,
-                    headerType: 2
+                    headerType: 4
                 }
                 cafnay.sendMessage(from, buttonMessage, { quoted: mek })
+            }
+            break
+            
+             let anu = await fetchJson(`https://apidhani.herokuapp.com/api/random/quoteskanye?apikey=NisaaCantik`)
+     kataen = kat.result.text_en
+     katain = kat.result.text_id
+                let buttons = [
+                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
+                ]
+                let buttonMessage = {
+                    text: anu.result.text_id.message,
+                    text1: anu.result.text_en.message,
+                    footer: 'Random ' + command,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
             break
 
