@@ -1988,24 +1988,7 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                 }
                 cafnay.sendMessage(from, buttonMessage, { quoted: mek })
             }
-            break
-            case'quoteskanye':
-             let anu = await fetchJson(`https://apidhani.herokuapp.com/api/random/quoteskanye?apikey=NisaaCantik`)
-     kataen = anu.result.text_en
-     katain = anu.result.text_id
-                let buttons = [
-                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
-                ]
-                let buttonMessage = {
-                    text: anu.result.text_id.message,
-                    text1: anu.result.text_en.message,
-                    footer: 'Random ' + command,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                cafnay.sendMessage(from, buttonMessage, { quoted: m })
-            }
-            break
+            break           
 
             case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
                 buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
