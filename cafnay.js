@@ -820,8 +820,7 @@ Bot Admin : ${isBotAdmins}
 		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `audio_tiktok.mp3`}, {quoted:m})
 		   break
 	   
-	   case 'mediafire':{
-		   if (isBanned) return sticBanned(from)
+	   case 'mediafire':{		 
 		   if (!q) return m.reply('masukan link mediafire!')			   
 		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
 		   url = dl.urlDown
@@ -1994,8 +1993,8 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                 buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
                 cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
             break
-            case'banar':
-            If(isBanned) return sticBanned(from)
+            case'banar':            
+            if (isBanned) return sticBanned(from)
             break
 /////////////////////////BATASNYA ASU///////////////////            
                             
