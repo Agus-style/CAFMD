@@ -1984,15 +1984,15 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                     text: anu.result.message,
                     footer: 'Random ' + command,
                     buttons: buttons,
-                    headerType: 4
+                    headerType: 2
                 }
                 cafnay.sendMessage(from, buttonMessage, { quoted: mek })
             }
             break
-            
+            case'quoteskanye':
              let anu = await fetchJson(`https://apidhani.herokuapp.com/api/random/quoteskanye?apikey=NisaaCantik`)
-     kataen = kat.result.text_en
-     katain = kat.result.text_id
+     kataen = anu.result.text_en
+     katain = anu.result.text_id
                 let buttons = [
                     { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
                 ]
