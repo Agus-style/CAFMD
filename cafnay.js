@@ -756,20 +756,11 @@ Bot Admin : ${isBotAdmins}
      anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=IkyOgiwara`)
      m.reply(`*Random Kata Ilham*\n${anu.result}`)
    break
-    case'katabucin': case'katabucin2': 
+     case'katabucin': case'katabucin2': 
      case'katasindiran': case'katabijak': case'katakataml':
-        get_result = await fetchJson(`https://apidhani.herokuapp.com/api/katabucin2?apikey=NisaaCantik`)
-        titid = get_result.result
-        cafnay.sendMessage(from, titid, `Klik Untuk Ke Quotes Selanjutnya`, [
-          {
-            buttonId: `${prefix + command}`,
-            buttonText: {
-              displayText: `⬡ NEXT `,
-            },
-            type: 1,
-          },]);
-    break
-	   
+         kat = await fetchJson(`https://apidhani.herokuapp.com/api/random/${command}?apikey=NisaaCantik`)
+         m.reply(kat.result)
+   	   
 	   case 'ytmp3':{
 	   if (!q) return m.reply('link nya cok')
 		  cafau = await y2mateA(q)
