@@ -1671,20 +1671,20 @@ break
             cafnay.sendTextWithMentions(m.chat, N, m)
             break
 
-           case 'ban':
-if (!isCreator) return sticOwner(from)
-bnnd = body.slice(5)
-ban.push(`${bnnd}@s.whatsapp.net`)
-fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-m.reply(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
-break
+         /*  case 'ban':
+     if (!isCreator) return sticOwner(from)
+      bnnd = body.slice(5)
+   ban.push(`${bnnd}@s.whatsapp.net`)
+   fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+   m.reply(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
+   break
 case 'unban':
 if (!isCreator) return sticOwner(from)
 bnnd = body.slice(7)
 ban.splice(`${bnnd}@s.whatsapp.ne5t`)
 fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
 m.reply(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
-break
+break*/
 
             case 'wikimedia': {
                 m.reply(mess.wait)
