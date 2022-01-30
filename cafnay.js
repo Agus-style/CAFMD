@@ -112,31 +112,31 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
 
 const sticOwner = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/owner.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticWait = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/wait.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticLoad = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/loading.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticGroup = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/group.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticBotAdmin = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/botadmin.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticBanned = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/banned.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 const sticAdmin = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/admin.webp')
-cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
+cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
 }
 
 //=================( BATASNYA )=========
@@ -1672,18 +1672,18 @@ break
             break
 
            case 'ban':
-if (!isOwner) return sticOwner(from)
+if (!isCreator) return sticOwner(from)
 bnnd = body.slice(5)
 ban.push(`${bnnd}@s.whatsapp.net`)
 fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-fakeText(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
+m.reply(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
 break
 case 'unban':
-if (!isOwner) return sticOwner(from)
+if (!isCreator) return sticOwner(from)
 bnnd = body.slice(7)
 ban.splice(`${bnnd}@s.whatsapp.ne5t`)
 fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-fakeText(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
+m.reply(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
 break
 
             case 'wikimedia': {
