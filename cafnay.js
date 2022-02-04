@@ -112,31 +112,31 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
 
 const sticOwner = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/owner.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticWait = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/wait.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticLoad = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/loading.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticGroup = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/group.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticBotAdmin = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/botadmin.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticBanned = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/banned.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 const sticAdmin = (hehe) => {
 ano = fs.readFileSync('./lib/sticker/admin.webp')
-cafnay.sendImageAsSticker(hehe, ano, sticker, { quoted: m})
+cafnay.sendMessage(hehe, ano, sticker, { quoted: m})
 }
 
 //=================( BATASNYA )=========
@@ -386,7 +386,30 @@ Ini MySelf : ${itsMe}
 Admin Gc : ${isGroupAdmins}
 Bot Admin : ${isBotAdmins}
 
-///prefix
+┌──●⭓ *Group Menu*
+│
+│⭔ ${prefix}linkgroup
+│⭔ ${prefix}hidetag (teks)
+│⭔ ${prefix}add (tag)
+│⭔ ${prefix}kick (tag)
+│⭔ ${prefix}promote (tag)
+│⭔ ${prefix}demote (tag)
+│
+└───────●⭓
+
+┌──●⭓ *Downloader Menu*
+│
+│⭔ ${prefix}ytmp3 (linkyt)
+│⭔ ${prefix}ytmp4 (linkyt)
+│⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}ttaudio (link tt)
+│⭔ ${prefix}igdl (link ig)
+│⭔ ${prefix}ttwm (link tt)
+│⭔ ${prefix}ttnowm (link ig)
+│⭔ ${prefix}mediafire(link)
+│
+└───────●⭓
+
 ┌──●⭓ *Search Menu*
 │
 │⭔ ${prefix}pinterest
@@ -396,19 +419,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
 │⭔ ${prefix}kbbi (query)
-│
-└───────●⭓
-
-┌──●⭓ *Downloader Menu*
-│
-│⭔ ${prefix}ytmp3 (linkyt)
-│⭔ ${prefix}ytmp4 (linkyt)
-│⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}ttmp3 (link tt)
-│⭔ ${prefix}igdl (link ig)
-│⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link ig)
-│⭔ ${prefix}mediafire(link)
 │
 └───────●⭓
 
@@ -459,9 +469,7 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}poke
 │⭔ ${prefix}dance
 │⭔ ${prefix}cringe
-│⭔ ${prefix}hilih
-│⭔ ${prefix}simi
-│⭔ ${prefix}simih
+│⭔ ${prefix}hilih (query)
 │
 └───────●⭓
 
@@ -711,17 +719,6 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}setpp
 │
 └───────●⭓
-
-┌──●⭓ *Group Menu*
-│
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}hidetag (teks)
-│⭔ ${prefix}add (tag)
-│⭔ ${prefix}kick (tag)
-│⭔ ${prefix}promote (tag)
-│⭔ ${prefix}demote (tag)
-│
-└───────●⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
 ❑ Jika bot tidak merespon, mungkin bot sedang off
 ❑ bot tidak menyimpan riwayat foto/media
@@ -737,26 +734,22 @@ Bot Admin : ${isBotAdmins}
 
         // Push Message To Console
         if (m.message) {
-           console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
-           cafnay.sendReadReceipt(m.chat, participant, [m.key.id])
-           cafnay​.​sendPresenceUpdate​(​'available'​, id)   
-           cafnay​.​sendPresenceUpdate​(​'composing'​, id)  
+        console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
+        cafnay.sendReadReceipt(m.chat, participant, [m.key.id])
+        cafnay​.​sendPresenceUpdate​(​'available'​, id)   
+        cafnay​.​sendPresenceUpdate​(​'composing'​, id)  
         }
-//WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'//
-     
-        }
+/*WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'*/
 
         switch(command) {
        case 'menu':
        case 'hlp':
 
        if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "GUS"}))
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CAF"}))
        } 
 
-       else if (modelmenu == 'image') 
-       else if(menusimpel = true)
-
+       else if (modelmenu == 'image')        
        {
        await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {image: {url: "./media/cafnay.jpg", caption: anuy}}))
        }
@@ -771,7 +764,7 @@ Bot Admin : ${isBotAdmins}
 		   
 		   cafnay.sendMessage(m.chat, {text: dijasjusin}, {quoted: troli})
 		   break
-	   }	   	  
+	   }
 	   
    case 'katailham':
      anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=IkyOgiwara`)
@@ -1320,10 +1313,7 @@ cafnay.sendMessage(from, buttonMessage)
 				cafnay.sendMessage(m.chat, {text: dijasjus.result.result}, {quoted: m})
 				break
 			}
-			
-			
-				   
-			 
+ 
 	    case 'toimage': case 'toimg': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
@@ -1339,12 +1329,7 @@ cafnay.sendMessage(from, buttonMessage)
                 })
             }
             break
-			
-			
-			
-			
-			
-			
+		
 			case 'gimg':{
 				if (!q) return m.reply('masukan query!')
 					m.reply(`searching google img for ${q}`)
@@ -1383,7 +1368,7 @@ var templatetun = proto.Message.fromObject({
                                     hydratedButtons: [{
                                         urlButton: {
                                             displayText: 'Github Owner',
-                                            url: 'https://github.com/kepo-ID'
+                                            url: 'https://github.com/CAF-ID'
                                         }
                                     }, {
                                         callButton: {
@@ -1429,7 +1414,7 @@ break
                     ini_url = args[0]
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
                     ini_sticker = ini_url.result.sticker
-                    cafnay.sendMessage(m.chat, {image: ini_sticker}, {quoted: m})                    
+                    cafnay.sendMessage(from, {image: ini_sticker}, {quoted: m})                    
                   break       
 
             case 'gantengcek':
@@ -1681,19 +1666,19 @@ break
             cafnay.sendTextWithMentions(m.chat, N, m)
             break
 
-         /*  case 'ban':
-     if (!isCreator) return sticOwner(from)
-      bnnd = body.slice(5)
-   ban.push(`${bnnd}@s.whatsapp.net`)
-   fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-   m.reply(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
-   break
+           /*case 'ban':
+if (!isOwner) return sticOwner(from)
+bnnd = body.slice(5)
+ban.push(`${bnnd}@s.whatsapp.net`)
+fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
+fakeText(`*@${bnnd}*\n_Telah Berhasil Dibanned ✓_`)
+break
 case 'unban':
-if (!isCreator) return sticOwner(from)
+if (!isOwner) return sticOwner(from)
 bnnd = body.slice(7)
 ban.splice(`${bnnd}@s.whatsapp.ne5t`)
 fs.writeFileSync('./database/banned.json', JSON.stringify(ban))
-m.reply(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
+fakeText(`*@${bnnd}*\n_Telah Sukses Diunbanned ✓_`)
 break*/
 
             case 'wikimedia': {
@@ -1760,12 +1745,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'owner': case 'creator': {
                 let vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                     + 'VERSION:3.0\n' 
-                    + 'N:;STYLE;;;'
-                    + 'FN:GUS•NAY\n' // full name
-                    + 'ORG:Owner - GUS;\n' // the organization of the contact
+                    + 'N:;CAF;;;'
+                    + 'FN:CAF•NAY\n' // full name
+                    + 'ORG:Owner - CAF;\n' // the organization of the contact
                     + 'TEL;type=CELL;type=VOICE;waid=6282268562601:+62 857-6217-9624\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
-                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - GUS', contacts: [{ vcard }] } }, { quoted: troli })
+                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - CAF', contacts: [{ vcard }] } }, { quoted: troli })
             }
             break
 			case 'kick': {
@@ -1805,18 +1790,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 				m.reply('sukses demote!')
 				}
 				break
-				
-				case 'block': {
-		if (!isCreator) throw mess.owner
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await cafnay.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-	}
-	break
-    case 'unblock': {
-		if (!isCreator) throw mess.owner
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await cafnay.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-	}
 				
             case 'eval': {
                 if (!isCreator) return m.reply(mess.owner)
@@ -1973,27 +1946,7 @@ case 'get':
             }
             break
             
-///////////////////////TEXT PRO 2///////////////////
 
-case '3d_summer': case 'wooden_boards': case 'flower_heart': case 'wood_heart': case 'coffe_cup': case 'undergrass': case 'naruto-banner':
- case 'burn_paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny_cup': case 'love_text': case 'double_romantic':
- case 'lol_rankboder': case 'lol_pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe_cup_2': case 'harrypotter':
- case 'butterfly': case 'glow_metallic': case 'crisp_chrome': case 'fur': case 'glow_rainbow': case 'graffiti_cover': case 'glowing_neon': case 'underwater':
- case '3d_nature': case 'golden_roses': case 'rainbow_shine': case 'rainbow_shine': case 'gradient': case 'night_sky': case 'flaming': case 'write_birthday':
- case 'waterlemon': case '3d_wooden': case 'neon_light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark_metal':
- case 'lol_coverglowing':
-if (!q) return m.reply(`Masukan query!`)
-command_r = command.replace("-", "_")
-try {
-tekpro = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
-console.log(photoxy)
-potoxy = await getBuffer(photoxy)
-cafnay.sendMessage(m.chat, { image: potoxy , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
-} catch (e) {
-m.reply(`Apikey *${command}* Undefined`)
-}
-break
-          
 ///////////////////////BATAS SUCI///////////////////
 case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
                 let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
@@ -2135,7 +2088,7 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                     })
                 }
         }
-      if (budy.includes('GUS')) {  
+      if (budy.includes('CAF')) {  
 cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
 	  }	  
 
