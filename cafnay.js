@@ -735,9 +735,9 @@ Bot Admin : ${isBotAdmins}
         // Push Message To Console
         if (m.message) {
         console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
-        cafnay.sendReadReceipt(m.chat, participant, [m.key.id])
+        /*cafnay.sendReadReceipt(m.chat, participant, [m.key.id])
         cafnay​.​sendPresenceUpdate​(​'available'​, id)   
-        cafnay​.​sendPresenceUpdate​(​'composing'​, id)  
+        cafnay​.​sendPresenceUpdate​(​'composing'​, id)*//  
         }
 /*WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'*/
 
