@@ -673,7 +673,7 @@ Bot Admin : ${isBotAdmins}
        case 'hlp':
 
        if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnays.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CA"}))
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CA"}))
        } 
 
        else if (modelmenu == 'image') 
