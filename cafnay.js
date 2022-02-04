@@ -386,30 +386,7 @@ Ini MySelf : ${itsMe}
 Admin Gc : ${isGroupAdmins}
 Bot Admin : ${isBotAdmins}
 
-┌──●⭓ *Group Menu*
-│
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}hidetag (teks)
-│⭔ ${prefix}add (tag)
-│⭔ ${prefix}kick (tag)
-│⭔ ${prefix}promote (tag)
-│⭔ ${prefix}demote (tag)
-│
-└───────●⭓
-
-┌──●⭓ *Downloader Menu*
-│
-│⭔ ${prefix}ytmp3 (linkyt)
-│⭔ ${prefix}ytmp4 (linkyt)
-│⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}ttaudio (link tt)
-│⭔ ${prefix}igdl (link ig)
-│⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link ig)
-│⭔ ${prefix}mediafire(link)
-│
-└───────●⭓
-
+///prefix
 ┌──●⭓ *Search Menu*
 │
 │⭔ ${prefix}pinterest
@@ -419,6 +396,19 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
 │⭔ ${prefix}kbbi (query)
+│
+└───────●⭓
+
+┌──●⭓ *Downloader Menu*
+│
+│⭔ ${prefix}ytmp3 (linkyt)
+│⭔ ${prefix}ytmp4 (linkyt)
+│⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}ttmp3 (link tt)
+│⭔ ${prefix}igdl (link ig)
+│⭔ ${prefix}ttwm (link tt)
+│⭔ ${prefix}ttnowm (link ig)
+│⭔ ${prefix}mediafire(link)
 │
 └───────●⭓
 
@@ -469,7 +459,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}poke
 │⭔ ${prefix}dance
 │⭔ ${prefix}cringe
-│⭔ ${prefix}hilih (query)
+│⭔ ${prefix}hilih
+│⭔ ${prefix}simi
+│⭔ ${prefix}simih
 │
 └───────●⭓
 
@@ -719,6 +711,17 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}setpp
 │
 └───────●⭓
+
+┌──●⭓ *Group Menu*
+│
+│⭔ ${prefix}linkgroup
+│⭔ ${prefix}hidetag (teks)
+│⭔ ${prefix}add (tag)
+│⭔ ${prefix}kick (tag)
+│⭔ ${prefix}promote (tag)
+│⭔ ${prefix}demote (tag)
+│
+└───────●⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
 ❑ Jika bot tidak merespon, mungkin bot sedang off
 ❑ bot tidak menyimpan riwayat foto/media
@@ -734,7 +737,13 @@ Bot Admin : ${isBotAdmins}
 
         // Push Message To Console
         if (m.message) {
-            console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
+           console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
+           cafnay.sendReadReceipt(m.chat, participant, [m.key.id])
+           cafnay​.​sendPresenceUpdate​(​'available'​, id)   
+           cafnay​.​sendPresenceUpdate​(​'composing'​, id)  
+        }
+//WAPresence = 'unavailable' | 'available' | 'composing' | 'recording' | 'paused'//
+     
         }
 
         switch(command) {
@@ -742,10 +751,11 @@ Bot Admin : ${isBotAdmins}
        case 'hlp':
 
        if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CAF"}))
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "GUS"}))
        } 
 
        else if (modelmenu == 'image') 
+       else if(menusimpel = true)
 
        {
        await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {image: {url: "./media/cafnay.jpg", caption: anuy}}))
@@ -761,7 +771,7 @@ Bot Admin : ${isBotAdmins}
 		   
 		   cafnay.sendMessage(m.chat, {text: dijasjusin}, {quoted: troli})
 		   break
-	   }
+	   }	   	  
 	   
    case 'katailham':
      anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/katailham?apikey=IkyOgiwara`)
@@ -1063,7 +1073,7 @@ Bot Admin : ${isBotAdmins}
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
 	  
-	  case 'usa':
+	  case 'simi':
 	  case 'simih':	  
   if (args.length == 0) return m.reply(`Text Nya Mana\nContoh: ${prefix + command} hai`)
   boo = args.join(" ")
@@ -1373,7 +1383,7 @@ var templatetun = proto.Message.fromObject({
                                     hydratedButtons: [{
                                         urlButton: {
                                             displayText: 'Github Owner',
-                                            url: 'https://github.com/CAF-ID'
+                                            url: 'https://github.com/kepo-ID'
                                         }
                                     }, {
                                         callButton: {
@@ -1419,7 +1429,7 @@ break
                     ini_url = args[0]
                     ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=itschandra&url=${ini_url}`)
                     ini_sticker = ini_url.result.sticker
-                    cafnay.sendMessage(from, {image: ini_sticker}, {quoted: m})                    
+                    cafnay.sendImageAsSticker(m.chat, {image: ini_sticker}, {quoted: m})                    
                   break       
 
             case 'gantengcek':
@@ -1750,12 +1760,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'owner': case 'creator': {
                 let vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                     + 'VERSION:3.0\n' 
-                    + 'N:;CAF;;;'
-                    + 'FN:CAF•NAY\n' // full name
-                    + 'ORG:Owner - CAF;\n' // the organization of the contact
+                    + 'N:;STYLE;;;'
+                    + 'FN:GUS•NAY\n' // full name
+                    + 'ORG:Owner - GUS;\n' // the organization of the contact
                     + 'TEL;type=CELL;type=VOICE;waid=6282268562601:+62 857-6217-9624\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
-                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - CAF', contacts: [{ vcard }] } }, { quoted: troli })
+                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - GUS', contacts: [{ vcard }] } }, { quoted: troli })
             }
             break
 			case 'kick': {
@@ -1965,13 +1975,13 @@ case 'get':
             
 ///////////////////////TEXT PRO 2///////////////////
 
-case '3d-summer': case 'wooden-boards': case 'flower-heart': case 'wood-heart': case 'coffe-cup': case 'undergrass': case 'naruto-banner':
- case 'burn-paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny-cup': case 'love-text': case 'double-romantic':
- case 'lol-rankboder': case 'lol-pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe-cup-2': case 'harrypotter':
- case 'butterfly': case 'glow-metallic': case 'crisp-chrome': case 'fur': case 'glow-rainbow': case 'graffiti-cover': case 'glowing-neon': case 'underwater':
- case '3d-nature': case 'golden-roses': case 'rainbow-shine': case 'rainbow-shine': case 'gradient': case 'night-sky': case 'flaming': case 'write-birthday':
- case 'waterlemon': case '3d-wooden': case 'neon-light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark-metal':
- case 'lol-coverglowing':
+case '3d_summer': case 'wooden_boards': case 'flower_heart': case 'wood_heart': case 'coffe_cup': case 'undergrass': case 'naruto-banner':
+ case 'burn_paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny_cup': case 'love_text': case 'double_romantic':
+ case 'lol_rankboder': case 'lol_pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe_cup_2': case 'harrypotter':
+ case 'butterfly': case 'glow_metallic': case 'crisp_chrome': case 'fur': case 'glow_rainbow': case 'graffiti_cover': case 'glowing_neon': case 'underwater':
+ case '3d_nature': case 'golden_roses': case 'rainbow_shine': case 'rainbow_shine': case 'gradient': case 'night_sky': case 'flaming': case 'write_birthday':
+ case 'waterlemon': case '3d_wooden': case 'neon_light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark_metal':
+ case 'lol_coverglowing':
 if (!q) return m.reply(`Masukan query!`)
 command_r = command.replace("-", "_")
 try {
@@ -2125,7 +2135,7 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                     })
                 }
         }
-      if (budy.includes('CAF')) {  
+      if (budy.includes('GUS')) {  
 cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
 	  }	  
 
