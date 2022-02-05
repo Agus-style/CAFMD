@@ -124,6 +124,20 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
             } else {
                 return cafnay.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: m })
             }
+            
+            let settings = global.db.data.settings[botNumber]
+if (typeof settings !== 'object') global.db.data.settings[botNumber] = {}
+if (settings) {
+if (!('available' in settings)) settings.available = false
+if (!('composing' in settings)) settings.composing = false
+if (!('recording' in settings)) settings.recording = false
+} else global.db.data.settings[botNumber] = {
+available: false,
+composing: false,
+recording: false,
+} catch (err) {
+console.log(err)
+}
         }
         const reply = (teks) => {
             cafnay.sendMessage(from, teks, text, {quoted:m})
