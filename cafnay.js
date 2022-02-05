@@ -395,9 +395,6 @@ _${by}_
 "listType": "SINGLE_SELECT",
 "sections": [
 {
-"title": `${ucapanWaktu} - ${time}`,
-"rows": [
-{
 "title": "Main Menu ⚔️",
 "rowId": `${prefix}mainmenu`
 },
