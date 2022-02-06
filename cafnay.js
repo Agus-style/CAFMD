@@ -1034,7 +1034,25 @@ case 'ohidetag':
                   await cafnay.updateProfilePicture(ngen_uh, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
                   }
                   break
-                 
+              
+                case 'emojimix':
+if(!quoted)return m.reply((`Example : ${prefix + command} 😎+😙`)
+let emo1 = q.split("+")[0]
+let emo2 = q.split("+")[1]
+fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emo1 ? emo1 : '😎')}_${encodeURIComponent(emo2 ? emo2 : '😙')}`).then(async i =>{
+let teks = `*Result of Emojimix*
+
+Locale : ${i.locale}
+Title : ${i.results[0].h1_title}
+Create : ${i.results[0].created}
+Url : ${i.results[0].url}
+
+_Mencoba mengirim Sticker.._
+`.trim()
+m.reply(teks)
+await cafnay.sendImageAsSticker(m.chat, i.results[0].url, m, { packname: setting.packname, author: setting.author })
+})
+break   
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
