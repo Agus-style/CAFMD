@@ -123,7 +123,7 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
                 return cafnay.sendMessage(from, { audio: await getBuffer(url), caption: caption, mentions: men ? men : [], mimetype: 'audio/mpeg'}, {quoted: m })
             } else {
                 return cafnay.sendMessage(from, { document: await getBuffer(url), mimetype: mime, caption: caption, mentions: men ? men : []}, {quoted: m })
-            }                       
+            }
         }
         const reply = (teks) => {
             cafnay.sendMessage(from, teks, text, {quoted:m})
@@ -333,39 +333,6 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-
-
-        // Public & Self
-        if (!cafnay.public) {
-            if (!m.key.fromMe) return
-        }
-
-        // Push Message To Console
-        if (m.message) {
-            console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
-         }
-
-        switch(command) {
-       case 'menu':
-case 'menu':
-       case 'hlp':
-
-       if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CA"}))
-       } 
-
-       else if (modelmenu == 'image') 
-
-       {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {image: {url: "./media/cafnay.jpg", caption: anuy}}))
-       }
-quotesnya = await fetchJson(`https://apikey-bear2.herokuapp.com/api/randomquote?apikey=${apiKey}`)
-quotes = quotesnya.result.quotes
-by = quotesnya.result.author
-ros = await cafnay.prepareMessageFromContent(from,{
-"listMessage": {
-"title": '◩ 𝘽𝙤𝙩 𝙄𝙣𝙛𝙤',
-"description"
 anuy = ` ${ucapanWaktu} ${pushname}, Saya ${botname} !
 
 *INFO WAKTU*
@@ -384,105 +351,31 @@ Ini Owner Bot : ${isCreator}
 Ini MySelf : ${itsMe}
 Admin Gc : ${isGroupAdmins}
 Bot Admin : ${isBotAdmins}
-━━━━━━━━━━━━━━━━━━
-*𝘘𝘜𝘖𝘛𝘌𝘚  :* 
-_${quotes}_
 
-*𝘘𝘜𝘖𝘛𝘌𝘚 _BY_ :*
-_${by}_
-━━━━━━━━━━━━━━━━━━`,
-"buttonText": "𝙋𝙄𝙇𝙄𝙃 𝘿𝙄𝙎𝙄𝙉𝙄",
-"listType": "SINGLE_SELECT",
-"sections": [
-{
-"title": "Main Menu ⚔️",
-"rowId": `${prefix}mainmenu`
-},
-{
-"title": "Random Menu ⚡️",
-"rowId": `${prefix}randommenu`
-},
-{
-"title": "Marker Menu 🌐️",
-"rowId": `${prefix}markermenu`
-},
-{
-"title": "Textpro Menu 🎟️",
-"rowId": `${prefix}textpromenu`
-},
-{
-"title": "Group Menu ✏️️",
-"rowId": `${prefix}groupmenu`
-},
-{
-"title": "Sound Menu 🎧️️",
-"rowId": `${prefix}soundmenu`
-},
-{
-"title": "Wallpaper Menu 🕊️️️",
-"rowId": `${prefix}wallmenu`
-},
-{
-"title": "Gabut Asu 🌟️️",
-"rowId": `${prefix}gabutasu`
-},
-{
-"title": "Gacha Cecan ❤️",
-"rowId": `${prefix}cecanmenu`
-},
-{
-"title": "Anime Menu 🔥️️",
-"rowId": `${prefix}animemenu`
-},
-{
-"title": "Search Menu 🔎️",
-"rowId": `${prefix}searchmenu`
-},
-{
-"title": "Others Menu 🏷️",
-"rowId": `${prefix}othersmenu`
-},
-{
-"title": "Owner Menu 👑",
-"rowId": `${prefix}ownermenu`
-},
-{
-"title": "Riview Cek 🚨️",
-"rowId": `${prefix}riviewcek`
-},
-{
-"title": "Download Menu 📥️",
-"rowId": `${prefix}downloadmenu`
-},
-{
-"title": "Kata Kata 🛒",
-"rowId": `${prefix}katakata`
-},
-{
- "title": "Owner Bot 👤",
-"rowId": `${prefix}owner`
-},
-{
- "title": "Owner Menu 👤",
-"rowId": `${prefix}ownermenu`
-},
-{
-"title": "Script Bot 💌",
-"rowId": `${prefix}scbot`
-},
-{
-"title": "Info Bot ⚙️",
-"rowId": `${prefix}infobot`
-},
-]
-}
-]
-}
-}, {quoted: m })
-cafnay.relayWAMessage(ros)
-break
+┌──●⭓ *Group Menu*
+│
+│⭔ ${prefix}linkgroup
+│⭔ ${prefix}hidetag (teks)
+│⭔ ${prefix}add (tag)
+│⭔ ${prefix}kick (tag)
+│⭔ ${prefix}promote (tag)
+│⭔ ${prefix}demote (tag)
+│
+└───────●⭓
 
-case 'searchmenu':
+┌──●⭓ *Downloader Menu*
+│
+│⭔ ${prefix}ytmp3 (linkyt)
+│⭔ ${prefix}ytmp4 (linkyt)
+│⭔ ${prefix}play (nama lagu)
+│⭔ ${prefix}ttaudio (link tt)
+│⭔ ${prefix}igdl (link ig)
+│⭔ ${prefix}ttwm (link tt)
+│⭔ ${prefix}ttnowm (link ig)
+│⭔ ${prefix}mediafire(link)
+│
+└───────●⭓
+
 ┌──●⭓ *Search Menu*
 │
 │⭔ ${prefix}pinterest
@@ -494,42 +387,12 @@ case 'searchmenu':
 │⭔ ${prefix}kbbi (query)
 │
 └───────●⭓
-break
 
-case 'downloadermenu':
-┌──●⭓ *Downloader Menu*
-│
-│⭔ ${prefix}ytmp3 (linkyt)
-│⭔ ${prefix}ytmp4 (linkyt)
-│⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}ttmp3 (link tt)
-│⭔ ${prefix}igdl (link ig)
-│⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link ig)
-│⭔ ${prefix}mediafire(link)
-│
-└───────●⭓
-break
-
-case 'katakata':
-┌──●⭓ *Kata Kata*
-│
-│⭔ ${prefix}katailham
-│⭔ ${prefix}katakataml
-│⭔ ${prefix}katabucin
-│⭔ ${prefix}katabijak
-│⭔ ${prefix}katabucin2
-│⭔ ${prefix}katasindiran
-│⭔ ${prefix}quotesanime
-│
-└───────●⭓
-break
-
-case 'randommenu':
 ┌──●⭓ *Random Menu*
 │
 │⭔ ${prefix}porno
 │⭔ ${prefix}hentai
+│⭔ ${prefix}quotesanime
 │⭔ ${prefix}loli
 │⭔ ${prefix}neko
 │⭔ ${prefix}waifu
@@ -561,15 +424,11 @@ case 'randommenu':
 │⭔ ${prefix}poke
 │⭔ ${prefix}dance
 │⭔ ${prefix}cringe
-│⭔ ${prefix}hilih
-│⭔ ${prefix}simi
-│⭔ ${prefix}simih
+│⭔ ${prefix}hilih (query)
 │
 └───────●⭓
-break
 
-case 'gabutasu':
-┌──●⭓ *Gabut Asu*
+┌──●⭓ *gabut Asu*
 │
 │⭔ ${prefix}artimimpi
 │⭔ ${prefix}artinama
@@ -602,10 +461,8 @@ case 'gabutasu':
 │⭔ ${prefix}shio
 │
 └───────●⭓
-break
 
-case 'textpro':
-┌──● Text Pro
+┌──● TEXT PRO 1
 │
 │⭔ ${prefix}fiction
 │⭔ ${prefix}transformer
@@ -761,35 +618,7 @@ case 'textpro':
 │⭔ ${prefix}discovery
 │
 └───────●
-break
 
-case 'riviewcek':
-┌──●⭓ * Riview Cek *
-│
-│${prefix}gantengcek
-│${prefix}cantikcek
-│${prefix}jelekcek
-│${prefix}goblokcek
-│${prefix}begocek
-│${prefix}pintarcek
-│${prefix}jagocek 
-│${prefix}nolepcek
-│${prefix}babicek 
-│${prefix}bebancek
-│${prefix}baikcek
-│${prefix}jahatcek 
-│${prefix}anjingcek
-│${prefix}haramcek
-│${prefix}kontolcek 
-│${prefix}pakboycek 
-│${prefix}pakgirlcek	
-│${prefix}sangecek
-│${prefix}bapercek
-│
-└───────●⭓
-break
-
-case 'mainmenu':
 ┌──● *Main Menu*
 │
 │⭔ ${prefix}ping
@@ -805,17 +634,13 @@ case 'mainmenu':
 │⭔ ${prefix}toimg (foto) 
 │
 └───────●⭓
-break
 
-case 'markermenu':
 ┌──●⭓ *Maker Menu*
 │
 │⭔ ${prefix}ktpmaker
 │
 └───────●⭓
-break
 
-case 'ownermenu'
 ┌──●⭓ *Owner Menu*
 │
 │⭔ ${prefix}chat [option]
@@ -825,28 +650,38 @@ case 'ownermenu'
 │⭔ ${prefix}setpp
 │
 └───────●⭓
-break
-
-case 'groupmenu':
-┌──●⭓ *Group Menu*
-│
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}hidetag (teks)
-│⭔ ${prefix}add (tag)
-│⭔ ${prefix}kick (tag)
-│⭔ ${prefix}promote (tag)
-│⭔ ${prefix}demote (tag)
-│
-└───────●⭓
-break
-
-case 'infobot':
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
 ❑ Jika bot tidak merespon, mungkin bot sedang off
 ❑ bot tidak menyimpan riwayat foto/media
 ❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
 ❑ Jika menemukan bug/err silahkan hubungi owner
-break
+
+`
+
+        // Public & Self
+        if (!cafnay.public) {
+            if (!m.key.fromMe) return
+        }
+
+        // Push Message To Console
+        if (m.message) {
+            console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
+         }
+
+        switch(command) {
+       case 'menu':
+       case 'hlp':
+
+       if (modelmenu == 'gif') {
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CA"}))
+       } 
+
+       else if (modelmenu == 'image') 
+
+       {
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {image: {url: "./media/cafnay.jpg", caption: anuy}}))
+       }
+       break
 	   
 	   case 'tr': {
 		   if (!q) return m.reply('Masukan QUERY!!')
