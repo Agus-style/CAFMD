@@ -665,8 +665,10 @@ Bot Admin : ${isBotAdmins}
 
         // Push Message To Console
         if (m.message) {
+        cafnay.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
-         }
+        }
+
 
         switch(command) {
        case 'menu':
