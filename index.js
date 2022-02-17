@@ -24,15 +24,29 @@ const { smsg, isUrl, generateMessageTag } = require('./lib/myfunc')
 
 global.api = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 
+const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
+
+const getVersionWaweb = () => {
+    let version
+    try {
+        let a = fetchJson('https://web.whatsapp.com/check-update?version=1&platform=web')
+        version = [a.currentVersion.replace(/[.]/g, ', ')]
+    } catch {
+        version = [2, 2204, 13]
+    }
+    return version
+}
 
 async function startcafnay() {
-    const cafnay = makeWASocket({
+    const cafnay = cafnayConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['CAFNAY Multi Device','Safari','1.0.0'],
+        browser: ['cafnay Multi Device','Safari','1.0.0'],
         auth: state,
-        version: [2, 2204, 13]
+        version: getVersionWaweb() || [2, 2204, 13]
     })
+
+    store.bind(cafnay.ev)
 
     cafnay.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
