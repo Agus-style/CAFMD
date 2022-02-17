@@ -29,8 +29,8 @@ async function startcafnay() {
     const cafnay = makeWASocket({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['cafnay Multi Device'],
-        auth: state
+        browser: ['CAFNAY Multi Device','Safari','1.0.0'],
+        auth: state,
         version: [2, 2204, 13]
     })
 
