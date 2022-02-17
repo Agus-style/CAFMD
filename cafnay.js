@@ -1053,7 +1053,7 @@ case 'ohidetag':
 	    
 	    case 'telesticker': {
 		       if (!quoted) throw `Example : ${prefix + command} https://t.me/addstickers/c1129234339_by_HarukaAyaBot`
-		       let anu = await xfarr.Telesticker(isUrl(text)[0])
+		       let anu = await xfarr.telesticker(isUrl(text)[0])
                for (let i = 0; i < (anu.length < 10 ? anu.length : 10); i++) {
                let encmedia = await cafnay.sendMediaAsSticker(m.chat, anu[i].url, m, { packname: packname, author: author })
                await fs.unlinkSync(encmedia)
