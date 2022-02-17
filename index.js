@@ -31,6 +31,7 @@ async function startcafnay() {
         printQRInTerminal: true,
         browser: ['cafnay Multi Device'],
         auth: state
+        version: [2, 2204, 13]
     })
 
     cafnay.ev.on('messages.upsert', async chatUpdate => {
