@@ -19,22 +19,14 @@ const os = require('os')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
 const yts = require('yt-search')
-const xfarr = require('xfarr-api')
-const { Primbon } = require('scrape-primbon')
-const primbon = new Primbon()
-const { igDownloader } = require('./lib/igdown')
-const {TiktokDownloader} = require('./lib/tiktokdl')
-const { y2mateA, y2mateV } = require('./lib/y2mate.js')
-const moment = require("moment-timezone")
-const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
 const { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { pinterest, wallpaper, wikimedia, porno, hentai, quotesAnime } = require('./lib/scraper')
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./lib/myfunc')
 const setting = JSON.parse(fs.readFileSync('./settings.json'))
 botname = setting.namabot
-const fake = 'AGUS STYLE - Bot MD'
-ownerNumber = ["6282268562601@s.whatsapp.net"]
+const fake = 'CAF BOTz - Bot MD'
+ownerNumber = ["6285793887010@s.whatsapp.net"]
 modelmenu = 'gif'
 apikeyy = 'sQMpXbHimbTkxGC'
 
@@ -46,8 +38,6 @@ module.exports = cafnay = async (cafnay, m, chatUpdate) => {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.buttonsResponseMessage.selectedButtonId : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
         var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
-        const kuntul = cafnay.user.id
-        const ngen_uh = m.chat
         const isCmd = body.startsWith(prefix)
         const from = m.key.remoteJid
 		const type = Object.keys(m.message)[0] 
@@ -144,68 +134,6 @@ m.reply('invalid type, please contact the owner bot')
 }
 }
 
-
-const time2 = moment().tz("Asia/Makassar").format("HH:mm:ss");
-    if (time2 < "24:59:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
-    if (time2 < "19:00:00") {
-      var ucapanWaktu = "GoodEvening🌞";
-    }
-    if (time2 < "18:00:00") {
-      var ucapanWaktu = "GoodEvening🌄";
-    }
-    if (time2 < "15:00:00") {
-      var ucapanWaktu = "GoodAfternoon☀️";
-    }
-    if (time2 < "11:00:00") {
-      var ucapanWaktu = "GoodMoorning🌅";
-    }
-    if (time2 < "05:00:00") {
-      var ucapanWaktu = "GoodNight🌃";
-    }
-
-const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
-const wib = moment.tz('Asia/Jakarta').format('HH : mm : ss')
-const wita = moment.tz('Asia/Makassar').format('HH : mm : ss')
-const wit = moment.tz('Asia/Jayapura').format('HH : mm : ss')
-
-var dates = moment().tz('Asia/Jakarta').format("YYYY-MM-DDTHH:mm:ss");
-var date = new Date(dates);
-var tahun = date.getFullYear();
-var bulan = date.getMonth();
-var tanggal = date.getDate();
-var hari = date.getDay();
-var jam = date.getHours();
-var menit = date.getMinutes();
-var detik = date.getSeconds();
-var waktoo = date.getHours();
-
-switch(hari) {
-case 0: hari = "Minggu"; break;
-case 1: hari = "Senin"; break;
-case 2: hari = "Selasa"; break;
-case 3: hari = "Rabu"; break;
-case 4: hari = "Kamis"; break;
-case 5: hari = "Jum`at"; break;
-case 6: hari = "Sabtu"; break;
-}
-switch(bulan) {
-case 0: bulan = "Januari"; break;
-case 1: bulan = "Februari"; break;
-case 2: bulan = "Maret"; break;
-case 3: bulan = "April"; break;
-case 4: bulan = "Mei"; break;
-case 5: bulan = "Juni"; break;
-case 6: bulan = "Juli"; break;
-case 7: bulan = "Agustus"; break;
-case 8: bulan = "September"; break;
-case 9: bulan = "Oktober"; break;
-case 10: bulan = "November"; break;
-case 11: bulan = "Desember"; break;
-}
-var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;   	        
-
 		const troli = {
                          "key": {
                          "remoteJid": "status@broadcast", 
@@ -217,8 +145,8 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          "status": 200, 
                          
                          "surface": 200, 
-                         "message": `AS•STYLE - MD`, 
-                         "orderTitle": 'AS', 
+                         "message": `CAF•BOTz - MD`, 
+                         "orderTitle": 'CAF', 
                          "sellerJid": '0@s.whatsapp.net'
                     } 
                           } 
@@ -237,7 +165,7 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
                          
                          "surface": 200, 
                          "message": `Halo ${pushname}! dapet salam dari owner.`, 
-                         "orderTitle": 'dapet salam dari owner cafnay!', 
+                         "orderTitle": 'dapet salam dari owner CAF!', 
                          "sellerJid": '6285793887010@s.whatsapp.net'
                     } 
                           } 
@@ -257,13 +185,13 @@ var Tanggal= "" + hari + ", " + tanggal + " " + bulan + " " + tahun;
             await fs.writeFileSync(trueFileName, buffer)
             return trueFileName
            }
-//////////BUTTON BUATAN cafnay/////////////
- const sendButtonImg = async (id, text1, desc1, gus) => {
+//////////BUTTON BUATAN CAF/////////////
+ const sendButtonImg = async (id, text1, desc1, caf) => {
  //SendButtonImage
  var tes = await generateWAMessageFromContent(from, {
     "templateMessage": {
       "hydratedTemplate": {
-        ...gus.message,
+        ...caf.message,
         "hydratedContentText": text1,
         "hydratedFooterText": desc1,
         "hydratedButtons": [
@@ -300,7 +228,7 @@ var buatpesan = await generateWAMessageFromContent(from, {
           {
             "urlButton": {
               "displayText": "My GITHUB",
-              "url": "https://github.com/gus-ID"
+              "url": "https://github.com/CAF-ID"
             }
           },
           {
@@ -334,13 +262,12 @@ var buatpesan = await generateWAMessageFromContent(from, {
 cafnay.relayMessage(id, buatpesan.message, { messageId: buatpesan.key.id })
 }
 
-anuy = ` ${ucapanWaktu} ${pushname}, Saya ${botname} !
+anuy = ` Hai ${pushname}, Saya ${botname} !
 
 *INFO WAKTU*
-DATE : *_${Tanggal}_*
-WIB : *_${wib}_*
-WIT : *_${wit}_*
-WITA : *_${wita}_*
+WIB : 
+WIT :
+WITA :
 
 *USER INFO*
 Nama : ${pushname}
@@ -353,7 +280,7 @@ Ini MySelf : ${itsMe}
 Admin Gc : ${isGroupAdmins}
 Bot Admin : ${isBotAdmins}
 
-┌──●⭓ *Group Menu*
+┌──⭓ *Group Menu*
 │
 │⭔ ${prefix}linkgroup
 │⭔ ${prefix}hidetag (teks)
@@ -362,24 +289,17 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}promote (tag)
 │⭔ ${prefix}demote (tag)
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *Downloader Menu*
+┌──⭓ *Downloader Menu*
 │
 │⭔ ${prefix}ytmp3 (linkyt)
 │⭔ ${prefix}ytmp4 (linkyt)
 │⭔ ${prefix}play (nama lagu)
-│⭔ ${prefix}ttaudio (link tt)
-│⭔ ${prefix}igdl (link ig)
-│⭔ ${prefix}ttwm (link tt)
-│⭔ ${prefix}ttnowm (link ig)
-│⭔ ${prefix}mediafire(link)
-│⭔ ${prefix}emojimix
-│⭔ ${prefix}telesticker(link)
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *Search Menu*
+┌──⭓ *Search Menu*
 │
 │⭔ ${prefix}pinterest
 │⭔ ${prefix}wallpaper
@@ -387,11 +307,10 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}lirik (query)
 │⭔ ${prefix}tr (query)
 │⭔ ${prefix}gimg (query)
-│⭔ ${prefix}kbbi (query)
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *Random Menu*
+┌──⭓ *Random Menu*
 │
 │⭔ ${prefix}porno
 │⭔ ${prefix}hentai
@@ -429,200 +348,9 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}cringe
 │⭔ ${prefix}hilih (query)
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *gabut Asu*
-│
-│⭔ ${prefix}artimimpi
-│⭔ ${prefix}artinama
-│⭔ ${prefix}ramalanjodoh
-│⭔ ${prefix}ramalanjodohbali
-│⭔ ${prefix}nomerhoki
-│⭔ ${prefix}suamiistri
-│⭔ ${prefix}ramalancinta
-│⭔ ${prefix}kecocokannama
-│⭔ ${prefix}kecocokanpasangan
-│⭔ ${prefix}jadianpernikahan
-│⭔ ${prefix}sifatusaha
-│⭔ ${prefix}rejeki
-│⭔ ${prefix}pekerjaan
-│⭔ ${prefix}ramalannasib
-│⭔ ${prefix}artitarot
-│⭔ ${prefix}potensipenyakit
-│⭔ ${prefix}haribaik
-│⭔ ${prefix}fengshui
-│⭔ ${prefix}harinaas
-│⭔ ${prefix}harisangar
-│⭔ ${prefix}arahrejeki
-│⭔ ${prefix}peruntungan
-│⭔ ${prefix}nagahari
-│⭔ ${prefix}weton
-│⭔ ${prefix}sifat
-│⭔ ${prefix}keberuntungan
-│⭔ ${prefix}memancing
-│⭔ ${prefix}masasubur
-│⭔ ${prefix}shio
-│
-└───────●⭓
-
-┌──● TEXT PRO 1
-│
-│⭔ ${prefix}fiction
-│⭔ ${prefix}transformer
-│⭔ ${prefix}demon
-│⭔ ${prefix}berry
-│⭔ ${prefix}thunder
-│⭔ ${prefix}magma
-│⭔ ${prefix}3dstone
-│⭔ ${prefix}neon
-│⭔ ${prefix}glitch
-│⭔ ${prefix}embossed
-│⭔ ${prefix}harry-potter
-│⭔ ${prefix}broken
-│⭔ ${prefix}papercut
-│⭔ ${prefix}gradient
-│⭔ ${prefix}glossy
-│⭔ ${prefix}watercolor
-│⭔ ${prefix}multicolor
-│⭔ ${prefix}underwater
-│⭔ ${prefix}neon-devil
-│⭔ ${prefix}bear
-│⭔ ${prefix}wonderfulg
-│⭔ ${prefix}sparkling6
-│⭔ ${prefix}sparkling7
-│⭔ ${prefix}decorative
-│⭔ ${prefix}strawberry
-│⭔ ${prefix}chocolate
-│⭔ ${prefix}koifish
-│⭔ ${prefix}bread
-│⭔ ${prefix}matrix
-│⭔ ${prefix}blood2
-│⭔ ${prefix}neonligth2
-│⭔ ${prefix}thunder2
-│⭔ ${prefix}neon2
-│⭔ ${prefix}3dbox
-│⭔ ${prefix}roadw
-│⭔ ${prefix}bokeh
-│⭔ ${prefix}gneon
-│⭔ ${prefix}advanced
-│⭔ ${prefix}dropwater
-│⭔ ${prefix}wall
-│⭔ ${prefix}chrismast
-│⭔ ${prefix}honey
-│⭔ ${prefix}drug
-│⭔ ${prefix}marble
-│⭔ ${prefix}marble2
-│⭔ ${prefix}ice
-│⭔ ${prefix}juice
-│⭔ ${prefix}rusty
-│⭔ ${prefix}abstra
-│⭔ ${prefix}biscuit
-│⭔ ${prefix}wood
-│⭔ ${prefix}scifi
-│⭔ ${prefix}metalr
-│⭔ ${prefix}purpleg
-│⭔ ${prefix}shiny
-│⭔ ${prefix}jewelry
-│⭔ ${prefix}jewelry2
-│⭔ ${prefix}jewelry3
-│⭔ ${prefix}jewelry4
-│⭔ ${prefix}jewelry5
-│⭔ ${prefix}jewelry6
-│⭔ ${prefix}jewelry7
-│⭔ ${prefix}jewelry8
-│⭔ ${prefix}metalh
-│⭔ ${prefix}golden
-│⭔ ${prefix}glitter
-│⭔ ${prefix}glitter2
-│⭔ ${prefix}glitter3
-│⭔ ${prefix}glitter4
-│⭔ ${prefix}glitter5
-│⭔ ${prefix}glitter6
-│⭔ ${prefix}glitter7
-│⭔ ${prefix}metale
-│⭔ ${prefix}carbon
-│⭔ ${prefix}candy
-│⭔ ${prefix}candy
-│⭔ ${prefix}metalb
-│⭔ ${prefix}gemb
-│⭔ ${prefix}metalb2
-│⭔ ${prefix}metalg
-│⭔ ${prefix}neon-light 
-│⭔ ${prefix}snow 
-│⭔ ${prefix}cloudsky 
-│⭔ ${prefix}gradient2 
-│⭔ ${prefix} luxury2
-│⭔ ${prefix}christmas 
-│⭔ ${prefix}summer 
-│⭔ ${prefix}minion
-│⭔ ${prefix}oscar
-│⭔ ${prefix}neonlight
-│⭔ ${prefix}metaldark
-│⭔ ${prefix}3dglue
-│⭔ ${prefix}summery
-│⭔ ${prefix}engraved
-│⭔ ${prefix}writing
-│⭔ ${prefix}newyear2
-│⭔ ${prefix}newyear
-│⭔ ${prefix}neonc
-│⭔ ${prefix}fabric
-│⭔ ${prefix}glossyc
-│⭔ ${prefix}deluxe2
-│⭔ ${prefix}glossyb
-│⭔ ${prefix}holographic
-│⭔ ${prefix}purple
-│⭔ ${prefix}skeleton
-│⭔ ${prefix}natural
-│⭔ ${prefix}firework
-│⭔ ${prefix}wicker
-│⭔ ${prefix}joker
-│⭔ ${prefix}darkg
-│⭔ ${prefix}blood
-│⭔ ${prefix}xmas
-│⭔ ${prefix}metals
-│⭔ ${prefix}denim
-│⭔ ${prefix}gloss
-│⭔ ${prefix}steel
-│⭔ ${prefix}balloon7
-│⭔ ${prefix}balloon5
-│⭔ ${prefix}balloon6
-│⭔ ${prefix}balloon4
-│⭔ ${prefix}balloon3
-│⭔ ${prefix}balloon2
-│⭔ ${prefix}balloon
-│⭔ ${prefix}glass4
-│⭔ ${prefix}glass3
-│⭔ ${prefix}glass2
-│⭔ ${prefix}glass
-│⭔ ${prefix}rock
-│⭔ ${prefix}peridot
-│⭔ ${prefix}decorate2
-│⭔ ${prefix}decorate
-│⭔ ${prefix}toxic
-│⭔ ${prefix}equalizer
-│⭔ ${prefix}captain-as2
-│⭔ ${prefix}glass7
-│⭔ ${prefix}glass5
-│⭔ ${prefix}glass6
-│⭔ ${prefix}glass8
-│⭔ ${prefix}robot
-│⭔ ${prefix}sparkling5
-│⭔ ${prefix}sparkling4
-│⭔ ${prefix}sparkling3
-│⭔ ${prefix}sparkling2
-│⭔ ${prefix}sparkling
-│⭔ ${prefix}metallic
-│⭔ ${prefix}sircuit
-│⭔ ${prefix}sketch
-│⭔ ${prefix}water-pipe
-│⭔ ${prefix}blackpink
-│⭔ ${prefix}rainbow
-│⭔ ${prefix}halloween
-│⭔ ${prefix}discovery
-│
-└───────●
-
-┌──● *Main Menu*
+┌──⭓ *Main Menu*
 │
 │⭔ ${prefix}ping
 │⭔ ${prefix}owner
@@ -633,32 +361,36 @@ Bot Admin : ${isBotAdmins}
 │⭔ ${prefix}sgif
 │⭔ ${prefix}tomp4
 │⭔ ${prefix}tourl
-│  ${prefix}tagall (query)
-│⭔ ${prefix}toimg (foto) 
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *Maker Menu*
+┌──⭓ *Maker Menu*
 │
 │⭔ ${prefix}ktpmaker
 │
-└───────●⭓
+└───────⭓
 
-┌──●⭓ *Owner Menu*
+┌──⭓ *Owner Menu*
 │
 │⭔ ${prefix}chat [option]
 │⭔ ${prefix}public
 │⭔ ${prefix}self
 │⭔ ${prefix}setmenu
-│⭔ ${prefix}setpp
+│⭔ ${prefix}setppbot
 │
-└───────●⭓
+└───────⭓
 ⬣「 𝙄𝙉𝙁𝙊 𝙇𝘼𝙄𝙉 」⬣
 ❑ Jika bot tidak merespon, mungkin bot sedang off
 ❑ bot tidak menyimpan riwayat foto/media
 ❑ Silahkan beri waktu 5 detik penggunaan per fitur agar tidak menyebabkan spam
 ❑ Jika menemukan bug/err silahkan hubungi owner
 
+╭─⬣「 _*THANKS TO*_ 」⬣
+│ ❑ *Developer BOT (_CAF_)*
+│ ❑ *Penyedia Apikey*
+│ ❑ *Penyedia Base (_Hisouka-Morou_)*
+│ ❑ *And All My Friends*
+└⬣
 `
 
         // Public & Self
@@ -668,17 +400,15 @@ Bot Admin : ${isBotAdmins}
 
         // Push Message To Console
         if (m.message) {
-        cafnay.sendReadReceipt(m.chat, m.sender, [m.key.id])
             console.log(chalk.black(chalk.bgWhite('[ PESAN ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> Dari'), chalk.green(pushname), chalk.yellow(m.sender) + '\n' + chalk.blueBright('=> Di'), chalk.green(m.isGroup ? pushname : 'Private Chat', m.chat))
         }
-
 
         switch(command) {
        case 'menu':
        case 'hlp':
 
        if (modelmenu == 'gif') {
-       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CA"}))
+       await sendButton5(from, anuy, fake, await cafnay.createMessage(from, {video: {url: "./media/cafnay.mp4", caption: anuy}, gifPlayback: true, gifAttribution: "CAF"}))
        } 
 
        else if (modelmenu == 'image') 
@@ -700,289 +430,33 @@ Bot Admin : ${isBotAdmins}
 	   }
 	   
 	   case 'ytmp3':{
-	   if (!q) return m.reply('link nya cok')
-		  gusau = await y2mateA(q)
-		  title = gusau[0].judul
-		  audio = gusau[0].link
-		  sendFileFromUrl(from,audio,`Done`,m)
+		   if (!q) return m.reply('Masukan Link Yt')
+			   if (!isUrl) return
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
+		  jasjus = `YTMP3 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.result.url, m)
 		  break
 	   }
+	   
 	   case 'ytmp4':{
-	   if (!q) return m.reply('link nya mana')
-		  gusau = await y2mateV(q)
-		  title = gusau[0].judul
-		  video = gusau[0].link
-		  sendFileFromUrl(from,video,`Done`,m)
+		   if (!q) return m.reply('Masukan Link Yt')
+			   if (!isUrl) return
+		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=${apikeyy}`)
+		  		  jasjus = `YTMP4 DOWNLOADER\nTitle : ${yt.result.title}\nSize : ${yt.result.size}\nDesc : ${yt.result.desc}\nQuality : ${yt.result.quality}\n\n*Mohon tunggu.. kurang lebih 1 menit*`
+		  cafnay.sendMessage(m.chat, {text: jasjus}, {quoted: m})
+		  sendFileFromUrl(m.chat, yt.result.url, m)
 		  break
 	   }
-	   
-	   case 'igdl':
-   if (!q) return m.reply('Linknya?')
-   res = await igDownloader(q)
-   link = res.result.link
-   desc = res.result.desc
-   await sendFileFromUrl(from,link,desc,m)
-   break
-		   
-		   
-		   case 'ttnowm':
-	m.reply('tunggu anta')
-	kntl = `${q}`
-	mmk = await TiktokDownloader(kntl)
-	link_bkp = mmk.result.nowatermark
-	sendFileFromUrl(from,link_bkp,'Done',m)
-	break
-	case 'ttwm':
-	m.reply('sabar woi')
-	kntl = `${q}`
-	mmk = await TiktokDownloader(kntl)
-	link_bkp = mmk.result.watermark
-	sendFileFromUrl(from,link_bkp,'Done',m)
-	break
-	case 'ttmp3':
-		   m.reply(mess.wait)
-		   audio = await fetchJson(`http://hadi-api.herokuapp.com/api/tiktok?url=${q}`)
-		   audio = audio.result.audio_only.original
-		   cafnay.sendMessage(m.chat, {document: {url: audio}, mimetype: 'audio/mpeg', fileName: `audio_tiktok.mp3`}, {quoted:m})
-		   break
-	   
 	   case 'mediafire':{
 		   if (!q) return m.reply('masukan link mediafire!')
 			   if (!isUrl) return
-		   dl = await fetchJson(`https://x-restapi.herokuapp.com/api/mediafire-dl?url=${q}&apikey=BETA`)
-		   url = dl.urlDown
-		   sendFileFromUrl(m.chat, url, m)
+		   dl = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/mediafire?url=${q}&apikey=sQMpXbHimbTkxGC`)
+		   ep = `Tunggu sebentar...\n\nFile Name : ${dl.result.nama}\nJenis file : .${dl.result.mime}\nSize : ${dl.result.size}`
+		   cafnay.sendMessage(m.chat, {text: ep}, {quoted: m})
+		   sendFileFromUrl(m.chat, dl.result.link, m)
 		   break
 	   }
-	  
-	  case 'nomerhoki': case 'nomorhoki': {
-                if (!Number(text)) throw `Example : ${prefix + command} 6288292024190`
-                let anu = await primbon.nomer_hoki(Number(text))
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nomor HP :* ${anu.message.nomer_hp}\n⭔ *Angka Shuzi :* ${anu.message.angka_shuzi}\n⭔ *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n⭔ *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`)
-            }
-            break
-            case 'artimimpi': case 'tafsirmimpi': {
-                if (!text) throw `Example : ${prefix + command} belanja`
-                let anu = await primbon.tafsir_mimpi(text)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Mimpi :* ${anu.message.mimpi}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Solusi :* ${anu.message.solusi}`)
-            }
-            break
-            case 'ramalanjodoh': case 'ramaljodoh': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
-                let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
-                let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, thn2)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'ramalanjodohbali': case 'ramaljodohbali': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
-                let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
-                let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, thn2)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'suamiistri': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
-                let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
-                let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, thn2)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama Suami :* ${anu.message.suami.nama}\n⭔ *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n⭔ *Nama Istri :* ${anu.message.istri.nama}\n⭔ *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'ramalancinta': case 'ramalcinta': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005, Novia, 16, 11, 2004`
-                let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
-                let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, thn2)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama Anda :* ${anu.message.nama_anda.nama}\n⭔ *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n⭔ *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'artinama': {
-                if (!text) throw `Example : ${prefix + command} Dika Ardianta`
-                let anu = await primbon.arti_nama(text)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'kecocokannama': case 'cocoknama': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
-                let [nama, tgl, bln, thn] = text.split`,`
-                let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Life Path :* ${anu.message.life_path}\n⭔ *Destiny :* ${anu.message.destiny}\n⭔ *Destiny Desire :* ${anu.message.destiny_desire}\n⭔ *Personality :* ${anu.message.personality}\n⭔ *Persentase :* ${anu.message.persentase_kecocokan}`)
-            }
-            break
-            case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
-                if (!text) throw `Example : ${prefix + command} Dika|Novia`
-                let [nama1, nama2] = text.split`|`
-                let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
-                if (anu.status == false) return m.reply(anu.message)
-                //hisoka.sendImage( anu.message.gambar, `⭔ *Nama Anda :* ${anu.message.nama_anda}\n⭔ *Nama Pasangan :* ${anu.message.nama_pasangan}\n⭔ *Sisi Positif :* ${anu.message.sisi_positif}\n⭔ *Sisi Negatif :* ${anu.message.sisi_negatif}`)
-            }
-            break
-            case 'jadianpernikahan': case 'jadiannikah': {
-                if (!text) throw `Example : ${prefix + command} 6, 12, 2020`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Tanggal Pernikahan :* ${anu.message.tanggal}\n⭔ *karakteristik :* ${anu.message.karakteristik}`)
-            }
-            break
-            case 'sifatusaha': {
-                if (!ext)throw `Example : ${prefix+ command} 28, 12, 2021`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Usaha :* ${anu.message.usaha}`)
-            }
-            break
-            case 'rejeki': case 'rezeki': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Rezeki :* ${anu.message.rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'pekerjaan': case 'kerja': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Lahir :* ${anu.message.hari_lahir}\n⭔ *Pekerjaan :* ${anu.message.pekerjaan}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'ramalannasib': case 'ramalnasib': case 'nasib': {
-                if (!text) throw `Example : 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.ramalan_nasib(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Angka Akar :* ${anu.message.angka_akar}\n⭔ *Sifat :* ${anu.message.sifat}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`)
-            }
-            break
-            case 'potensipenyakit': case 'penyakit': {
-                if (!texthispk) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Analisa :* ${anu.message.analisa}\n⭔ *Sektor :* ${anu.message.sektor}\n⭔ *Elemen :* ${anu.message.elemen}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'artitarot': case 'tarot': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                //hisoka.sendImage(anu.message.image, `⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Simbol Tarot :* ${anu.message.simbol_tarot}\n⭔ *Arti :* ${anu.message.arti}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'fengshui': {
-                if (!text) throw `Example : ${prefix + command} Dika, 1, 2005\n\nNote : ${prefix + command} Nama, gender, tahun lahir\nGender : 1 untuk laki-laki & 2 untuk perempuan`
-                let [nama, gender, tahun] = text.split`,`
-                let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tahun_lahir}\n⭔ *Gender :* ${anu.message.jenis_kelamin}\n⭔ *Angka Kua :* ${anu.message.angka_kua}\n⭔ *Kelompok :* ${anu.message.kelompok}\n⭔ *Karakter :* ${anu.message.karakter}\n⭔ *Sektor Baik :* ${anu.message.sektor_baik}\n⭔ *Sektor Buruk :* ${anu.message.sektor_buruk}`)
-            }
-            break
-            case 'haribaik': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.petung_hari_baik(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Kala Tinantang :* ${anu.message.kala_tinantang}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'harisangar': case 'taliwangke': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Info :* ${anu.message.info}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'harinaas': case 'harisial': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hari Naas :* ${anu.message.hari_naas}\n⭔ *Info :* ${anu.message.catatan}\n⭔ *Catatan :* ${anu.message.info}`)
-            }
-            break
-            case 'nagahari': case 'harinaga': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *Tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'arahrejeki': case 'arahrezeki': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Hari Lahir :* ${anu.message.hari_lahir}\n⭔ *tanggal Lahir :* ${anu.message.tgl_lahir}\n⭔ *Arah Rezeki :* ${anu.message.arah_rejeki}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'peruntungan': {
-                if (!text) throw `Example : ${prefix + command} DIka, 7, 7, 2005, 2022\n\nNote : ${prefix + command} Nama, tanggal lahir, bulan lahir, tahun lahir, untuk tahun`
-                let [nama, tgl, bln, thn, untuk] = text.split`,`
-                let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'weton': case 'wetonjawa': {
-                if (!text) throw `Example : ${prefix + command} 7, 7, 2005`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.weton_jawa(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Tanggal :* ${anu.message.tanggal}\n⭔ *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n⭔ *Watak Hari :* ${anu.message.watak_hari}\n⭔ *Naga Hari :* ${anu.message.naga_hari}\n⭔ *Jam Baik :* ${anu.message.jam_baik}\n⭔ *Watak Kelahiran :* ${anu.message.watak_kelahiran}`)
-            }
-            break
-            case 'sifat': case 'karakter': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
-                let [nama, tgl, bln, thn] = text.split`,`
-                let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Garis Hidup :* ${anu.message.garis_hidup}`)
-            }
-            break
-            case 'keberuntungan': {
-                if (!text) throw `Example : ${prefix + command} Dika, 7, 7, 2005`
-                let [nama, tgl, bln, thn] = text.split`,`
-                let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Nama :* ${anu.message.nama}\n⭔ *Lahir :* ${anu.message.tgl_lahir}\n⭔ *Hasil :* ${anu.message.result}`)
-            }
-            break
-            case 'memancing': {
-                if (!text) throw `Example : ${prefix + command} 12, 1, 2022`
-                let [tgl, bln, thn] = text.split`,`
-                let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Tanggal :* ${anu.message.tgl_memancing}\n⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'masasubur': {
-                if (!text) throw `Example : ${prefix + command} 12, 1, 2022, 28\n\nNote : ${prefix + command} hari pertama menstruasi, siklus`
-                let [tgl, bln, thn, siklus] = text.split`,`
-                let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Hasil :* ${anu.message.result}\n⭔ *Catatan :* ${anu.message.catatan}`)
-            }
-            break
-            case 'shio': {
-                if (!text) throw `Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`
-                let anu = await primbon.shio(text)
-                if (anu.status == false) return m.reply(anu.message)
-                m.reply(`⭔ *Hasil :* ${anu.message}`)
-            }
-            break
 	  
 	  case 'kbbi':
 	  if (!q) return m.reply(`Masukan query! Contoh : ${prefix + command} pohon`)
@@ -991,20 +465,6 @@ Bot Admin : ${isBotAdmins}
 	  cafnay.sendMessage(m.chat, {text: biba}, {quoted: m})
 	  break
 	
-	case 'join': {
-                if (!isCreator) throw mess.owner
-                if (!text) throw 'Masukkan Link Group!'
-                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link Invalid!'
-                m.reply(mess.wait)
-                let result = args[0].split('https://chat.whatsapp.com/')[1]
-                await cafnay.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-            }
-            break
-            case 'leave':
-				if (!isGroup) return m.reply(mess.only.group)
-				if (!isCreator && !mek.key.fromMe) return m.reply(mess.only.owner)				
-				cafnay.groupLeave(from)
-						break
 	  
 case 'hidetag':
                 if (!isGroup) return m.reply(mess.group)
@@ -1016,50 +476,6 @@ case 'ohidetag':
                 if (!isGroup) return m.reply(mess.group)
                 cafnay.sendMessage(from, { text : q ? q : '' , mentions: groupMembers.map(a => a.id)})
             break
-            
-            case 'tagall': case 'infoall':
-                if (!isGroup) return m.reply(mess.groupOnly)               
-                let teks = `══✪〘 *👥 Mention All* 〙✪══\n\n➲ *Message : ${q ? q : 'Nothing'}*\n\n`
-		      	for (let mem of groupMembers) {
-		            teks += `࿃➡️ @${mem.id.split('@')[0]}\n`
-				}
-                teks += `\n⋙ *${botname}* ⋘`
-                cafnay.sendMessage(from, { text: teks, mentions: groupMembers.map(a => a.id) }, { quoted: m })
-            break
-            
-             case 'setpp': 
-                  if (!isCreator) throw mess.owner                  
-                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                  await cafnay.updateProfilePicture(kuntul, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
-                  break
-                  
-                  case 'setgp':
-                  if (isGroup) {
-                  let media = await cafnay.downloadAndSaveMediaMessage(quoted)
-                  await cafnay.updateProfilePicture(ngen_uh, { url: media }).catch((err) => m.reply('Gagal Mengganti Foto Profil'))
-                  }
-                  break
-              
-                case 'emojimix': {
-	        if (!quoted) throw `Example : ${prefix + command} 😅+🤔`
-		let [emoji1, emoji2] = text.split`+`
-		let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
-		for (let res of anu.results) {
-		    let encmedia = await cafnay.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
-		    await fs.unlinkSync(encmedia)
-		}
-	    }
-	    break   
-	    
-	    case 'telesticker': {
-		       if (!quoted) throw `Example : ${prefix + command} https://t.me/addstickers/c1129234339_by_HarukaAyaBot`
-		       let anu = await xfarr.telesticker(isUrl(text)[0])
-               for (let i = 0; i < (anu.length < 10 ? anu.length : 10); i++) {
-               let encmedia = await cafnay.sendMediaAsSticker(m.chat, anu[i].url, m, { packname: packname, author: author })
-               await fs.unlinkSync(encmedia)
-                }
-	    }
-	    break
                         	   
 ///////////PLAY FROM YOUTUBE
 case 'play':{
@@ -1080,8 +496,8 @@ tes = `https://youtu.be/3N9R_LcbjN0`
 console.log(url)
 var tbuff = await getBuffer(aramat[0].image)
 let button1 = [
-                    {buttonId: `${prefix}ytmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
-                    {buttonId: `${prefix}ytmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
+                    {buttonId: `${prefix}cafmp3 ${url}`, buttonText: {displayText: '☰ AUDIO'}, type: 1},
+                    {buttonId: `${prefix}cafmp4 ${url}`, buttonText: {displayText: '☰ VIDEO'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: tbuff,
@@ -1093,14 +509,14 @@ let button1 = [
                 cafnay.sendMessage(from, buttonMessage, { quoted: m })
             }
 break
-	   case 'gusmp3':{
+	   case 'cafmp3':{
 		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp3?url=${q}&apikey=HHIy0nIGja`)
 		  audio = yt.result.url
 		  console.log(yt.result.url)
 		  sendFileFromUrl(from,audio,`Done`,m)
 		  break
 	   }
-	   case 'gusmp4':{
+	   case 'cafmp4':{
 		  yt = await fetchJson(`https://api.dapuhy.ga/api/socialmedia/ytmp4?url=${q}&apikey=HHIy0nIGja`)
 		  video = yt.result.url
 		  console.log(yt.result.url)
@@ -1133,7 +549,7 @@ break
                     case 'faq':
               const buttons = [
   {buttonId: `${prefix}menu`, buttonText: {displayText: 'BACK TO MENU'}, type: 1},
-  {buttonId: '${prefix}faq22', buttonText: {displayText: 'Apa itu gus?'}, type: 1},
+  {buttonId: '${prefix}faq22', buttonText: {displayText: 'Apa itu CAF?'}, type: 1},
   {buttonId: '${prefix}faq33', buttonText: {displayText: 'Terinspirasi dsri mana?'}, type: 1}
 ]
 
@@ -1144,26 +560,30 @@ const buttonMessage = {
     headerType: 1
 }
 cafnay.sendMessage(from, buttonMessage)
-               break			   			   			   
-			       
+               break
+
+			   
+			   
+			   
+			   
+    
                case 'sticker': case 's': case 'stickergif': case 'sgif': {
-            if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
-            m.reply(mess.wait)
-                    if (/image/.test(mime)) {
-                let media = await quoted.download()
-                let encmedia = await cafnay.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-                await fs.unlinkSync(encmedia)
-            } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
-                let media = await quoted.download()
-                let encmedia = await cafnay.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-                await fs.unlinkSync(encmedia)
-            } else {
-                        throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
-                }
-            }
-            break
-                        
+		if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
+		
+                if (/image/.test(mime)) {
+		    let media = await quoted.download()
+		    let encmedia = await cafnay.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+		    await fs.unlinkSync(encmedia)
+		} else if (/video/.test(mime)) {
+		    if ((quoted.msg || quoted).seconds > 31) return m.reply('Maksimal 30 detik!')
+		    let media = await quoted.download()
+		    let encmedia = await cafnay.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+		    await fs.unlinkSync(encmedia)
+		} else {
+              throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
+        	}
+	    }
+	    break
 	    case 'tomp4': case 'tovideo': {
                 if (!quoted) throw 'Reply Image'
                 if (!/webp/.test(mime)) throw `balas stiker dengan caption *${prefix + command}*`
@@ -1311,7 +731,7 @@ var templatetun = proto.Message.fromObject({
                                     hydratedButtons: [{
                                         urlButton: {
                                             displayText: 'Github Owner',
-                                            url: 'https://github.com/gus-ID'
+                                            url: 'https://github.com/CAF-ID'
                                         }
                                     }, {
                                         callButton: {
@@ -1414,12 +834,12 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'owner': case 'creator': {
                 let vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                     + 'VERSION:3.0\n' 
-                    + 'N:;AS;;;'
-                    + 'FN:AS•STYLE\n' // full name
-                    + 'ORG:Owner - STYLE;\n' // the organization of the contact
-                    + 'TEL;type=CELL;type=VOICE;waid=6282268562601:+62 857-6217-9624\n' // WhatsApp ID + phone number
+                    + 'N:;CAF;;;'
+                    + 'FN:CAF•NAY\n' // full name
+                    + 'ORG:Owner - CAF;\n' // the organization of the contact
+                    + 'TEL;type=CELL;type=VOICE;waid=6283167714830:+62 857-6217-9624\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
-                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - STYLE', contacts: [{ vcard }] } }, { quoted: troli })
+                cafnay.sendMessage(m.chat, { contacts: { displayName: 'Owner - CAF', contacts: [{ vcard }] } }, { quoted: troli })
             }
             break
 			case 'kick': {
@@ -1522,8 +942,8 @@ if (args.length == 0) return m.reply(`Usage: ${prefix + command} USER|REPO`)
 get_args = args.join(" ").split("|")
 user = get_args[0]
 repo = get_args[1]
-gus = (`https://github.com/${user}/${repo}/archive/refs/heads/master.zip`)
-sendFileFromUrl(from,gus,`Done`,m)
+caf = (`https://github.com/${user}/${repo}/archive/refs/heads/master.zip`)
+sendFileFromUrl(from,caf,`Done`,m)
 break
 ///////////////////BATAS SUCI///////////////////////
 case 'get':
@@ -1604,9 +1024,9 @@ case 'get':
                     ktp = `https://fdz-app.herokuapp.com/api/maker/ktp?nik=${nik}&nama=${name}&ttl=${ttl}&jk=${jk}&gdarah=${gdarah}&almt=${jl}&rt-rw=${rtrw}&kel=${lurah}&kcmtn=${camat}&agma=${agama}&status=${nikah}&kerja=${kerja}&negara=${warga}&berlaku=${berlaku}&prov=${prov}&kab=${kabu}&picurl=${anu1}`
                     console.log(ktp)
                     console.log(anu1)
-                    gus = `Nihh KTP Lu Bang :v \n\n`
-                    gus += `❖ Url : ${ktp}`
-                    cafnay.sendMessage(m.chat, {image: ktpnya, caption: gus}, {quoted:m})
+                    caf = `Nihh KTP Lu Bang :v \n\n`
+                    caf += `❖ Url : ${ktp}`
+                    cafnay.sendMessage(m.chat, {image: ktpnya, caption: caf}, {quoted:m})
                 } else if (!/image/.test(mime)) {
                     let anu = await UploadFileUgu(media)
                     m.reply(util.format(anu))
@@ -1614,49 +1034,13 @@ case 'get':
                 await fs.unlinkSync(media)
             }
             break
-            
-///////////////////////TEXT PRO 2///////////////////
-
-case '3d-summer': case 'wooden-boards': case 'flower-heart': case 'wood-heart': case 'coffe-cup': case 'undergrass': case 'naruto-banner':
- case 'burn-paper': case 'romantic': case 'shadow': case 'cup': case 'smoke': case 'funny-cup': case 'love-text': case 'double-romantic':
- case 'lol-rankboder': case 'lol-pentakill': case 'party': case 'silk': case 'smoke': case 'cemetery': case 'coffe-cup-2': case 'harrypotter':
- case 'butterfly': case 'glow-metallic': case 'crisp-chrome': case 'fur': case 'glow-rainbow': case 'graffiti-cover': case 'glowing-neon': case 'underwater':
- case '3d-nature': case 'golden-roses': case 'rainbow-shine': case 'rainbow-shine': case 'gradient': case 'night-sky': case 'flaming': case 'write-birthday':
- case 'waterlemon': case '3d-wooden': case 'neon-light': case 'luxury': case 'woodblock': case 'sweetcandy': case 'between': case 'dark-metal':
- case 'lol-coverglowing':
-if (!q) return m.reply(`Masukan query!`)
-command_r = command.replace("-", "_")
-try {
-tekpro = `https://kuontol-api.herokuapp.com/api/photooxy/${command_r}?text=${q}&apikey=kuontol`
-console.log(photoxy)
-potoxy = await getBuffer(photoxy)
-cafnay.sendMessage(m.chat, { image: potoxy , caption: `Ni ${pushname} *${command}* nya` }, {quoted: m})
-} catch (e) {
-m.reply(`Apikey *${command}* Undefined`)
-}
-break
-          
 ///////////////////////BATAS SUCI///////////////////
-case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'puisi': {
-                let anu = await fetchJson(`https://zenzapi.xyz/api/${command}?apikey=${apikey}`)
-                let buttons = [
-                    { buttonId: prefix + command, buttonText: {displayText: 'Next'}, type: 1 }
-                ]
-                let buttonMessage = {
-                    text: anu.result.message,
-                    footer: 'Random ' + command,
-                    buttons: buttons,
-                    headerType: 2
-                }
-                cafnay.sendMessage(from, buttonMessage, { quoted: mek })
-            }
-            break
-
-            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin':
-                buffer = await getBuffer(`https://zenzapi.xyz/api/random/${command}?apikey=${apikey}`) 
-                cafnay.sendMessage(from, { image: buffer, caption: 'Generate Random ' + command }, { quoted: mek })
-            break
-/////////////////////////BATASNYA ASU///////////////////            
+case 'tes':
+if (!q) return m.reply('Masukan Link Yt')
+let gambar = fs.readFileSync('./media/caf.webp')
+teks = `Hanya Test Doank`
+await sendButtonImg(from, teks, fake, await cafnay.createMessage(from, {image: {url: "./media/caf.webp", caption: teks}}))
+break
                             
                   
             /*case 'tes': case 'menu': case 'help': case '?': {
@@ -1774,7 +1158,7 @@ case 'motivasi': case 'dilanquote': case 'bucinquote': case 'katasenja': case 'p
                     })
                 }
         }
-      if (budy.includes('STYLE')) {  
+      if (budy.includes('CAF')) {  
 cafnay.sendMessage(m.chat, {text: 'Hmmm....'}, {quoted: peksaya})
 	  }	  
 
